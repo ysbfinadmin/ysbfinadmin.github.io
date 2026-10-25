@@ -680,7 +680,7 @@ window.setSiteLang = function (lang) {
     const rawHref = link.getAttribute("href") || "";
     const baseHref = rawHref.split("#")[0];
     if (baseHref.includes("faculty/")) {
-      link.textContent = isEn ? "Faculty" : "교수진 (Faculty)";
+      link.textContent = isEn ? "Faculty" : "교수진";
       link.setAttribute("href", isEn ? `${baseHref}#en` : baseHref);
     } else if (baseHref.includes("ms-finance/")) {
       link.textContent = isEn ? "M.S. & Ph.D." : "석/박사과정 (MS/Ph.D.)";
