@@ -913,21 +913,145 @@ ul, ol {
 }
 
 /* --------------------------------------------------------------------------
-   10. Academic Tables & Regulations (MS/Ph.D. & FMBA)
+   10. Emeritus & Retired Faculty (Compact Editorial Cards)
    -------------------------------------------------------------------------- */
-#emeritus-grid-en {
+.emeritus-section-head {
+  margin-top: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.emeritus-section-intro {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-top: 0.45rem;
+  margin-bottom: 0;
+}
+
+.emeritus-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 1.25rem;
+  margin-bottom: 4rem;
+  align-items: stretch;
 }
 
-#emeritus-grid-en .academic-table {
-  font-size: 0.84rem;
+.emeritus-card {
+  background: var(--bg-card, #ffffff);
+  border: 1px solid var(--rule-light);
+  border-top: 3px solid var(--yonsei-navy);
+  padding: 1.15rem 1.15rem 0.95rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+  height: 100%;
+  box-sizing: border-box;
 }
 
-#emeritus-grid-en .academic-table thead th,
-#emeritus-grid-en .academic-table tbody td {
-  padding: 0.65rem 0.5rem;
+.emeritus-card:hover {
+  border-color: var(--yonsei-blue);
+  box-shadow: 0 4px 14px rgba(0, 40, 85, 0.08);
 }
 
+.emeritus-card-name-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+  min-height: 1.6rem;
+  margin-bottom: 0.45rem;
+}
+
+.emeritus-card-name {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--yonsei-navy);
+  text-decoration: none;
+  line-height: 1.3;
+}
+
+.emeritus-card-name:hover {
+  color: var(--yonsei-blue);
+  text-decoration: underline;
+}
+
+.emeritus-card-name-en {
+  font-family: var(--font-en-serif);
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.emeritus-card-body {
+  font-size: 0.83rem;
+  color: var(--text-muted);
+  margin-top: 0.2rem;
+  margin-bottom: 0.85rem;
+  line-height: 1.5;
+  height: 2.65rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+
+.emeritus-card-body span {
+  display: block;
+}
+
+.emeritus-affil {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.emeritus-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.65rem;
+  border-top: 1px solid var(--rule-light);
+  font-size: 0.8rem;
+  height: 2.1rem;
+  box-sizing: border-box;
+  gap: 0.45rem;
+}
+
+.emeritus-card-footer > div:first-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+  flex: 1;
+}
+
+.emeritus-card-footer a.eml-protect {
+  font-size: 0.78rem;
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.emeritus-honor-tag {
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--yonsei-navy);
+  background: rgba(0, 40, 85, 0.06);
+  border: 1px solid rgba(0, 40, 85, 0.15);
+  padding: 0.1rem 0.4rem;
+  border-radius: 2px;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* --------------------------------------------------------------------------
+   11. Academic Tables & Regulations (MS/Ph.D. & FMBA)
+   -------------------------------------------------------------------------- */
 .emeritus-grid-wrap {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1279,6 +1403,10 @@ ul, ol {
     grid-template-columns: 1fr;
     gap: 1.25rem;
   }
+  .emeritus-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
   .grad-split,
   .pillars-matrix,
   .faculty-roster,
@@ -1309,6 +1437,9 @@ ul, ol {
 }
 
 @media (max-width: 600px) {
+  .emeritus-cards-grid {
+    grid-template-columns: 1fr;
+  }
   .hero-ledger {
     grid-template-columns: 1fr;
   }

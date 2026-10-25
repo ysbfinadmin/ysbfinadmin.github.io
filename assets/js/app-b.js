@@ -352,44 +352,76 @@ function renderFacultyB(data) {
   drawFacultyEn();
 
   // Emeritus / Retired Faculty (KOR)
-  const emeritusLeft = document.getElementById("emeritus-tbody-left");
-  const emeritusRight = document.getElementById("emeritus-tbody-right");
-  const renderEmeritusRowKo = (em) => `
-      <tr>
-        <td style="font-weight:700; color:var(--yonsei-navy); white-space:nowrap;">
-          <a href="${em.ysbLink}" target="_blank" rel="noopener" style="border-bottom:1px solid var(--rule-medium);">${em.name}</a>
-        </td>
-        <td style="white-space:nowrap;">${em.office}</td>
-        <td style="white-space:nowrap;">${em.phone}</td>
-        <td style="white-space:nowrap;">${getProtectedEmailHtml(em.email, "color:var(--yonsei-blue);")}</td>
-      </tr>
-    `;
+  const emeritusGrid = document.getElementById("emeritus-grid");
+  const renderEmeritusCardKo = (em) => {
+    const isEmeritus = em.title === "명예교수";
+    const officeHtml = em.office && em.office !== "-" ? `<span>연구실: 경영관 ${em.office}</span>` : "";
+    const phoneHtml = em.phone && em.phone !== "-" ? `<span>Tel. ${em.phone}</span>` : "";
+    const affilHtml = !officeHtml && !phoneHtml ? `<span class="emeritus-affil">연세대학교 경영대학</span>` : "";
+    const emailHtml = em.email && em.email !== "-" 
+      ? getProtectedEmailHtml(em.email, "color:var(--yonsei-blue);") 
+      : "";
+    const honorHtml = isEmeritus ? `<span class="emeritus-honor-tag">명예교수</span>` : `<div></div>`;
 
-  const half = Math.ceil(data.emeritusFaculty.length / 2);
-  if (emeritusLeft && emeritusRight) {
-    emeritusLeft.innerHTML = data.emeritusFaculty.slice(0, half).map(renderEmeritusRowKo).join("");
-    emeritusRight.innerHTML = data.emeritusFaculty.slice(half).map(renderEmeritusRowKo).join("");
-  } else if (emeritusBody) {
-    emeritusBody.innerHTML = data.emeritusFaculty.map(renderEmeritusRowKo).join("");
+    return `
+      <article class="emeritus-card">
+        <div>
+          <div class="emeritus-card-name-row">
+            <a href="${em.ysbLink}" target="_blank" rel="noopener" class="emeritus-card-name">${em.name}</a>
+            <span class="emeritus-card-name-en">${em.nameEn || ""}</span>
+          </div>
+          <div class="emeritus-card-body">
+            ${officeHtml}
+            ${phoneHtml}
+            ${affilHtml}
+          </div>
+        </div>
+        <div class="emeritus-card-footer">
+          <div>${emailHtml}</div>
+          ${honorHtml}
+        </div>
+      </article>
+    `;
+  };
+
+  if (emeritusGrid) {
+    emeritusGrid.innerHTML = data.emeritusFaculty.map(renderEmeritusCardKo).join("");
   }
 
   // Emeritus / Retired Faculty (ENG)
-  const emeritusLeftEn = document.getElementById("emeritus-tbody-left-en");
-  const emeritusRightEn = document.getElementById("emeritus-tbody-right-en");
-  const renderEmeritusRowEn = (em) => `
-      <tr>
-        <td style="font-weight:700; color:var(--yonsei-navy); white-space:nowrap;">
-          <a href="${em.ysbLink}" target="_blank" rel="noopener" style="border-bottom:1px solid var(--rule-medium);">${em.nameEn || em.name}</a>
-        </td>
-        <td style="white-space:nowrap;">${em.officeEn || em.office}</td>
-        <td style="white-space:nowrap;">${em.phone}</td>
-        <td style="white-space:nowrap;">${getProtectedEmailHtml(em.email, "color:var(--yonsei-blue);")}</td>
-      </tr>
-    `;
+  const emeritusGridEn = document.getElementById("emeritus-grid-en");
+  const renderEmeritusCardEn = (em) => {
+    const isEmeritus = em.title === "명예교수";
+    const officeHtml = em.office && em.office !== "-" ? `<span>Office: ${em.officeEn || "BIZ #" + em.office}</span>` : "";
+    const phoneHtml = em.phone && em.phone !== "-" ? `<span>Tel. ${em.phone}</span>` : "";
+    const affilHtml = !officeHtml && !phoneHtml ? `<span class="emeritus-affil">Yonsei School of Business</span>` : "";
+    const emailHtml = em.email && em.email !== "-" 
+      ? getProtectedEmailHtml(em.email, "color:var(--yonsei-blue);") 
+      : "";
+    const honorHtml = isEmeritus ? `<span class="emeritus-honor-tag">Emeritus</span>` : `<div></div>`;
 
-  if (emeritusLeftEn && emeritusRightEn) {
-    emeritusLeftEn.innerHTML = data.emeritusFaculty.slice(0, half).map(renderEmeritusRowEn).join("");
-    emeritusRightEn.innerHTML = data.emeritusFaculty.slice(half).map(renderEmeritusRowEn).join("");
+    return `
+      <article class="emeritus-card">
+        <div>
+          <div class="emeritus-card-name-row">
+            <a href="${em.ysbLink}" target="_blank" rel="noopener" class="emeritus-card-name">${em.nameEn || em.name}</a>
+          </div>
+          <div class="emeritus-card-body">
+            ${officeHtml}
+            ${phoneHtml}
+            ${affilHtml}
+          </div>
+        </div>
+        <div class="emeritus-card-footer">
+          <div>${emailHtml}</div>
+          ${honorHtml}
+        </div>
+      </article>
+    `;
+  };
+
+  if (emeritusGridEn) {
+    emeritusGridEn.innerHTML = data.emeritusFaculty.map(renderEmeritusCardEn).join("");
   }
 }
 
