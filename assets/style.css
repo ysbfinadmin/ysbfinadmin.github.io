@@ -1,0 +1,1710 @@
+/* ==========================================================================
+   연세대학교 경영대학 재무분야 (Yonsei School of Business - Finance Division)
+   Authentic Academic & Editorial Design System
+   ========================================================================== */
+
+:root {
+  --yonsei-navy: #002046;
+  --yonsei-blue: #003876;
+  --yonsei-blue-muted: #1d4f82;
+  --yonsei-gold: #8c6d32;
+  --yonsei-gold-border: #c5b38a;
+  --yonsei-gold-bg: #f9f7f2;
+
+  --bg-paper: #f8fafc;
+  --bg-warm: #f6f6f3;
+  --bg-tint: #f1f4f8;
+
+  --text-ink: #111827;
+  --text-body: #2d3748;
+  --text-muted: #5f6b7a;
+  --text-light: #7b8794;
+
+  --rule-heavy: #002046;
+  --rule-medium: #9aa5b1;
+  --rule-light: #e2e6ea;
+
+  --font-sans: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Malgun Gothic", sans-serif;
+  --font-serif: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Malgun Gothic", sans-serif;
+  --font-en-serif: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Malgun Gothic", sans-serif;
+  --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+
+  --max-width: 1180px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 17px;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--text-ink);
+  background-color: var(--bg-paper);
+  line-height: 1.72;
+  -webkit-font-smoothing: antialiased;
+  word-break: keep-all;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* --------------------------------------------------------------------------
+   Version Switcher Banner (비교 확인용 상단 안내 바)
+   -------------------------------------------------------------------------- */
+.design-preview-bar {
+  background: #1a1f2c;
+  color: #e2e8f0;
+  font-size: 0.78rem;
+  padding: 0.4rem 1.5rem;
+  border-bottom: 1px solid #2d3748;
+}
+
+.design-preview-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  white-space: nowrap;
+}
+
+.design-switch-links {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.design-switch-links a {
+  color: #cbd5e1;
+  padding: 0.15rem 0.55rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 0.75rem;
+}
+
+.design-switch-links a.active {
+  background: #ffffff;
+  color: #111827;
+  font-weight: 700;
+  border-color: #ffffff;
+}
+
+/* --------------------------------------------------------------------------
+   1. Top Institutional Utility Bar
+   -------------------------------------------------------------------------- */
+.utility-bar {
+  background-color: var(--yonsei-navy);
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.84rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.utility-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0.48rem 1.5rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  white-space: nowrap;
+}
+
+.utility-links {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  margin-left: auto;
+}
+
+.utility-links a {
+  color: rgba(255, 255, 255, 0.95);
+  transition: color 0.15s ease;
+  font-weight: 500;
+}
+
+.utility-links a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+/* --------------------------------------------------------------------------
+   2. Main Header & Navigation (Aligned with Option A)
+   -------------------------------------------------------------------------- */
+.site-header {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-color, #e2e8f0);
+  box-shadow: 0 2px 12px rgba(0, 34, 75, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0.875rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  flex-shrink: 0;
+}
+
+.brand-logo {
+  height: 52px;
+  width: auto;
+  object-fit: contain;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.08rem;
+}
+
+.brand-school {
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--yonsei-blue);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.brand-dept {
+  font-family: inherit;
+  font-size: 1.25rem;
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--yonsei-navy);
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.nav-link {
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-secondary, #64748b);
+  padding: 0.55rem 0.85rem;
+  white-space: nowrap;
+  border-radius: 8px;
+  border-bottom: none;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.nav-link:hover {
+  color: var(--yonsei-blue);
+  background: var(--bg-card, #f1f5f9);
+}
+
+.nav-link.active {
+  color: var(--yonsei-blue);
+  background: rgba(0, 56, 118, 0.08);
+  font-weight: 700;
+}
+
+.nav-link.active::after {
+  content: "";
+  position: absolute;
+  bottom: -0.875rem;
+  left: 0.75rem;
+  right: 0.75rem;
+  height: 3px;
+  background: var(--yonsei-blue);
+  border-radius: 3px 3px 0 0;
+}
+
+/* --------------------------------------------------------------------------
+   3. Architectural Hero & Ledger Strip (Main Page)
+   -------------------------------------------------------------------------- */
+.editorial-hero {
+  background: linear-gradient(135deg, var(--yonsei-navy) 0%, var(--yonsei-blue) 60%, #0d4a8f 100%);
+  color: #ffffff;
+  border-bottom: 3px solid var(--yonsei-gold);
+  position: relative;
+  overflow: hidden;
+}
+
+.editorial-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 85% 20%, rgba(180, 151, 90, 0.22), transparent 45%),
+              radial-gradient(circle at 15% 80%, rgba(255, 255, 255, 0.08), transparent 40%);
+  pointer-events: none;
+}
+
+.editorial-hero-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 3.75rem 1.5rem 3rem;
+  position: relative;
+  z-index: 1;
+}
+
+.editorial-hero-grid {
+  display: grid;
+  grid-template-columns: 1.35fr 0.85fr;
+  gap: 3rem;
+  align-items: end;
+  padding-bottom: 2.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.hero-headline {
+  font-family: var(--font-serif);
+  font-size: clamp(1.85rem, 3vw, 2.55rem);
+  font-weight: 700;
+  line-height: 1.34;
+  letter-spacing: -0.025em;
+  color: #ffffff;
+}
+
+.hero-lead {
+  font-size: 0.96rem;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.72;
+  margin-bottom: 1.35rem;
+}
+
+.hero-lead strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.hero-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.hero-link-item {
+  color: #f3e5c8;
+  padding-bottom: 0.2rem;
+  border-bottom: 1px solid rgba(243, 229, 200, 0.45);
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.hero-link-item:hover {
+  color: #ffffff;
+  border-bottom-color: #ffffff;
+}
+
+/* 4-Column Typographic Ledger Strip (Replaces Glassmorphism Boxes) */
+.hero-ledger {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding-top: 2rem;
+}
+
+
+.ledger-item {
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.ledger-item:first-child {
+  padding-left: 0;
+  border-left: none;
+}
+
+.ledger-figure {
+  font-family: var(--font-en-serif);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #e6d2a8;
+  line-height: 1.2;
+  margin-bottom: 0.3rem;
+  letter-spacing: -0.01em;
+}
+
+.ledger-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.2rem;
+}
+
+.ledger-meta {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.68);
+  line-height: 1.45;
+}
+
+/* --------------------------------------------------------------------------
+   4. Main Content Layout & Asymmetric Editorial Sections
+   -------------------------------------------------------------------------- */
+.main-content {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 3.5rem 1.5rem 5rem;
+}
+
+/* Asymmetric 2-Column Editorial Section */
+.editorial-section {
+  border-top: 2px solid var(--yonsei-navy);
+  padding-top: 2.25rem;
+  margin-bottom: 4.25rem;
+  display: grid;
+  grid-template-columns: 270px 1fr;
+  gap: 3rem;
+}
+
+.editorial-section.thin-rule {
+  border-top: 1px solid var(--rule-medium);
+}
+
+.section-sidebar {
+  padding-right: 1rem;
+}
+
+.section-num {
+  font-family: var(--font-en-serif);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--yonsei-gold);
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.section-heading {
+  font-family: var(--font-serif);
+  font-size: 1.42rem;
+  font-weight: 700;
+  color: var(--yonsei-navy);
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
+}
+
+.section-note {
+  font-size: 0.86rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+.section-body {
+  min-width: 0;
+}
+
+/* Page Title Header for Subpages (Faculty, MS/PhD, FMBA) */
+.page-masthead {
+  border-bottom: 2px solid var(--yonsei-navy);
+  padding-bottom: 1.75rem;
+  margin-bottom: 2.75rem;
+}
+
+.page-kicker {
+  font-family: var(--font-en-serif);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--yonsei-gold);
+  margin-bottom: 0.35rem;
+}
+
+.page-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.75rem, 2.5vw, 2.25rem);
+  font-weight: 700;
+  color: var(--yonsei-navy);
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+}
+
+.page-intro {
+  margin-top: 0.85rem;
+  font-size: 0.98rem;
+  color: var(--text-body);
+  max-width: 880px;
+  line-height: 1.72;
+}
+
+/* --------------------------------------------------------------------------
+   5. Undergraduate Curriculum Ledger & Student Societies
+   -------------------------------------------------------------------------- */
+.curriculum-ledger {
+  width: 100%;
+  border-collapse: collapse;
+  border-top: 1px solid var(--yonsei-navy);
+  border-bottom: 1px solid var(--rule-medium);
+  margin-bottom: 1.75rem;
+}
+
+.curriculum-ledger tr {
+  border-bottom: 1px solid var(--rule-light);
+}
+
+.curriculum-ledger tr:last-child {
+  border-bottom: none;
+}
+
+.curriculum-ledger th {
+  width: 155px;
+  text-align: left;
+  padding: 0.9rem 1rem 0.9rem 0;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--yonsei-navy);
+  vertical-align: top;
+}
+
+.curriculum-ledger td {
+  padding: 0.9rem 0;
+  font-size: 0.92rem;
+  color: var(--text-body);
+}
+
+.ug-meta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  background: var(--bg-warm);
+  border-top: 1px solid var(--rule-light);
+  border-bottom: 1px solid var(--rule-light);
+  padding: 1.35rem 1.5rem;
+}
+
+.ug-meta-title {
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: var(--yonsei-navy);
+  margin-bottom: 0.35rem;
+}
+
+.ug-meta-text {
+  font-size: 0.88rem;
+  color: var(--text-body);
+  line-height: 1.62;
+}
+
+/* --------------------------------------------------------------------------
+   6. Graduate Program Split Columns (Main Page)
+   -------------------------------------------------------------------------- */
+.grad-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 1px solid var(--rule-light);
+  border-bottom: 1px solid var(--rule-medium);
+}
+
+.grad-col {
+  padding: 1.75rem 2rem 1.75rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.grad-col + .grad-col {
+  padding-left: 2rem;
+  padding-right: 0;
+  border-left: 1px solid var(--rule-light);
+}
+
+.grad-track-label {
+  font-family: var(--font-en-serif);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--yonsei-gold);
+  margin-bottom: 0.3rem;
+}
+
+.grad-title {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--yonsei-navy);
+  margin-bottom: 0.65rem;
+}
+
+.grad-desc {
+  font-size: 0.92rem;
+  color: var(--text-body);
+  line-height: 1.72;
+  margin-bottom: 1.35rem;
+}
+
+/* Editorial Links & Buttons (Sharp Corners, Understated) */
+.editorial-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--yonsei-blue);
+  border-bottom: 1px solid var(--yonsei-blue);
+  padding-bottom: 0.15rem;
+  width: fit-content;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.editorial-link:hover {
+  color: var(--yonsei-navy);
+  border-bottom-color: var(--yonsei-navy);
+}
+
+.btn-editorial {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.55rem 1.05rem;
+  border: 1px solid var(--yonsei-navy);
+  background: var(--yonsei-navy);
+  color: #ffffff;
+  border-radius: 0;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.btn-editorial:hover {
+  background: var(--yonsei-blue);
+  border-color: var(--yonsei-blue);
+}
+
+.btn-editorial-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.84rem;
+  font-weight: 600;
+  padding: 0.5rem 0.95rem;
+  border: 1px solid var(--rule-medium);
+  background: transparent;
+  color: var(--text-ink);
+  border-radius: 0;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.btn-editorial-outline:hover {
+  border-color: var(--yonsei-navy);
+  color: var(--yonsei-navy);
+}
+
+/* --------------------------------------------------------------------------
+   7. 4 Pillars Architectural Grid (2x2 Bordered Matrix)
+   -------------------------------------------------------------------------- */
+.pillars-matrix {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 1px solid var(--yonsei-navy);
+  border-bottom: 1px solid var(--rule-medium);
+}
+
+.pillar-cell {
+  padding: 1.65rem 1.75rem 1.65rem 0;
+  border-bottom: 1px solid var(--rule-light);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.pillar-cell:nth-child(even) {
+  padding-left: 1.75rem;
+  padding-right: 0;
+  border-left: 1px solid var(--rule-light);
+}
+
+.pillar-cell:nth-last-child(-n+2) {
+  border-bottom: none;
+}
+
+.pillar-cell-title {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--yonsei-navy);
+  margin-bottom: 0.15rem;
+}
+
+.pillar-cell-en {
+  font-family: var(--font-en-serif);
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--yonsei-gold);
+  margin-bottom: 0.75rem;
+}
+
+.pillar-cell-desc {
+  font-size: 0.9rem;
+  color: var(--text-body);
+  line-height: 1.65;
+  margin-bottom: 1rem;
+}
+
+.pillar-keywords {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  border-top: 1px dotted var(--rule-light);
+  padding-top: 0.55rem;
+}
+
+.pillar-keywords strong {
+  color: var(--yonsei-navy);
+  font-weight: 600;
+  margin-right: 0.35rem;
+}
+
+/* --------------------------------------------------------------------------
+   8. Division Leadership Roster
+   -------------------------------------------------------------------------- */
+.leadership-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-top: 1px solid var(--yonsei-navy);
+  border-bottom: 1px solid var(--rule-medium);
+}
+
+.leadership-table tr {
+  border-bottom: 1px solid var(--rule-light);
+}
+
+.leadership-table tr:last-child {
+  border-bottom: none;
+}
+
+.leadership-table th {
+  text-align: left;
+  padding: 0.95rem 1rem 0.95rem 0;
+  width: 240px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--yonsei-navy);
+}
+
+.leadership-table th span {
+  display: block;
+  font-family: var(--font-en-serif);
+  font-size: 0.78rem;
+  font-weight: 400;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.leadership-table td {
+  padding: 0.95rem 0.75rem;
+  font-size: 0.9rem;
+  color: var(--text-body);
+}
+
+/* --------------------------------------------------------------------------
+   9. Faculty Directory (Editorial Academic Roster)
+   -------------------------------------------------------------------------- */
+.faculty-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-bottom: 0.85rem;
+  border-bottom: 2px solid var(--yonsei-navy);
+  margin-bottom: 0;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.faculty-section-title {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--yonsei-navy);
+}
+
+.editorial-search {
+  border: 1px solid var(--rule-medium);
+  border-radius: 0;
+  padding: 0.45rem 0.75rem;
+  font-size: 0.86rem;
+  font-family: var(--font-sans);
+  width: 280px;
+  color: var(--text-ink);
+  background: var(--bg-paper);
+}
+
+.editorial-search:focus {
+  outline: none;
+  border-color: var(--yonsei-navy);
+}
+
+.faculty-roster {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-bottom: 1px solid var(--rule-medium);
+  margin-bottom: 4rem;
+}
+
+.faculty-entry {
+  display: grid;
+  grid-template-columns: 108px 1fr;
+  gap: 1.35rem;
+  padding: 1.75rem 1.5rem 1.75rem 0;
+  border-bottom: 1px solid var(--rule-light);
+}
+
+.faculty-entry:nth-child(even) {
+  padding-left: 1.75rem;
+  padding-right: 0;
+  border-left: 1px solid var(--rule-light);
+}
+
+.faculty-portrait-link {
+  display: block;
+  width: 108px;
+  height: 138px;
+  background: var(--bg-warm);
+  border: 1px solid var(--rule-light);
+  overflow: hidden;
+}
+
+.faculty-portrait {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  filter: contrast(1.02);
+}
+
+.faculty-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 0;
+}
+
+.faculty-heading-line {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: 0.2rem;
+}
+
+.faculty-name-ko {
+  font-family: var(--font-serif);
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: var(--yonsei-navy);
+}
+
+.faculty-name-ko:hover {
+  text-decoration: underline;
+}
+
+.faculty-name-en {
+  font-family: var(--font-en-serif);
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+.faculty-rank {
+  font-size: 0.86rem;
+  color: var(--text-muted);
+}
+
+.faculty-duty {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--yonsei-gold);
+  border-left: 1px solid var(--rule-medium);
+  padding-left: 0.45rem;
+}
+
+.faculty-phd {
+  font-size: 0.88rem;
+  color: var(--yonsei-blue-muted);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.faculty-bio {
+  font-size: 0.85rem;
+  color: var(--text-body);
+  line-height: 1.58;
+  margin-bottom: 0.55rem;
+}
+
+.faculty-fields {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  margin-bottom: 0.6rem;
+}
+
+.faculty-fields strong {
+  color: var(--text-ink);
+  font-weight: 600;
+}
+
+.faculty-contact-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  padding-top: 0.5rem;
+  border-top: 1px dotted var(--rule-light);
+  margin-bottom: 0.55rem;
+}
+
+.faculty-contact-row a {
+  color: var(--yonsei-blue);
+}
+
+.faculty-contact-row a:hover {
+  text-decoration: underline;
+}
+
+.faculty-links-row {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+
+.faculty-links-row a {
+  color: var(--yonsei-navy);
+  border-bottom: 1px solid var(--rule-medium);
+  padding-bottom: 0.08rem;
+}
+
+.faculty-links-row a:hover {
+  color: var(--yonsei-blue);
+  border-bottom-color: var(--yonsei-blue);
+}
+
+/* --------------------------------------------------------------------------
+   10. Emeritus & Retired Faculty (Compact Editorial Cards)
+   -------------------------------------------------------------------------- */
+.emeritus-section-head {
+  margin-top: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.emeritus-section-intro {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-top: 0.45rem;
+  margin-bottom: 0;
+}
+
+.emeritus-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 4rem;
+  align-items: stretch;
+}
+
+.emeritus-card {
+  background: var(--bg-card, #ffffff);
+  border: 1px solid var(--rule-light);
+  border-top: 3px solid var(--yonsei-navy);
+  padding: 0.85rem 1rem 0.7rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.emeritus-card:hover {
+  border-color: var(--yonsei-blue);
+  box-shadow: 0 4px 14px rgba(0, 40, 85, 0.08);
+}
+
+.emeritus-card-name-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+  min-height: 1.45rem;
+  margin-bottom: 0.35rem;
+}
+
+.emeritus-card-name {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--yonsei-navy);
+  text-decoration: none;
+  line-height: 1.25;
+}
+
+.emeritus-card-name:hover {
+  color: var(--yonsei-blue);
+  text-decoration: underline;
+}
+
+.emeritus-card-name-en {
+  font-family: var(--font-en-serif);
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.emeritus-card-body {
+  font-size: 0.83rem;
+  color: var(--text-muted);
+  margin-top: 0.15rem;
+  margin-bottom: 0.55rem;
+  line-height: 1.4;
+  height: 2.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+
+.emeritus-card-body span {
+  display: block;
+}
+
+.emeritus-affil {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.emeritus-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--rule-light);
+  font-size: 0.8rem;
+  height: 1.9rem;
+  box-sizing: border-box;
+  gap: 0.45rem;
+}
+
+.emeritus-card-footer > div:first-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+  flex: 1;
+}
+
+.emeritus-card-footer a.eml-protect {
+  font-size: 0.78rem;
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.emeritus-honor-tag {
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--yonsei-navy);
+  background: rgba(0, 40, 85, 0.06);
+  border: 1px solid rgba(0, 40, 85, 0.15);
+  padding: 0.1rem 0.4rem;
+  border-radius: 2px;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* --------------------------------------------------------------------------
+   11. Academic Tables & Regulations (MS/Ph.D. & FMBA)
+   -------------------------------------------------------------------------- */
+.emeritus-grid-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.academic-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.academic-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-top: 2px solid var(--yonsei-navy);
+  border-bottom: 1px solid var(--yonsei-navy);
+  font-size: 0.94rem;
+}
+
+.academic-table thead th {
+  background: var(--bg-warm);
+  color: var(--yonsei-navy);
+  font-weight: 700;
+  text-align: left;
+  padding: 0.75rem 0.9rem;
+  border-bottom: 1px solid var(--rule-medium);
+  white-space: nowrap;
+}
+
+.academic-table tbody td {
+  padding: 0.75rem 0.9rem;
+  border-bottom: 1px solid var(--rule-light);
+  color: var(--text-body);
+  vertical-align: top;
+}
+
+.academic-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.code-cell {
+  font-family: var(--font-mono);
+  font-size: 0.83rem;
+  font-weight: 600;
+  color: var(--yonsei-blue);
+}
+
+/* 3-Column Degree Track Comparison Table/Grid */
+.degree-columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 2px solid var(--yonsei-navy);
+  border-bottom: 1px solid var(--rule-medium);
+}
+
+.degree-col {
+  padding: 1.65rem 1.5rem 1.65rem 0;
+}
+
+.degree-col + .degree-col {
+  padding-left: 1.5rem;
+  border-left: 1px solid var(--rule-light);
+}
+
+.degree-col:last-child {
+  padding-right: 0;
+}
+
+.degree-col-title {
+  font-family: var(--font-serif);
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: var(--yonsei-navy);
+  margin-bottom: 0.9rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--rule-light);
+}
+
+.degree-dl {
+  display: grid;
+  grid-template-columns: 95px 1fr;
+  row-gap: 0.45rem;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.9rem;
+  border-bottom: 1px dotted var(--rule-medium);
+}
+
+.degree-dl dt {
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.degree-dl dd {
+  color: var(--text-ink);
+  font-weight: 500;
+}
+
+/* Classic Square Bullet List */
+.editorial-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.48rem;
+}
+
+.editorial-list li {
+  position: relative;
+  padding-left: 0.95rem;
+  font-size: 0.88rem;
+  color: var(--text-body);
+  line-height: 1.6;
+}
+
+.editorial-list li::before {
+  content: "▪";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--yonsei-navy);
+  font-size: 0.75rem;
+}
+
+/* Editorial Tabs (Regulations & Language Toggle) */
+.editorial-tabs {
+  display: inline-flex;
+  border-bottom: 1px solid var(--rule-medium);
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+}
+
+.editorial-tab-btn {
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 0.55rem 0.15rem;
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  margin-bottom: -1px;
+}
+
+.editorial-tab-btn:hover {
+  color: var(--yonsei-navy);
+}
+
+.editorial-tab-btn.active {
+  color: var(--yonsei-navy);
+  font-weight: 700;
+  border-bottom-color: var(--yonsei-navy);
+}
+
+.lang-switch-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 0.85rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--rule-light);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.lang-toggle-group {
+  display: inline-flex;
+  border: 1px solid var(--rule-medium);
+}
+
+.lang-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  background: var(--bg-paper);
+  border: none;
+  padding: 0.38rem 0.85rem;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.lang-btn + .lang-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border-left: 1px solid var(--rule-medium);
+}
+
+.lang-btn.active {
+  background: var(--yonsei-navy);
+  color: #ffffff;
+}
+
+.view-section {
+  display: none;
+}
+
+.view-section.active {
+  display: block;
+}
+
+.reg-block {
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--rule-light);
+}
+
+.reg-block:first-of-type {
+  padding-top: 0.5rem;
+}
+
+.reg-block:last-of-type {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.reg-block h4 {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--yonsei-navy);
+  margin-bottom: 0.65rem;
+}
+
+/* Institutional Notice Box (Replaces Rounded Navy Callout) */
+.institutional-callout {
+  background: var(--bg-warm);
+  border-top: 2px solid var(--yonsei-navy);
+  border-bottom: 1px solid var(--rule-medium);
+  padding: 1.5rem 1.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+/* FMBA Specific Specs Ledger */
+.specs-ledger {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 2px solid var(--yonsei-navy);
+  border-bottom: 1px solid var(--rule-medium);
+}
+
+.spec-cell {
+  padding: 1.25rem 1.25rem 1.25rem 0;
+  border-bottom: 1px solid var(--rule-light);
+}
+
+.spec-cell:not(:nth-child(3n+1)) {
+  padding-left: 1.25rem;
+  border-left: 1px solid var(--rule-light);
+}
+
+.spec-cell:nth-last-child(-n+3) {
+  border-bottom: none;
+}
+
+.spec-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 0.2rem;
+}
+
+.spec-value {
+  font-family: var(--font-serif);
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: var(--yonsei-navy);
+  margin-bottom: 0.15rem;
+}
+
+.spec-sub {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* Footer */
+.site-footer {
+  background: linear-gradient(135deg, var(--yonsei-navy) 0%, var(--yonsei-blue) 60%, #0d4a8f 100%);
+  color: rgba(255, 255, 255, 0.88);
+  border-top: 3px solid var(--yonsei-gold);
+  font-size: 0.84rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.site-footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 85% 20%, rgba(180, 151, 90, 0.18), transparent 45%),
+              radial-gradient(circle at 15% 80%, rgba(255, 255, 255, 0.06), transparent 40%);
+  pointer-events: none;
+}
+
+.footer-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-links {
+  display: flex;
+  gap: 1.35rem;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.82);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  padding-bottom: 0.1rem;
+}
+
+.footer-links a:hover {
+  color: #ffffff;
+  border-bottom-color: #ffffff;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Breakpoints
+   -------------------------------------------------------------------------- */
+@media (max-width: 960px) {
+  .editorial-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .hero-ledger {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 1.5rem;
+  }
+  .ledger-item:nth-child(3) {
+    padding-left: 0;
+    border-left: none;
+  }
+  .editorial-section {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .emeritus-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  .grad-split,
+  .pillars-matrix,
+  .faculty-roster,
+  .emeritus-grid-wrap,
+  .degree-columns,
+  .specs-ledger,
+  .ug-meta-grid {
+    grid-template-columns: 1fr;
+  }
+  .grad-col + .grad-col,
+  .pillar-cell:nth-child(even),
+  .faculty-entry:nth-child(even),
+  .degree-col + .degree-col,
+  .spec-cell:not(:nth-child(3n+1)) {
+    padding-left: 0;
+    border-left: none;
+  }
+  .grad-col {
+    border-bottom: 1px solid var(--rule-light);
+    padding-right: 0;
+  }
+  .pillar-cell,
+  .degree-col,
+  .spec-cell {
+    border-bottom: 1px solid var(--rule-light) !important;
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .emeritus-cards-grid {
+    grid-template-columns: 1fr;
+  }
+  .hero-ledger {
+    grid-template-columns: 1fr;
+  }
+  .ledger-item {
+    padding-left: 0;
+    border-left: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    padding-bottom: 1rem;
+  }
+  .curriculum-ledger th,
+  .curriculum-ledger td {
+    display: block;
+    width: 100%;
+  }
+  .curriculum-ledger th {
+    padding-bottom: 0.2rem;
+  }
+  .curriculum-ledger td {
+    padding-top: 0;
+  }
+}
+
+
+/* Mobile & Tablet Header Optimization */
+@media (max-width: 960px) {
+  .header-container {
+    padding: 0.75rem 1rem;
+    gap: 0.75rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .brand {
+    gap: 0.65rem;
+  }
+  .brand-logo {
+    height: 42px;
+  }
+  .brand-school {
+    font-size: 0.72rem;
+  }
+  .brand-dept {
+    font-size: 1.08rem;
+  }
+  .main-nav {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+    padding-bottom: 0.35rem;
+    gap: 0.25rem;
+    scrollbar-width: none;
+  }
+  .main-nav::-webkit-scrollbar {
+    display: none;
+  }
+  .nav-link {
+    font-size: 0.88rem;
+    padding: 0.45rem 0.8rem;
+    flex-shrink: 0;
+  }
+  .nav-link.active::after {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-container {
+    padding: 0.6rem 0.85rem;
+  }
+  .brand-logo {
+    height: 36px;
+  }
+  .brand-school {
+    font-size: 0.68rem;
+    letter-spacing: 0.02em;
+  }
+  .brand-dept {
+    font-size: 0.98rem;
+  }
+  .utility-bar {
+    font-size: 0.72rem;
+  }
+  .utility-container {
+    padding: 0.4rem 0.85rem;
+    justify-content: center;
+  }
+  .utility-links {
+    gap: 0.75rem;
+    justify-content: center;
+    margin-left: 0;
+  }
+}
+
+
+/* Header Language Switcher */
+.header-lang-switch {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 0.65rem;
+  padding-left: 0.75rem;
+  border-left: 1px solid var(--rule-light);
+  flex-shrink: 0;
+}
+
+.header-lang-switch .lang-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  padding: 0.32rem 0.68rem;
+  font-size: 0.78rem;
+}
+.academic-table th.nowrap,
+.academic-table td.nowrap {
+  white-space: nowrap;
+}
+
+/* Email Obfuscation / Anti-Scraping Protection */
+.eml-protect {
+  color: inherit;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+.eml-protect:hover {
+  color: var(--yonsei-blue, #003876);
+  text-decoration: underline;
+}
+.eml-at::before {
+  content: "@";
+  padding: 0 0.5px;
+}
+
+
+/* ==========================================================================
+   Main Page Color Refresh (2026-10)
+   B: 재무 그리드 + 주가·거래량 차트 텍스처 / C: 히어로 그라데이션 깊이 / E: 섹션 리듬
+   ========================================================================== */
+
+/* C. 히어로 그라데이션: 헤드라인 뒤 블루 글로우 */
+.editorial-hero {
+  background:
+    radial-gradient(ellipse 60% 70% at 22% 42%, rgba(70, 140, 220, 0.38), transparent 70%),
+    linear-gradient(135deg, #001a3a 0%, #003876 55%, #0b3f7a 100%);
+}
+
+/* B-1. 금색 광원 + 모눈 그리드 (아래로 갈수록 흐려짐) */
+.editorial-hero::before {
+  background:
+    radial-gradient(circle at 88% 12%, rgba(197, 163, 90, 0.36), transparent 40%),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.045) 0 1px, transparent 1px 44px),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.045) 0 1px, transparent 1px 44px);
+  -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 55%, transparent 100%);
+          mask-image: linear-gradient(180deg, #000 0%, #000 55%, transparent 100%);
+}
+
+/* B-2. 주가(라인 + 이동평균) + 거래량 차트: 히어로 구분선을 x축으로 사용 */
+.editorial-hero-grid {
+  position: relative;
+  z-index: 0;
+}
+
+.editorial-hero-grid::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: calc(50% - 50vw);
+  right: calc(50% - 50vw);
+  top: -2.5rem;
+  bottom: 0;
+  pointer-events: none;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 300' preserveAspectRatio='none'><defs><linearGradient id='a' x1='0' y1='0' x2='0' y2='1'><stop offset='0' stop-color='%23ffffff' stop-opacity='0.12'/><stop offset='1' stop-color='%23ffffff' stop-opacity='0'/></linearGradient></defs><line x1='0' y1='252' x2='1200' y2='252' stroke='%23ffffff' stroke-opacity='0.08' vector-effect='non-scaling-stroke'/><polygon points='15,252 15.0,215.0 28.9,213.0 42.9,207.5 56.8,201.4 70.7,204.5 84.6,208.9 98.6,202.6 112.5,202.8 126.4,199.4 140.4,202.9 154.3,196.5 168.2,197.1 182.1,201.7 196.1,203.6 210.0,197.8 223.9,195.5 237.9,198.2 251.8,186.3 265.7,173.1 279.6,163.1 293.6,157.8 307.5,174.7 321.4,182.0 335.4,189.9 349.3,174.7 363.2,176.4 377.1,178.1 391.1,171.8 405.0,171.6 418.9,173.2 432.9,186.6 446.8,191.6 460.7,193.7 474.6,191.1 488.6,194.4 502.5,193.1 516.4,180.1 530.4,182.2 544.3,177.1 558.2,180.3 572.1,181.9 586.1,183.6 600.0,176.6 613.9,171.7 627.9,173.2 641.8,161.4 655.7,154.2 669.6,135.0 683.6,132.8 697.5,129.7 711.4,134.1 725.4,132.1 739.3,134.4 753.2,132.9 767.1,125.4 781.1,113.6 795.0,118.4 808.9,124.5 822.9,137.7 836.8,140.4 850.7,154.6 864.6,155.7 878.6,147.9 892.5,154.1 906.4,154.7 920.4,162.8 934.3,164.7 948.2,171.1 962.1,159.6 976.1,165.1 990.0,148.8 1003.9,146.8 1017.9,130.9 1031.8,137.7 1045.7,133.2 1059.6,133.1 1073.6,136.0 1087.5,118.6 1101.4,110.7 1115.4,112.1 1129.3,86.5 1143.2,59.4 1157.1,50.4 1171.1,41.6 1185.0,35.0 1185,252' fill='url(%23a)'/><polyline points='15.0,215.0 28.9,213.0 42.9,207.5 56.8,201.4 70.7,204.5 84.6,208.9 98.6,202.6 112.5,202.8 126.4,199.4 140.4,202.9 154.3,196.5 168.2,197.1 182.1,201.7 196.1,203.6 210.0,197.8 223.9,195.5 237.9,198.2 251.8,186.3 265.7,173.1 279.6,163.1 293.6,157.8 307.5,174.7 321.4,182.0 335.4,189.9 349.3,174.7 363.2,176.4 377.1,178.1 391.1,171.8 405.0,171.6 418.9,173.2 432.9,186.6 446.8,191.6 460.7,193.7 474.6,191.1 488.6,194.4 502.5,193.1 516.4,180.1 530.4,182.2 544.3,177.1 558.2,180.3 572.1,181.9 586.1,183.6 600.0,176.6 613.9,171.7 627.9,173.2 641.8,161.4 655.7,154.2 669.6,135.0 683.6,132.8 697.5,129.7 711.4,134.1 725.4,132.1 739.3,134.4 753.2,132.9 767.1,125.4 781.1,113.6 795.0,118.4 808.9,124.5 822.9,137.7 836.8,140.4 850.7,154.6 864.6,155.7 878.6,147.9 892.5,154.1 906.4,154.7 920.4,162.8 934.3,164.7 948.2,171.1 962.1,159.6 976.1,165.1 990.0,148.8 1003.9,146.8 1017.9,130.9 1031.8,137.7 1045.7,133.2 1059.6,133.1 1073.6,136.0 1087.5,118.6 1101.4,110.7 1115.4,112.1 1129.3,86.5 1143.2,59.4 1157.1,50.4 1171.1,41.6 1185.0,35.0' fill='none' stroke='%23ffffff' stroke-opacity='0.28' stroke-width='1.6' stroke-linejoin='round' vector-effect='non-scaling-stroke'/><polyline points='15.0,215.0 28.9,214.8 42.9,213.9 56.8,212.4 70.7,211.5 84.6,211.2 98.6,210.2 112.5,209.3 126.4,208.1 140.4,207.5 154.3,206.2 168.2,205.2 182.1,204.8 196.1,204.6 210.0,203.8 223.9,202.8 237.9,202.3 251.8,200.4 265.7,197.2 279.6,193.2 293.6,189.0 307.5,187.3 321.4,186.7 335.4,187.1 349.3,185.6 363.2,184.5 377.1,183.8 391.1,182.4 405.0,181.1 418.9,180.2 432.9,180.9 446.8,182.2 460.7,183.6 474.6,184.4 488.6,185.6 502.5,186.5 516.4,185.8 530.4,185.3 544.3,184.4 558.2,183.9 572.1,183.7 586.1,183.7 600.0,182.8 613.9,181.5 627.9,180.5 641.8,178.3 655.7,175.4 669.6,170.7 683.6,166.2 697.5,161.9 711.4,158.6 725.4,155.5 739.3,153.0 753.2,150.7 767.1,147.7 781.1,143.7 795.0,140.7 808.9,138.8 822.9,138.7 836.8,138.9 850.7,140.7 864.6,142.5 878.6,143.1 892.5,144.4 906.4,145.6 920.4,147.6 934.3,149.7 948.2,152.2 962.1,153.1 976.1,154.5 990.0,153.8 1003.9,153.0 1017.9,150.4 1031.8,148.9 1045.7,147.1 1059.6,145.4 1073.6,144.3 1087.5,141.3 1101.4,137.7 1115.4,134.7 1129.3,129.0 1143.2,120.8 1157.1,112.5 1171.1,104.2 1185.0,96.1' fill='none' stroke='%23e6d2a8' stroke-opacity='0.45' stroke-width='1.4' stroke-dasharray='5 5' vector-effect='non-scaling-stroke'/><rect x='10.0' y='282' width='14' height='14' fill='%23e6d2a8' fill-opacity='0.24'/><rect x='33.7' y='278' width='14' height='18' fill='%23ffffff' fill-opacity='0.14'/><rect x='57.3' y='265' width='14' height='31' fill='%23e6d2a8' fill-opacity='0.24'/><rect x='81.0' y='269' width='14' height='27' fill='%23e6d2a8' fill-opacity='0.24'/><rect x='104.7' y='266' width='14' height='30' fill='%23e6d2a8' fill-opacity='0.24'/><rect x='128.4' y='271' width='14' height='25' fill='%23e6d2a8' fill-opacity='0.24'/><rect x='152.0' y='266' width='14' height='30' fill='%23e6d2a8' fill-opacity='0.24'/><rect x='175.7' y='268' width='14' height='28' fill='%23e6d2a8' fill-opacity='0.24'/><rect x='199.4' y='279' width='14' height='17' fill='%23ffffff' fill-opacity='0.14'/><rect x='223.1' y='274' width='14' height='22' fill='%23ffffff' fill-opacity='0.14'/><rect x='246.7' y='254' width='14' height='42' fill='%23e6d2a8' fill-opacity='0.24'/><rect x='270.4' y='254' width='14' height='42' fill='%23e6d2a8' fill-opacity='0.24'/><rect x='294.1' y='269' width='14' height='27' fill='%23ffffff' fill-opacity='0.14'/><rect x='317.8' y='262' width='14' height='34' fill='%23e6d2a8' fill-opacity='0.24'/><rect x='341.4' y='254' width='14' height='42' fill='%23e6d2a8' fill-opacity='0.24'/><rect x='365.1' y='279' width='14' height='17' fill='%23e6d2a8' fill-opacity='0.24'/><rect x='388.8' y='268' width='14' height='28' fill='%23e6d2a8' fill-opacity='0.24'/><rect x='412.4' y='281' width='14' height='15' fill='%23ffffff' fill-opacity='0.14'/><rect x='436.1' y='254' width='14' height='42' fill='%23e6d2a8' fill-opacity='0.24'/><rect x='459.8' y='273' width='14' height='23' fill='%23ffffff' fill-opacity='0.14'/><rect x='483.5' y='270' width='14' height='26' fill='%23e6d2a8' fill-opacity='0.24'/><rect x='507.1' y='254' width='14' height='42' fill='%23e6d2a8' fill-opacity='0.24'/><rect x='530.8' y='278' width='14' height='18' fill='%23ffffff' fill-opacity='0.14'/><rect x='554.5' y='273' width='14' height='23' fill='%23ffffff' fill-opacity='0.14'/><rect x='578.2' y='273' width='14' height='23' fill='%23ffffff' fill-opacity='0.14'/><rect x='601.8' y='267' width='14' height='29' fill='%23e6d2a8' fill-opacity='0.24'/><rect x='625.5' y='274' width='14' height='22' fill='%23ffffff' fill-opacity='0.14'/><rect x='649.2' y='263' width='14' height='33' fill='%23e6d2a8' fill-opacity='0.24'/><rect x='672.9' y='276' width='14' height='20' fill='%23ffffff' fill-opacity='0.14'/><rect x='696.5' y='279' width='14' height='17' fill='%23ffffff' fill-opacity='0.14'/><rect x='720.2' y='275' width='14' height='21' fill='%23e6d2a8' fill-opacity='0.24'/><rect x='743.9' y='275' width='14' height='21' fill='%23ffffff' fill-opacity='0.14'/><rect x='767.6' y='266' width='14' height='30' fill='%23e6d2a8' fill-opacity='0.24'/><rect x='791.2' y='273' width='14' height='23' fill='%23ffffff' fill-opacity='0.14'/><rect x='814.9' y='254' width='14' height='42' fill='%23e6d2a8' fill-opacity='0.24'/><rect x='838.6' y='255' width='14' height='41' fill='%23e6d2a8' fill-opacity='0.24'/><rect x='862.2' y='280' width='14' height='16' fill='%23ffffff' fill-opacity='0.14'/><rect x='885.9' y='270' width='14' height='26' fill='%23e6d2a8' fill-opacity='0.24'/><rect x='909.6' y='262' width='14' height='34' fill='%23e6d2a8' fill-opacity='0.24'/><rect x='933.3' y='274' width='14' height='22' fill='%23ffffff' fill-opacity='0.14'/><rect x='956.9' y='257' width='14' height='39' fill='%23e6d2a8' fill-opacity='0.24'/><rect x='980.6' y='254' width='14' height='42' fill='%23e6d2a8' fill-opacity='0.24'/><rect x='1004.3' y='254' width='14' height='42' fill='%23e6d2a8' fill-opacity='0.24'/><rect x='1028.0' y='269' width='14' height='27' fill='%23e6d2a8' fill-opacity='0.24'/><rect x='1051.6' y='279' width='14' height='17' fill='%23ffffff' fill-opacity='0.14'/><rect x='1075.3' y='254' width='14' height='42' fill='%23e6d2a8' fill-opacity='0.24'/><rect x='1099.0' y='267' width='14' height='29' fill='%23e6d2a8' fill-opacity='0.24'/><rect x='1122.7' y='254' width='14' height='42' fill='%23e6d2a8' fill-opacity='0.24'/><rect x='1146.3' y='272' width='14' height='24' fill='%23e6d2a8' fill-opacity='0.24'/><rect x='1170.0' y='275' width='14' height='21' fill='%23ffffff' fill-opacity='0.14'/></svg>") no-repeat center bottom / 100% 100%;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.35) 30%, #000 58%, #000 100%);
+          mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.35) 30%, #000 58%, #000 100%);
+}
+
+@media (max-width: 960px) {
+  .editorial-hero-grid::before {
+    opacity: 0.6;
+  }
+}
+
+/* E-1. 띠 배경 섹션 (메인 03 중점 연구 영역) */
+.section-band {
+  background: #eef2f8;
+  box-shadow: 0 0 0 100vmax #eef2f8;
+  clip-path: inset(0 -100vmax);
+  border-top-color: transparent;
+  padding-top: 3.25rem;
+  padding-bottom: 3.25rem;
+}
+
+.section-band + .editorial-section {
+  border-top-color: transparent;
+}
+
+/* E-2. 4대 영역 카드: 번호 + 상단 컬러 액센트 */
+.section-band .pillars-matrix {
+  counter-reset: pillar;
+  border: none;
+  gap: 1rem;
+}
+
+.section-band .pillar-cell,
+.section-band .pillar-cell:nth-child(even) {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid #dfe5ee !important;
+  border-top: 3px solid var(--accent, #003876) !important;
+  padding: 1.5rem 1.6rem 1.35rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.section-band .pillar-cell:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 32, 70, 0.08);
+}
+
+.section-band .pillar-cell::before {
+  counter-increment: pillar;
+  content: "0" counter(pillar);
+  position: absolute;
+  top: 1.1rem;
+  right: 1.3rem;
+  font-size: 1.9rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--accent, #003876);
+  opacity: 0.14;
+}
+
+.section-band .pillar-cell:nth-child(1) { --accent: #003876; }
+.section-band .pillar-cell:nth-child(2) { --accent: #2f6fb5; }
+.section-band .pillar-cell:nth-child(3) { --accent: #5b9bd5; }
+.section-band .pillar-cell:nth-child(4) { --accent: #b08a45; }
+
+.section-band .pillar-cell-title {
+  padding-right: 2.9rem;
+  line-height: 1.4;
+  margin-bottom: 0.3rem;
+}
+
+@media (max-width: 960px) {
+  .section-band {
+    padding-top: 2.25rem;
+    padding-bottom: 2.25rem;
+  }
+}
+
+/* Curriculum Ledger Table Header width (Year 2 (Foundation) 1줄 유지) */
+.curriculum-ledger th {
+  width: 195px;
+  white-space: nowrap;
+}
+
+/* 4대 연구영역 카드 제목 1줄 통일 (영문 긴 제목 줄바꿈 방지) */
+.section-band .pillar-cell-title {
+  font-size: 1.04rem;
+  letter-spacing: -0.02em;
+  padding-right: 2.2rem;
+  line-height: 1.35;
+  margin-bottom: 0.35rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
