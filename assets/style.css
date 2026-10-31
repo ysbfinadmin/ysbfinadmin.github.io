@@ -1708,3 +1708,102 @@ ul, ol {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+/* ==========================================================================
+   Q&A (자주 묻는 질문 FAQ) 에디토리얼 아코디언 스타일
+   ========================================================================== */
+.qa-accordion-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+.qa-item {
+  background: #ffffff;
+  border: 1px solid var(--rule-light);
+  border-radius: 3px;
+  overflow: hidden;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+.qa-item[open] {
+  border-color: #cbd5e1;
+  box-shadow: 0 3px 10px rgba(0, 32, 70, 0.05);
+}
+.qa-question {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 1.1rem 1.35rem;
+  background: var(--bg-paper);
+  cursor: pointer;
+  user-select: none;
+  list-style: none;
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--yonsei-navy);
+  transition: background 0.15s ease;
+}
+.qa-question::-webkit-details-marker {
+  display: none;
+}
+.qa-question:hover {
+  background: var(--bg-warm);
+}
+.qa-item[open] .qa-question {
+  background: #ffffff;
+  border-bottom: 1px solid var(--rule-light);
+}
+.qa-q-badge {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #ffffff;
+  background: var(--yonsei-navy);
+  padding: 0.18rem 0.55rem;
+  border-radius: 2px;
+  flex-shrink: 0;
+  letter-spacing: 0.02em;
+}
+.qa-q-text {
+  flex: 1;
+  line-height: 1.48;
+}
+.qa-toggle-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  position: relative;
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+.qa-toggle-icon::before,
+.qa-toggle-icon::after {
+  content: "";
+  position: absolute;
+  background: var(--text-muted);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.qa-toggle-icon::before {
+  width: 12px;
+  height: 2px;
+}
+.qa-toggle-icon::after {
+  width: 2px;
+  height: 12px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.qa-item[open] .qa-toggle-icon::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+  opacity: 0;
+}
+.qa-answer {
+  padding: 1.25rem 1.45rem;
+  background: #ffffff;
+  font-size: 0.92rem;
+  color: var(--text-body);
+  line-height: 1.78;
+}
+.qa-answer strong {
+  color: var(--yonsei-navy);
+}
