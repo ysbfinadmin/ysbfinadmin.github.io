@@ -1807,3 +1807,155 @@ ul, ol {
 .qa-answer strong {
   color: var(--yonsei-navy);
 }
+
+
+/* ==========================================================================
+   Navigation Dropdown & Sub-Nav Bar (석박사과정 서브메뉴)
+   ========================================================================== */
+.nav-item-dropdown {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.nav-dropdown-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.nav-dropdown-caret {
+  font-size: 0.65rem;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 0.75;
+  display: inline-block;
+  margin-left: 0.15rem;
+}
+
+.nav-item-dropdown:hover .nav-dropdown-caret,
+.nav-item-dropdown.open .nav-dropdown-caret {
+  transform: rotate(180deg);
+  opacity: 1;
+}
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  min-width: 140px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 32, 70, 0.12);
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0, 32, 70, 0.12);
+  padding: 0.35rem;
+  display: none;
+  flex-direction: column;
+  gap: 0.15rem;
+  z-index: 1000;
+  animation: navFadeIn 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes navFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.nav-item-dropdown:hover .nav-dropdown-menu,
+.nav-item-dropdown:focus-within .nav-dropdown-menu,
+.nav-item-dropdown.open .nav-dropdown-menu {
+  display: flex;
+}
+
+/* Hover bridge */
+.nav-dropdown-menu::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 0;
+  right: 0;
+  height: 8px;
+}
+
+.nav-dropdown-item {
+  display: block;
+  padding: 0.5rem 0.85rem;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-body);
+  text-decoration: none;
+  border-radius: 6px;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.nav-dropdown-item:hover {
+  background: var(--bg-card, #f1f5f9);
+  color: var(--yonsei-blue);
+}
+
+.nav-dropdown-item.active {
+  color: var(--yonsei-navy);
+  background: rgba(0, 56, 118, 0.08);
+  font-weight: 700;
+}
+
+/* Sub-Nav Bar (석박사과정 페이지 전용 2차 메뉴 바) */
+.sub-nav-bar {
+  background: #ffffff;
+  border-bottom: 1px solid var(--rule-light);
+  width: 100%;
+}
+
+.sub-nav-container {
+  max-width: var(--max-w, 1200px);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  gap: 0.25rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.sub-nav-container::-webkit-scrollbar {
+  display: none;
+}
+
+.sub-nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.75rem 1.15rem;
+  font-size: 0.94rem;
+  font-weight: 600;
+  color: var(--text-secondary, #64748b);
+  text-decoration: none;
+  position: relative;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.sub-nav-link:hover {
+  color: var(--yonsei-blue);
+}
+
+.sub-nav-link.active {
+  color: var(--yonsei-navy);
+  font-weight: 700;
+}
+
+.sub-nav-link.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0.75rem;
+  right: 0.75rem;
+  height: 2.5px;
+  background: var(--yonsei-navy);
+  border-radius: 2px 2px 0 0;
+}

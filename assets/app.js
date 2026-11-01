@@ -286,6 +286,26 @@ function renderFacultyB(data) {
       return;
     }
 
+    // Sort: Prof. Jaehoon Hahn (Chair) first, remaining sorted alphabetically by English Last Name
+    filtered.sort((a, b) => {
+      const isHahnA = (a.nameEn && a.nameEn.includes("Hahn")) || a.name === "한재훈";
+      const isHahnB = (b.nameEn && b.nameEn.includes("Hahn")) || b.name === "한재훈";
+      if (isHahnA && !isHahnB) return -1;
+      if (!isHahnA && isHahnB) return 1;
+
+      const getLastName = (p) => {
+        const str = p.nameEn ? p.nameEn.replace(/^Prof\.\s*/, "").trim() : p.name;
+        const parts = str.split(/\s+/);
+        return parts[parts.length - 1];
+      };
+      const lastA = getLastName(a);
+      const lastB = getLastName(b);
+      if (lastA !== lastB) {
+        return lastA.localeCompare(lastB);
+      }
+      return (a.nameEn || "").localeCompare(b.nameEn || "");
+    });
+
     gridEn.innerHTML = filtered
       .map((p) => {
         const primaryLink = p.website || p.ysbLink;
@@ -448,9 +468,6 @@ function renderMsPhdB(data) {
           <dt>졸업 후 진로</dt>
           <dd>${t.career}</dd>
         </dl>
-        <ul class="editorial-list">
-          ${t.highlights.map((h) => `<li>${h}</li>`).join("")}
-        </ul>
       </div>
     `
       )
@@ -714,14 +731,14 @@ window.setSiteLang = function (lang) {
     if (baseHref.includes("faculty/")) {
       link.textContent = isEn ? "Faculty" : "교수진";
       link.setAttribute("href", isEn ? `${baseHref}#en` : baseHref);
-    } else if (baseHref.includes("ms-finance/")) {
-      link.textContent = isEn ? "M.S. & Ph.D." : "석/박사과정 (MS/Ph.D.)";
+    } else if (baseHref.includes("ms-finance/") || link.classList.contains("nav-dropdown-toggle")) {
+      link.innerHTML = (isEn ? "M.S. & Ph.D." : "석/박사과정 (MS/Ph.D.)") + ' <span class="nav-dropdown-caret">▾</span>';
       link.setAttribute("href", isEn ? `${baseHref}#en` : baseHref);
     } else if (baseHref.includes("fmba/")) {
       link.textContent = "Finance MBA (FMBA)";
       link.style.display = isEn ? "none" : "";
     } else if (baseHref.endsWith("index.html") || baseHref === "./" || baseHref === "../") {
-      link.textContent = isEn ? "Overview" : "재무분야 소개";
+      link.textContent = isEn ? "Overview" : "분야소개";
       link.setAttribute("href", isEn ? `${baseHref}#en` : baseHref);
     }
   });
