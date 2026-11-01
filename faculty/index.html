@@ -492,9 +492,17 @@
       </a>
 
       <nav class="main-nav" aria-label="주요 메뉴">
-        <a href="../index.html" class="nav-link">재무분야 소개</a>
+        <a href="../index.html" class="nav-link">분야소개</a>
         <a href="../faculty/index.html" class="nav-link active">교수진</a>
-        <a href="../ms-finance/index.html" class="nav-link">석/박사과정 (MS/Ph.D.)</a>
+        <div class="nav-item-dropdown">
+          <a href="../ms-finance/index.html" class="nav-link nav-dropdown-toggle">
+            석/박사과정 (MS/Ph.D.) <span class="nav-dropdown-caret">▾</span>
+          </a>
+          <div class="nav-dropdown-menu">
+            <a href="../ms-finance/index.html" class="nav-dropdown-item">과정 소개</a>
+            <a href="../ms-finance/academics.html" class="nav-dropdown-item">학사 안내</a>
+          </div>
+        </div>
         <a href="../fmba/index.html" class="nav-link">Finance MBA (FMBA)</a>
         <div class="header-lang-switch">
           <div class="lang-toggle-group" role="navigation" aria-label="Language Switcher">
@@ -509,14 +517,12 @@
   <!-- 메인 콘텐츠 영역 -->
   <main class="main-content">
     <section id="faculty-ko" class="view-section active">
-      <div class="page-masthead" style="border-bottom: none; padding-bottom: 0.5rem; margin-bottom: 1.5rem;">
-        <div class="page-kicker">Faculty Directory</div>
-        <h1 class="page-title">재무교수진</h1>
-      </div>
-
       <!-- 전임교수 헤더 및 검색 -->
-      <div class="faculty-toolbar">
-        <h2 class="faculty-section-title">전임교수진</h2>
+      <div class="faculty-toolbar" style="padding-top: 2.25rem; align-items: flex-end;">
+        <div>
+          <div class="page-kicker">Full-Time Faculty</div>
+          <h1 class="faculty-section-title" style="margin: 0;">전임교수진</h1>
+        </div>
         <div>
           <input type="search" id="faculty-search" class="editorial-search" placeholder="교수명, 연구분야 검색..." aria-label="교수진 검색" />
         </div>
