@@ -136,7 +136,7 @@
         "name": "지원 전에 관심 있는 교수님께 사전 컨택(면담)을 하는 게 좋을까요?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "사전 컨택이 필요하지 않습니다. 연세대학교 일반대학원 입학 전형은 학과 전체 전형 절차에 따라 공정하게 종합 평가됩니다. 또한 입학 시점에 지도교수가 확정되는 것이 아니며, 입학 후 1~2학기 동안 재무분야 정규 코스워크를 이수하고 교수진의 연구 분야를 탐색한 후 본인의 세부 연구 관심사에 맞는 지도교수님과 상의하여 정식 배정 절차를 밟게 됩니다."
+          "text": "사전 컨택이 필요하지 않습니다. 연세대학교 일반대학원 입학 전형은 학과 전체 전형 절차에 따라 공정하게 종합 평가됩니다. 또한 입학 시점에 지도교수가 확정되는 것이 아니며, 입학 후 1~2학기 동안 재무분야 정규 코스워크를 이수하고 교수진의 연구 분야를 탐색한 후 본인의 세부 연구 관심사에 맞는 교수님과 상의하여 지도교수를 주도적으로 선택(결정)하게 됩니다."
         }
       },
       {
@@ -145,6 +145,14 @@
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "정량적인 절대 커트라인은 두지 않으며, 학부 전공과 학업 성취도, 수리적 역량 등을 종합 평가합니다. 최근에는 4.3 만점에 3.5 이상의 학생들이 주로 입학하고 있습니다. 수학, 통계학, 산업공학 등 수리적 배경이나 정량적 분석 역량이 우수한 경우 학점이 다소 부족하더라도 진학 후 충분히 보완할 수 있습니다. 모든 정규 교과과정은 영어로 진행되나, 원활한 연구 지도와 커뮤니케이션을 위해 외국인 지원자도 일상적인 한국어 의사소통 역량을 갖춘 지원자를 선발하고 있습니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "일반대학원 석·박사 과정은 직장 병행이나 파트타임(Part-time)이 가능한가요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "모든 입학생은 전일제(Full-time) 학생이어야 하며, 파트타임 입학은 허용되지 않습니다. 석사과정은 전 기간 직장 병행이 불가합니다. 단, 박사과정의 경우 2년 이상의 정규 수업 이수와 종합시험을 통과한 수료 상태에서 학위논문을 준비하는 단계에서는 지도교수와의 협의 및 승인을 거쳐 제한적으로 직장 병행이 허용될 수 있습니다. 직장 유지를 목적으로 하는 금융 학위 과정은 경영전문대학원의 Finance MBA 과정을 지원하시기 바랍니다."
         }
       },
       {
@@ -192,6 +200,16 @@
     .qa-item[open] .qa-toggle-icon::after { transform: translate(-50%, -50%) rotate(90deg); opacity: 0; }
     .qa-answer { padding: 1.25rem 1.45rem; background: #ffffff; font-size: 0.92rem; color: var(--text-body); line-height: 1.78; }
     .qa-answer strong { color: var(--yonsei-navy); }
+
+    /* Placement Track Toggle */
+    .placement-track-toggle { margin-top: 1rem; border: 1px solid var(--rule-light); border-radius: 3px; background: #fafbfc; overflow: hidden; transition: all 0.2s ease; }
+    .placement-track-toggle summary { padding: 0.65rem 1rem; font-size: 0.88rem; font-weight: 600; color: var(--yonsei-navy); cursor: pointer; list-style: none; display: flex; align-items: center; gap: 0.45rem; user-select: none; transition: background 0.15s ease; }
+    .placement-track-toggle summary::-webkit-details-marker { display: none; }
+    .placement-track-toggle summary:hover { background: #f1f4f8; }
+    .placement-track-toggle[open] summary { background: #f8fafc; border-bottom: 1px solid var(--rule-light); }
+    .placement-track-toggle .track-arrow { font-size: 0.72rem; color: var(--yonsei-blue); display: inline-block; transition: transform 0.2s ease; }
+    .placement-track-toggle[open] .track-arrow { transform: rotate(180deg); }
+    .placement-track-body { padding: 0.9rem 1.15rem 1.15rem 1.15rem; background: #ffffff; }
 </style>
 </head>
 <body>
@@ -307,12 +325,26 @@
         </dl>
 
       </div></div>
+          <!-- 국내외 박사(Ph.D.) 진학희망 학생 (Ph.D. Placement Track) - 접이식 토글 -->
+          <details class="placement-track-toggle">
+            <summary>
+              <span class="track-arrow">▾</span>
+              <span>국내외 박사(Ph.D.) 진학희망 학생 안내 <span style="font-family: var(--font-en-serif); font-size: 0.82rem; color: var(--text-muted); font-weight: 500;">(Ph.D. Placement Track)</span></span>
+            </summary>
+            <div class="placement-track-body">
+              <p style="font-size: 0.88rem; color: var(--text-body); line-height: 1.65; margin: 0 0 0.75rem 0;">
+                석사과정(및 학석사연계과정) 입학생 중 북미·유럽 등 해외 명문대 또는 본교 박사과정 진학을 목표로 하는 학생들은 집중적인 연구훈련을 받을 수 있도록 지원하고 있습니다.
+              </p>
+              <ul class="editorial-list" style="font-size: 0.86rem; line-height: 1.62; margin-bottom: 0.65rem;">
+                <li style="margin-bottom: 0.35rem;"><strong>본교 교수진과의 실증연구(RA):</strong> 입학 초기부터 교수진들과 실제 연구 프로젝트에 참여할 수 있도록 기회가 제공됩니다.</li>
+                <li><strong>박사급 교과과정 이수 및 영문 Writing Sample 완성:</strong> 박사과정 1,2년차에 준하는 교과목을 이수하며, 해외 박사 지원 시 경쟁력 있는 Writing Sample이 될 영문 연구논문을 완성합니다.</li>
+              </ul>
+              <p style="font-size: 0.82rem; color: var(--text-muted); margin: 0; line-height: 1.5;">
+                ※ 경영학뿐 아니라 경제학·통계학·수학·공학 등 타 전공 학부생의 도전도 적극 환영합니다.
+              </p>
+            </div>
+          </details>
 
-          <!-- 국내외 박사(Ph.D.) 진학 집중 지도 -->
-          <div style="background: #ffffff; border: 1px solid var(--rule-medium); border-left: 4px solid var(--yonsei-navy); padding: 1.35rem 1.5rem; border-radius: 0 3px 3px 0; box-shadow: 0 2px 8px rgba(0, 32, 70, 0.04);">
-            <h4 style="font-family: var(--font-serif); font-size: 1.08rem; font-weight: 700; color: var(--yonsei-navy); margin: 0 0 0.6rem 0;">국내외 박사(Ph.D.) 진학희망 학생 (Ph.D. Placement Track)</h4><p style="font-size: 0.92rem; color: var(--text-body); line-height: 1.68; margin: 0 0 0.85rem 0;">석사과정(및 학석사연계과정) 입학생 중 북미·유럽 등 해외 명문대 또는 본교 박사과정 진학을 목표로 하는 학생들은 집중적인 연구훈련을 받을 수 있도록 지원하고 있습니다.</p><ul class="editorial-list" style="font-size: 0.9rem; line-height: 1.68; margin-bottom: 0.75rem;"><li style="margin-bottom: 0.45rem;"><strong style="color: var(--yonsei-navy);">본교 교수진과의 실증연구(RA):</strong>  입학 초기부터 교수진들과 실제 연구 프로젝트에 참여할 수 있도록 기회가 제공됩니다.</li><li><strong style="color: var(--yonsei-navy);">박사급 교과과정 이수 및 영문 Writing Sample 완성:</strong> 박사과정 1,2년차에 준하는 교과목을 이수하며, 해외 박사 지원 시 경쟁력 있는 Writing Sample이 될 영문 연구논문을 완성합니다.</li></ul><p style="font-size: 0.88rem; color: var(--yonsei-blue); font-weight: 600; margin: 0;">※ 경영학뿐 아니라 경제학·통계학·수학·공학 등 타 전공 학부생의 도전도 적극 환영합니다.</p>
-          </div>
-          
           <!-- 재학생 구성 현황 (2026년 등록 학생 기준) -->
         </div>
       </div>
@@ -597,7 +629,7 @@
       <!-- 04. 자주 묻는 질문 (FAQ) -->
       <div class="editorial-section" id="faq" style="margin-bottom:2.5rem;">
         <div class="section-sidebar">
-          <span class="section-num">05 / FAQ</span>
+          <span class="section-num">04 / FAQ</span>
           <h2 class="section-heading">자주 묻는 질문<br />(FAQ)</h2>
           <p class="section-note">
             입학 지원 자격, 전공 배경, 사전 컨택 및 학업·진로 과정에 대해 가장 많이 문의하시는 핵심 질문입니다.
@@ -627,15 +659,15 @@
             <details class="qa-item">
               <summary class="qa-question">
                 <span class="qa-q-badge">Q2</span>
-                <span class="qa-q-text">지원 전에 관심 있는 교수님께 사전 컨택(면담)을 하는 게 좋을까요?</span>
+                <span class="qa-q-text">지원 전에 관심 있는 교수님께 사전 컨택(면담)을 반드시 해야 하나요?</span>
                 <span class="qa-toggle-icon"></span>
               </summary>
               <div class="qa-answer">
                 <p>
-                  <strong>사전 컨택이 필요하지 않습니다.</strong> 일반대학원 입학 전형은 학과 전체 전형 절차에 따라 공정하게 종합 평가됩니다.
+                  <strong>사전 컨택이 필수 요건은 아닙니다.</strong> 일반대학원 입학 전형은 학과 전체 전형 절차에 따라 공정하게 종합 평가됩니다.
                 </p>
                 <p style="margin-top:0.55rem;">
-                  또한 입학 시점에 지도교수가 확정되는 것이 아니며, 입학 후 1~2학기 동안 재무분야 정규 코스워크를 이수하고 교수진의 연구 분야를 탐색한 후 본인의 세부 연구 관심사에 맞는 지도교수님과 상의하여 정식 배정 절차를 밟게 됩니다.
+                  또한 입학 시점에 지도교수가 확정되는 것이 아니며, 입학 후 1~2학기 동안 재무분야 정규 코스워크를 이수하고 교수진의 연구 분야를 탐색한 후 본인의 세부 연구 관심사에 맞는 교수님과 상의하여 지도교수를 주도적으로 선택(결정)하게 됩니다.
                 </p>
               </div>
             </details>
@@ -664,6 +696,26 @@
             <details class="qa-item">
               <summary class="qa-question">
                 <span class="qa-q-badge">Q4</span>
+                <span class="qa-q-text">일반대학원 석·박사 과정은 직장 병행이나 파트타임(Part-time)이 가능한가요?</span>
+                <span class="qa-toggle-icon"></span>
+              </summary>
+              <div class="qa-answer">
+                <p>
+                  <strong>모든 입학생은 전일제(Full-time) 학생이어야 하며, 파트타임 입학은 허용되지 않습니다.</strong>
+                </p>
+                <p style="margin-top:0.55rem;">
+                  석사과정은 전 기간 직장 병행이 불가합니다. 단, 박사과정의 경우 2년 이상의 정규 수업 이수와 종합시험을 통과한 수료 상태에서 학위논문을 준비하는 단계에서는 지도교수와의 협의 및 승인을 거쳐 제한적으로 직장 병행이 허용될 수 있습니다.
+                </p>
+                <p style="margin-top:0.55rem;">
+                  직장 유지를 목적으로 하는 금융 학위 과정은 경영전문대학원의 <a href="../fmba/index.html" style="color:var(--yonsei-blue); text-decoration:underline; font-weight:600;">Finance MBA 과정</a>을 지원하시기 바랍니다.
+                </p>
+              </div>
+            </details>
+
+            <!-- Q5 -->
+            <details class="qa-item">
+              <summary class="qa-question">
+                <span class="qa-q-badge">Q5</span>
                 <span class="qa-q-text">석사과정의 진로는 주로 국내외 박사과정 진학 중심인가요 아니면 취업도 많이 하나요?</span>
                 <span class="qa-toggle-icon"></span>
               </summary>
@@ -677,10 +729,10 @@
               </div>
             </details>
 
-            <!-- Q5 -->
+            <!-- Q6 -->
             <details class="qa-item">
               <summary class="qa-question">
-                <span class="qa-q-badge">Q5</span>
+                <span class="qa-q-badge">Q6</span>
                 <span class="qa-q-text">대학원 수업은 어떻게 진행되며, 어떤 기초 역량이 가장 중요한가요?</span>
                 <span class="qa-toggle-icon"></span>
               </summary>
@@ -694,11 +746,11 @@
               </div>
             </details>
 
-            <!-- Q6 -->
+            <!-- Q7 -->
             <details class="qa-item">
               <summary class="qa-question">
-                <span class="qa-q-badge">Q6</span>
-                <span class="qa-q-text">실질적인 장학금 혜택은 어느 정도인가요?</span>
+                <span class="qa-q-badge">Q7</span>
+                <span class="qa-q-text">대학원 학비 부담이 큰데, 실질적인 장학금 혜택은 어느 정도인가요?</span>
                 <span class="qa-toggle-icon"></span>
               </summary>
               <div class="qa-answer">
