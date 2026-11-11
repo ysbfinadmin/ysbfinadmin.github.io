@@ -89,7 +89,15 @@
       </a>
 
       <nav class="main-nav" aria-label="주요 메뉴">
-        <a href="index.html" class="nav-link active">분야소개</a>
+        <div class="nav-item-dropdown">
+          <a href="index.html" class="nav-link nav-dropdown-toggle active">
+            분야소개 <span class="nav-dropdown-caret">▾</span>
+          </a>
+          <div class="nav-dropdown-menu">
+            <a href="index.html" class="nav-dropdown-item active">분야 소개</a>
+            <a href="seminars/index.html" class="nav-dropdown-item">세미나 안내</a>
+          </div>
+        </div>
         <a href="faculty/index.html" class="nav-link">교수진</a>
         <div class="nav-item-dropdown">
           <a href="ms-finance/index.html" class="nav-link nav-dropdown-toggle">
@@ -110,6 +118,18 @@
       </nav>
     </div>
   </header>
+
+      <!-- 분야소개 서브 메뉴 바 (분야 소개 / 세미나 안내) -->
+  <nav class="sub-nav-bar" aria-label="분야소개 세부 메뉴">
+    <div class="sub-nav-container">
+      <a href="index.html" class="sub-nav-link active">
+        <span>🏛️ 분야 소개</span>
+      </a>
+      <a href="seminars/index.html" class="sub-nav-link">
+        <span>📅 세미나 안내</span>
+      </a>
+    </div>
+  </nav>
 
   <!-- 한국어 히어로 배너 -->
   <section id="hero-ko" class="editorial-hero view-section active">
@@ -311,6 +331,34 @@
           <strong>주요 주제</strong> 리스크 관리 · 보험계리·연금 · 금융기관 규제 · 사모신용·안정성 · 재보험
         </div>
       </div></div>
+        </div>
+      </section>
+
+      <!-- 04. 재무분야 학술 세미나 (Finance Seminar Series) -->
+      <section class="editorial-section">
+        <div class="section-sidebar">
+          <span class="section-num">04 / Academic Seminars</span>
+          <h2 class="section-heading">학술 세미나</h2>
+          <p class="section-note">
+            국내외 유수 대학 및 연구기관의 저명 학자를 초청하여 최신 재무·금융 연구 성과를 공유하고 심도 있는 학술 토론을 진행합니다.
+          </p>
+        </div>
+
+        <div class="section-body">
+          <div class="institutional-callout" style="margin:0; background:#ffffff;">
+            <div style="flex:1; min-width:280px;">
+              <div class="grad-track-label" style="margin-bottom:0.25rem;">Yonsei Finance Seminar Series · YBRI</div>
+              <h3 style="font-family:var(--font-serif); font-size:1.15rem; font-weight:700; color:var(--yonsei-navy); margin-bottom:0.45rem;">
+                경영대학 재무 분야 정기 학술 세미나
+              </h3>
+              <p style="font-size:0.9rem; color:var(--text-body); line-height:1.65;">
+                연세대학교 경영대학 재무분야와 경영연구소(YBRI)가 공동 주관하는 정기 세미나 일정, 초청 연사 및 발표 논문 주제를 실시간으로 확인하실 수 있습니다.
+              </p>
+            </div>
+            <div style="display:flex; gap:0.75rem; flex-wrap:wrap; align-items:center;">
+              <a href="seminars/index.html" class="btn-editorial">재무 세미나 일정 및 안내 보기 →</a>
+            </div>
+          </div>
         </div>
       </section>
 

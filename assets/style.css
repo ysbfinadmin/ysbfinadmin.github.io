@@ -1959,3 +1959,119 @@ ul, ol {
   background: var(--yonsei-navy);
   border-radius: 2px 2px 0 0;
 }
+
+/* ==========================================================================
+   Seminar Iframe Crop & Viewer (세미나 안내 전용 크롭 뷰어)
+   ========================================================================== */
+.main-content.seminar-wide-content {
+  max-width: 1480px;
+}
+
+.seminar-viewer-card {
+  background: #ffffff;
+  border: 1px solid var(--rule-light);
+  border-top: 3px solid var(--yonsei-navy);
+  border-radius: 6px;
+  box-shadow: 0 8px 24px rgba(0, 32, 70, 0.05);
+  overflow: hidden;
+  margin-top: 1.5rem;
+}
+
+.seminar-viewer-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding: 0.9rem 1.35rem;
+  background: #f8fafc;
+  border-bottom: 1px solid var(--rule-light);
+}
+
+.seminar-toolbar-title {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--yonsei-navy);
+}
+
+.seminar-live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #0d9488;
+  box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.18);
+  display: inline-block;
+}
+
+.seminar-toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.seminar-btn-sm {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.38rem 0.8rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  border-radius: 4px;
+  border: 1px solid var(--rule-medium);
+  background: #ffffff;
+  color: var(--yonsei-navy);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-decoration: none;
+}
+
+.seminar-btn-sm:hover {
+  background: var(--yonsei-navy);
+  color: #ffffff;
+  border-color: var(--yonsei-navy);
+}
+
+.seminar-iframe-crop {
+  position: relative;
+  width: 100%;
+  height: 1540px;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.seminar-iframe-crop iframe {
+  position: absolute;
+  top: -575px;
+  left: 0;
+  width: 100%;
+  height: 2350px;
+  border: 0;
+}
+
+@media (max-width: 1024px) {
+  .seminar-iframe-crop {
+    height: 1850px;
+  }
+  .seminar-iframe-crop iframe {
+    top: -495px;
+    height: 2600px;
+  }
+}
+
+@media (max-width: 768px) {
+  .seminar-iframe-crop {
+    height: 1400px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .seminar-iframe-crop iframe {
+    position: relative;
+    top: 0;
+    margin-top: -390px;
+    height: 2800px;
+  }
+}

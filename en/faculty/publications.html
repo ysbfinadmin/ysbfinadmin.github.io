@@ -3,231 +3,293 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Selected Publication by Faculty Members | Finance Faculty · Yonsei School of Business</title>
-  <meta name="description" content="Top-Tier Research Publications by Finance Faculty at Yonsei School of Business — Published in The Journal of Finance (JF), Journal of Financial Economics (JFE), The Review of Financial Studies (RFS), Management Science (MS), Journal of Financial and Quantitative Analysis (JFQA), Review of Finance (RF), and The Quarterly Journal of Economics (QJE)." />
+  <title>Selected Publications by Faculty | Finance Division · Yonsei School of Business</title>
+  <meta name="description" content="Selected Top-Tier Research Publications by Finance Faculty at Yonsei School of Business — Published in The Journal of Finance (JF), Journal of Financial Economics (JFE), The Review of Financial Studies (RFS), Management Science (MS), Journal of Financial and Quantitative Analysis (JFQA), and The Quarterly Journal of Economics (QJE)." />
   <meta name="keywords" content="Yonsei Finance Research, Selected Publications, Journal of Finance, JFE, RFS, Management Science, JFQA, QJE, Yonsei School of Business Finance Faculty" />
   <link rel="canonical" href="https://finance.yonsei.ac.kr/en/faculty/publications.html" />
   <link rel="icon" type="image/png" href="../../images/logo.png" />
   <link rel="apple-touch-icon" href="../../images/logo.png" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Finance Division · Yonsei School of Business" />
-  <meta property="og:title" content="Selected Publication by Faculty Members | Finance Faculty · Yonsei School of Business" />
-  <meta property="og:description" content="Selected Top-Tier Research Publications by Finance Faculty at Yonsei University School of Business (JF, JFE, RFS, MS, JFQA, RF, QJE)." />
+  <meta property="og:title" content="Selected Publications by Faculty | Finance Division · Yonsei School of Business" />
+  <meta property="og:description" content="Selected Top-Tier Research Publications by Finance Faculty at Yonsei University School of Business (JF, JFE, RFS, MS, JFQA, QJE)." />
   <meta property="og:url" content="https://finance.yonsei.ac.kr/en/faculty/publications.html" />
   <meta property="og:image" content="https://finance.yonsei.ac.kr/images/logo.png" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:locale:alternate" content="ko_KR" />
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Selected Publication by Faculty Members | Yonsei Finance Faculty" />
-  <meta name="twitter:description" content="Top-tier research published in premier finance journals (JF, JFE, RFS, MS, JFQA, RF, QJE) by Yonsei University Finance Faculty." />
+  <meta name="twitter:title" content="Selected Publications by Faculty | Yonsei Finance Division" />
+  <meta name="twitter:description" content="Top-tier research published in premier finance and economics journals (JF, JFE, RFS, MS, JFQA, QJE) by Yonsei University Finance Faculty." />
   <meta name="twitter:image" content="https://finance.yonsei.ac.kr/images/logo.png" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
   <link rel="stylesheet" href="../../assets/style.css?v=20261025-2" />
   <style>
-    /* Filter Bar */
-    .pub-filter-section {
-      background: #ffffff;
-      border: 1px solid var(--rule-medium);
-      border-radius: 6px;
-      padding: 1.25rem 1.5rem;
-      margin: 0.5rem 0 2rem 0;
-      box-shadow: 0 2px 8px rgba(0, 32, 70, 0.04);
+    /* Preview Comparison Banner */
+    .preview-compare-bar {
+      background: #f4f7fb;
+      border-bottom: 1px solid var(--rule-medium);
+      padding: 0.6rem 1.5rem;
+      font-size: 0.84rem;
+      color: var(--yonsei-navy);
     }
-    .pub-filter-header {
+    .preview-compare-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 0.85rem;
       flex-wrap: wrap;
-      gap: 0.5rem;
+      gap: 0.75rem;
     }
-    .pub-filter-title {
-      font-size: 0.82rem;
+    .preview-compare-links {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .preview-switch-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.3rem 0.75rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1px solid var(--rule-medium);
+      background: #ffffff;
+      color: var(--yonsei-navy);
+      transition: all 0.15s ease;
+    }
+    .preview-switch-pill:hover {
+      border-color: var(--yonsei-navy);
+      background: var(--bg-warm);
+    }
+    .preview-switch-pill.active {
+      background: var(--yonsei-navy);
+      color: #ffffff;
+      border-color: var(--yonsei-navy);
+    }
+
+    /* Sub-navigation Tabs under Page Header */
+    .faculty-view-tabs {
+      display: inline-flex;
+      border: 1px solid var(--rule-medium);
+      border-radius: 4px;
+      overflow: hidden;
+      background: #ffffff;
+    }
+    .faculty-view-tab {
+      padding: 0.48rem 1rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-body);
+      text-decoration: none;
+      border-right: 1px solid var(--rule-light);
+      transition: all 0.15s ease;
+    }
+    .faculty-view-tab:last-child {
+      border-right: none;
+    }
+    .faculty-view-tab:hover {
+      background: var(--bg-warm);
+      color: var(--yonsei-navy);
+    }
+    .faculty-view-tab.active {
+      background: var(--yonsei-navy);
+      color: #ffffff;
+    }
+
+    /* Academic Lead Intro Note */
+    .pub-lead-intro {
+      font-size: 0.96rem;
+      line-height: 1.7;
+      color: var(--text-body);
+      padding: 1.15rem 1.45rem;
+      background: #f8fafc;
+      border-left: 3px solid var(--yonsei-navy);
+      border-radius: 0 4px 4px 0;
+      margin: 1rem 0 2rem 0;
+    }
+    .pub-lead-intro strong {
+      color: var(--yonsei-navy);
+      font-weight: 700;
+    }
+
+    /* Filter Bar - Modern Minimal Pill Styling */
+    .pub-filter-section {
+      background: #ffffff;
+      border: 1px solid var(--rule-light);
+      border-radius: 6px;
+      padding: 1.15rem 1.4rem;
+      margin-bottom: 2.25rem;
+      box-shadow: 0 1px 3px rgba(0, 32, 70, 0.04);
+    }
+    .pub-filter-row {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+    .pub-filter-row + .pub-filter-row {
+      margin-top: 0.75rem;
+      padding-top: 0.75rem;
+      border-top: 1px dashed var(--rule-light);
+    }
+    .pub-filter-label {
+      font-size: 0.74rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.08em;
       color: var(--text-muted);
-    }
-    .pub-filter-count-badge {
-      font-size: 0.82rem;
-      color: var(--yonsei-blue);
-      font-weight: 600;
+      min-width: 90px;
     }
     .pub-filter-buttons {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.45rem;
+      gap: 0.4rem;
+      flex: 1;
     }
-    .pub-filter-btn {
+    .pub-filter-btn,
+    .journal-filter-btn {
       display: inline-flex;
       align-items: center;
       gap: 0.35rem;
-      padding: 0.45rem 0.95rem;
-      font-size: 0.86rem;
+      padding: 0.34rem 0.75rem;
+      font-size: 0.82rem;
       font-weight: 600;
-      color: var(--yonsei-navy);
+      color: #334155;
       background: #ffffff;
-      border: 1px solid var(--rule-medium);
-      border-radius: 20px;
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
       cursor: pointer;
-      text-decoration: none;
-      transition: all 0.18s ease;
+      transition: all 0.15s ease;
       font-family: inherit;
     }
-    .pub-filter-btn:hover {
-      background: var(--bg-warm);
+    .pub-filter-btn:hover,
+    .journal-filter-btn:hover {
+      background: #f1f5f9;
       border-color: var(--yonsei-navy);
       color: var(--yonsei-navy);
     }
-    .pub-filter-btn.active {
+    .pub-filter-btn.active,
+    .journal-filter-btn.active {
       background: var(--yonsei-navy);
       color: #ffffff;
       border-color: var(--yonsei-navy);
-      box-shadow: 0 2px 6px rgba(0, 32, 70, 0.2);
     }
-    .pub-filter-btn .btn-badge {
-      display: inline-block;
-      font-size: 0.72rem;
-      padding: 0.1rem 0.4rem;
-      border-radius: 10px;
+    .btn-badge {
+      font-size: 0.7rem;
+      padding: 0.05rem 0.35rem;
+      border-radius: 2px;
       background: rgba(0, 32, 70, 0.08);
       color: var(--yonsei-navy);
       font-weight: 700;
     }
-    .pub-filter-btn.active .btn-badge {
-      background: rgba(255, 255, 255, 0.25);
+    .pub-filter-btn.active .btn-badge,
+    .journal-filter-btn.active .btn-badge {
+      background: rgba(255, 255, 255, 0.22);
       color: #ffffff;
     }
 
-    /* Faculty Spotlight Banner (shown when a professor is selected) */
-    .faculty-spotlight-card {
-      display: none;
-      background: #ffffff;
-      border: 1px solid var(--rule-medium);
-      border-left: 4px solid var(--yonsei-navy);
-      border-radius: 4px;
-      padding: 1.25rem 1.75rem;
-      margin-bottom: 2rem;
-      box-shadow: 0 2px 10px rgba(0, 32, 70, 0.04);
-      animation: fadeIn 0.25s ease;
+    /* 2-Column Editorial Split Layout (Clean, Elegant Academic Style) */
+    .pub-faculty-block {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 2.25rem;
+      padding: 1.85rem 0;
+      border-top: 1px solid var(--rule-light);
     }
-    .faculty-spotlight-inner {
-      display: flex;
-      align-items: center;
-      gap: 1.25rem;
-      flex-wrap: wrap;
+    .pub-faculty-block:first-of-type {
+      border-top: 2px solid var(--yonsei-navy);
     }
-    .faculty-spotlight-thumb {
-      width: 72px;
-      height: 90px;
-      object-fit: cover;
-      border-radius: 3px;
-      border: 1px solid var(--rule-light);
-      flex-shrink: 0;
+    .pub-faculty-sidebar {
+      padding-top: 0.15rem;
     }
-    .faculty-spotlight-info {
-      flex: 1;
-      min-width: 200px;
-    }
-    .faculty-spotlight-name {
-      font-size: 1.22rem;
+    .pub-faculty-name {
+      font-family: var(--font-serif);
+      font-size: 1.28rem;
       font-weight: 700;
       color: var(--yonsei-navy);
-      margin: 0 0 0.2rem 0;
-    }
-    .faculty-spotlight-title {
-      font-size: 0.88rem;
-      color: var(--text-body);
-      font-weight: 600;
-    }
-    .faculty-spotlight-phd {
-      font-size: 0.84rem;
-      color: var(--text-muted);
-      margin-top: 0.2rem;
-    }
-
-    /* Year Group Block */
-    .pub-year-group {
-      margin-bottom: 2.25rem;
-    }
-    .pub-year-heading {
-      font-size: 1.15rem;
-      font-weight: 800;
-      color: var(--yonsei-navy);
-      padding-bottom: 0.5rem;
-      border-bottom: 2px solid var(--yonsei-navy);
-      margin-bottom: 0.5rem;
-      display: flex;
-      align-items: baseline;
-      gap: 0.6rem;
-      font-family: var(--font-serif);
+      margin: 0 0 0.15rem 0;
+      line-height: 1.25;
       letter-spacing: -0.01em;
     }
-    .pub-year-count {
-      font-size: 0.8rem;
-      font-weight: 600;
+    .pub-faculty-ko {
+      font-size: 0.9rem;
       color: var(--text-muted);
-      font-family: var(--font-sans);
+      font-weight: 500;
+      display: block;
+      margin-bottom: 0.35rem;
+    }
+    .pub-faculty-count {
+      font-size: 0.74rem;
+      color: var(--yonsei-blue);
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
     }
 
-    /* Publication Items (Option A: Classic Academic Editorial) */
-    .pub-timeline-list {
+    /* Paper List in Right Column */
+    .pub-list {
       list-style: none;
       padding: 0;
       margin: 0;
     }
-    .pub-timeline-item {
-      padding: 1.15rem 0;
-      border-bottom: 1px solid rgba(0, 32, 70, 0.08);
-      line-height: 1.6;
-      transition: background-color 0.15s ease;
+    .pub-item {
+      padding-bottom: 1.25rem;
+      margin-bottom: 1.25rem;
+      border-bottom: 1px dashed rgba(0, 32, 70, 0.1);
     }
-    .pub-timeline-item:last-child {
+    .pub-item:last-child {
       border-bottom: none;
+      padding-bottom: 0;
+      margin-bottom: 0;
     }
     .pub-paper-title {
-      font-size: 1.02rem;
+      font-size: 1.05rem;
       font-weight: 700;
       color: var(--yonsei-navy);
-      display: block;
-      margin-bottom: 0.35rem;
       line-height: 1.45;
+      margin-bottom: 0.3rem;
+      display: block;
     }
-    .pub-paper-meta {
+    .pub-paper-citation {
       font-size: 0.9rem;
-      color: var(--text-body);
+      color: #334155;
       line-height: 1.6;
     }
     .pub-journal-name {
       font-style: italic;
+      font-weight: 700;
       color: var(--yonsei-navy);
-      font-weight: 600;
-    }
-    .pub-author-tag {
-      display: inline-block;
-      margin-left: 0.4rem;
-      font-size: 0.76rem;
-      font-weight: 600;
-      padding: 0.1rem 0.5rem;
-      border-radius: 3px;
-      background: var(--bg-warm);
-      color: var(--yonsei-blue);
-      border: 1px solid rgba(0, 56, 118, 0.15);
-      cursor: pointer;
-      text-decoration: none;
-    }
-    .pub-author-tag:hover {
-      background: var(--yonsei-blue);
-      color: #ffffff;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-4px); }
-      to { opacity: 1; transform: translateY(0); }
+    @media (max-width: 768px) {
+      .pub-faculty-block {
+        grid-template-columns: 1fr;
+        gap: 0.85rem;
+      }
+      .pub-faculty-sidebar {
+        border-bottom: 1px solid var(--rule-light);
+        padding-bottom: 0.65rem;
+      }
     }
   </style>
 </head>
 <body>
+
+  <!-- Temporary Preview Comparison Bar -->
+  <div class="preview-compare-bar">
+    <div class="preview-compare-inner">
+      <div>
+        <strong>Layout Preview:</strong> Compare Option 2 (Editorial Split Publications Page) vs. Option 1 (Integrated Faculty Cards)
+      </div>
+      <div class="preview-compare-links">
+        <a href="publications.html" class="preview-switch-pill active">Option 2: Dedicated Publications Page</a>
+        <a href="preview-integrated.html" class="preview-switch-pill">Option 1: Integrated Faculty Directory Preview →</a>
+      </div>
+    </div>
+  </div>
+
   <!-- Top Utility Bar -->
   <div class="utility-bar">
     <div class="utility-container">
@@ -239,7 +301,7 @@
     </div>
   </div>
 
-  <!-- Header -->
+  <!-- Main Header & Navigation (Consistent with en/faculty/index.html) -->
   <header class="site-header">
     <div class="header-container">
       <a href="../index.html" class="brand">
@@ -252,15 +314,7 @@
 
       <nav class="main-nav" aria-label="Main Navigation">
         <a href="../index.html" class="nav-link">Overview</a>
-        <div class="nav-item-dropdown">
-          <a href="index.html" class="nav-link nav-dropdown-toggle active">
-            Faculty <span class="nav-dropdown-caret">▾</span>
-          </a>
-          <div class="nav-dropdown-menu">
-            <a href="index.html" class="nav-dropdown-item">Faculty Members</a>
-            <a href="publications.html" class="nav-dropdown-item active">Research by Faculty</a>
-          </div>
-        </div>
+        <a href="index.html" class="nav-link active">Faculty</a>
         <div class="nav-item-dropdown">
           <a href="../ms-finance/index.html" class="nav-link nav-dropdown-toggle">
             M.S. &amp; Ph.D. <span class="nav-dropdown-caret">▾</span>
@@ -280,372 +334,251 @@
     </div>
   </header>
 
-  <!-- Faculty Sub-Nav Bar (Faculty Members / Research by Faculty) -->
-  <nav class="sub-nav-bar" aria-label="Faculty Sub Navigation">
-    <div class="sub-nav-container">
-      <a href="index.html" class="sub-nav-link">
-        <span>👥 Faculty Members</span>
-      </a>
-      <a href="publications.html" class="sub-nav-link active">
-        <span>📚 Research by Faculty</span>
-      </a>
-    </div>
-  </nav>
-
   <!-- Main Content -->
   <main class="main-content">
-    <div class="view-section active" lang="en">
-      
-      <!-- Page Masthead -->
-      <div class="page-masthead" style="border-bottom: none; padding-bottom: 0.5rem; margin-bottom: 1.25rem;">
-        <div class="page-kicker">Yonsei School of Business · Research Excellence</div>
-        <h1 class="page-title">Selected Publication by Faculty Members</h1>
+    <section class="view-section active" lang="en">
+
+      <!-- Toolbar Header matching en/faculty/index.html -->
+      <div class="faculty-toolbar" style="padding-top: 2.25rem; align-items: flex-end;">
+        <div>
+          <div class="page-kicker">Finance Division · Research Excellence</div>
+          <h1 class="faculty-section-title" style="margin: 0;">Selected Publications by Faculty</h1>
+        </div>
+        <div class="faculty-view-tabs" role="navigation" aria-label="Faculty View Mode">
+          <a href="index.html" class="faculty-view-tab">Full-Time Faculty</a>
+          <a href="publications.html" class="faculty-view-tab active">Selected Publications</a>
+        </div>
       </div>
 
-      <!-- Interactive Filter Bar (All / By Faculty Member) -->
+      <!-- Academic Lead Intro Note (Dignified & Concise) -->
+      <p class="pub-lead-intro">
+        The Finance Division at Yonsei School of Business maintains a rigorous research culture, with <strong>70% of full-time faculty</strong> having published in premier finance and economics journals—including <em>The Journal of Finance</em>, <em>The Review of Financial Studies</em>, <em>Journal of Financial Economics</em>, <em>Journal of Financial and Quantitative Analysis</em>, <em>Management Science</em>, and <em>The Quarterly Journal of Economics</em>.
+      </p>
+
+      <!-- Interactive Filter Bar (By Journal & By Faculty) -->
       <section class="pub-filter-section" aria-label="Filter Publications">
-        <div class="pub-filter-header">
-          <span class="pub-filter-title">Filter by Faculty Member</span>
-          <span class="pub-filter-count-badge" id="filter-result-count">Showing all 13 publications</span>
+        <div class="pub-filter-row">
+          <span class="pub-filter-label">By Journal</span>
+          <div class="pub-filter-buttons" role="tablist">
+            <button type="button" class="journal-filter-btn active" data-journal-filter="all">
+              All Journals <span class="btn-badge">14</span>
+            </button>
+            <button type="button" class="journal-filter-btn" data-journal-filter="JF,RFS,JFE">
+              JF · RFS · JFE <span class="btn-badge">9</span>
+            </button>
+            <button type="button" class="journal-filter-btn" data-journal-filter="JFQA,MS">
+              JFQA · MS <span class="btn-badge">4</span>
+            </button>
+            <button type="button" class="journal-filter-btn" data-journal-filter="QJE">
+              QJE <span class="btn-badge">1</span>
+            </button>
+          </div>
         </div>
-        <div class="pub-filter-buttons" role="tablist">
-          <button type="button" class="pub-filter-btn active" data-filter="all">
-            All Publications <span class="btn-badge">13</span>
-          </button>
-          <button type="button" class="pub-filter-btn" data-filter="hahn">
-            Hahn, Jaehoon <span class="btn-badge">2</span>
-          </button>
-          <button type="button" class="pub-filter-btn" data-filter="auh">
-            Auh, Jun Kyung <span class="btn-badge">1</span>
-          </button>
-          <button type="button" class="pub-filter-btn" data-filter="eom">
-            Eom, Young Ho <span class="btn-badge">1</span>
-          </button>
-          <button type="button" class="pub-filter-btn" data-filter="lee-jiyoon">
-            Lee, Jiyoon <span class="btn-badge">1</span>
-          </button>
-          <button type="button" class="pub-filter-btn" data-filter="lee-junghoon">
-            Lee, Jung Hoon <span class="btn-badge">3</span>
-          </button>
-          <button type="button" class="pub-filter-btn" data-filter="pyun">
-            Pyun, Sungjune <span class="btn-badge">3</span>
-          </button>
-          <button type="button" class="pub-filter-btn" data-filter="shin-hyunhan">
-            Shin, Hyun-Han <span class="btn-badge">2</span>
-          </button>
+        <div class="pub-filter-row">
+          <span class="pub-filter-label">By Faculty</span>
+          <div class="pub-filter-buttons" role="tablist">
+            <button type="button" class="pub-filter-btn active" data-author-filter="all">
+              All Faculty <span class="btn-badge">7</span>
+            </button>
+            <button type="button" class="pub-filter-btn" data-author-filter="auh">
+              Jun Kyung Auh <span class="btn-badge">1</span>
+            </button>
+            <button type="button" class="pub-filter-btn" data-author-filter="eom">
+              Young Ho Eom <span class="btn-badge">1</span>
+            </button>
+            <button type="button" class="pub-filter-btn" data-author-filter="hahn">
+              Jaehoon Hahn <span class="btn-badge">2</span>
+            </button>
+            <button type="button" class="pub-filter-btn" data-author-filter="lee-jiyoon">
+              Jiyoon Lee <span class="btn-badge">1</span>
+            </button>
+            <button type="button" class="pub-filter-btn" data-author-filter="lee-junghoon">
+              Jung Hoon Lee <span class="btn-badge">4</span>
+            </button>
+            <button type="button" class="pub-filter-btn" data-author-filter="pyun">
+              Sungjune Pyun <span class="btn-badge">3</span>
+            </button>
+            <button type="button" class="pub-filter-btn" data-author-filter="shin-hyunhan">
+              Hyun-Han Shin <span class="btn-badge">2</span>
+            </button>
+          </div>
         </div>
       </section>
 
-      <!-- Faculty Spotlight Cards (Shown when individual faculty is filtered) -->
-      <div id="spotlight-container">
+      <!-- Publications Grouped By Faculty Member (2-Column Editorial Split Layout) -->
+      <div id="pub-faculty-container">
 
-        <!-- Hahn -->
-        <div class="faculty-spotlight-card" id="spotlight-hahn">
-          <div class="faculty-spotlight-inner">
-            <img src="../../images/faculty/hahn_jaehoon.jpg" alt="Prof. Jaehoon Hahn" class="faculty-spotlight-thumb" onerror="this.onerror=null;this.src='https://ysb.yonsei.ac.kr/app/board/attach/image/7115_1772514980000.do';" />
-            <div class="faculty-spotlight-info">
-              <h2 class="faculty-spotlight-name">Jaehoon Hahn</h2>
-              <div class="faculty-spotlight-title">Professor &amp; Chair of Finance Division</div>
-              <div class="faculty-spotlight-phd">Ph.D. in Finance, Columbia University</div>
-            </div>
-            <div>
-              <a href="https://ysb.yonsei.ac.kr/ysb/faculty/finance.do?mode=view&articleNo=22024" target="_blank" rel="noopener" class="btn-editorial-outline" style="font-size:0.8rem; padding:0.35rem 0.75rem;">Profile ↗</a>
-            </div>
+        <!-- 1. Jun Kyung Auh -->
+        <article class="pub-faculty-block" data-author="auh" id="faculty-auh">
+          <div class="pub-faculty-sidebar">
+            <h2 class="pub-faculty-name">Jun Kyung Auh</h2>
+            <span class="pub-faculty-ko">어준경</span>
           </div>
-        </div>
+          <div class="pub-faculty-content">
+            <ul class="pub-list">
+              <li class="pub-item" data-journal="JF">
+                <span class="pub-paper-title">Loan Terms and Collateral: Evidence from the Bilateral Repo Market</span>
+                <div class="pub-paper-citation">
+                  Auh, Jun Kyung, and Mattia Landoni (2022), <span class="pub-journal-name">The Journal of Finance</span>, 77(6), 2997–3036.
+                </div>
+              </li>
+            </ul>
+          </div>
+        </article>
 
-        <!-- Auh -->
-        <div class="faculty-spotlight-card" id="spotlight-auh">
-          <div class="faculty-spotlight-inner">
-            <img src="../../images/faculty/auh_junkyung.jpg" alt="Prof. Jun Kyung Auh" class="faculty-spotlight-thumb" onerror="this.onerror=null;this.src='https://ysb.yonsei.ac.kr/app/board/attach/image/14628_1781079747000.do';" />
-            <div class="faculty-spotlight-info">
-              <h2 class="faculty-spotlight-name">Jun Kyung Auh</h2>
-              <div class="faculty-spotlight-title">Associate Professor of Finance</div>
-              <div class="faculty-spotlight-phd">Ph.D. in Finance &amp; Economics, Columbia University</div>
-            </div>
-            <div>
-              <a href="https://junkyung.yonsei.ac.kr/" target="_blank" rel="noopener" class="btn-editorial-outline" style="font-size:0.8rem; padding:0.35rem 0.75rem;">Website ↗</a>
-            </div>
+        <!-- 2. Young Ho Eom -->
+        <article class="pub-faculty-block" data-author="eom" id="faculty-eom">
+          <div class="pub-faculty-sidebar">
+            <h2 class="pub-faculty-name">Young Ho Eom</h2>
+            <span class="pub-faculty-ko">엄영호</span>
           </div>
-        </div>
+          <div class="pub-faculty-content">
+            <ul class="pub-list">
+              <li class="pub-item" data-journal="RFS">
+                <span class="pub-paper-title">Structural Models of Corporate Bond Pricing: An Empirical Analysis</span>
+                <div class="pub-paper-citation">
+                  Eom, Young Ho, Jean Helwege, and Jing-Zhi Huang (2004), <span class="pub-journal-name">The Review of Financial Studies</span>, 17(2), 499–544.
+                </div>
+              </li>
+            </ul>
+          </div>
+        </article>
 
-        <!-- Eom -->
-        <div class="faculty-spotlight-card" id="spotlight-eom">
-          <div class="faculty-spotlight-inner">
-            <img src="../../images/faculty/eom_youngho.jpg" alt="Prof. Young Ho Eom" class="faculty-spotlight-thumb" onerror="this.onerror=null;this.src='https://ysb.yonsei.ac.kr/app/board/attach/image/7052_1772514950000.do';" />
-            <div class="faculty-spotlight-info">
-              <h2 class="faculty-spotlight-name">Young Ho Eom</h2>
-              <div class="faculty-spotlight-title">Professor of Finance</div>
-              <div class="faculty-spotlight-phd">Ph.D. in Finance, New York University</div>
-            </div>
-            <div>
-              <a href="https://ysb.yonsei.ac.kr/ysb/faculty/finance.do?mode=view&articleNo=22020" target="_blank" rel="noopener" class="btn-editorial-outline" style="font-size:0.8rem; padding:0.35rem 0.75rem;">Profile ↗</a>
-            </div>
+        <!-- 3. Jaehoon Hahn -->
+        <article class="pub-faculty-block" data-author="hahn" id="faculty-hahn">
+          <div class="pub-faculty-sidebar">
+            <h2 class="pub-faculty-name">Jaehoon Hahn</h2>
+            <span class="pub-faculty-ko">한재훈</span>
           </div>
-        </div>
+          <div class="pub-faculty-content">
+            <ul class="pub-list">
+              <li class="pub-item" data-journal="JF">
+                <span class="pub-paper-title">Financial Constraints, Debt Capacity, and the Cross-Section of Stock Returns</span>
+                <div class="pub-paper-citation">
+                  Hahn, Jaehoon, and Hangyong Lee (2009), <span class="pub-journal-name">The Journal of Finance</span>, 64(2), 891–921.
+                </div>
+              </li>
+              <li class="pub-item" data-journal="JFQA">
+                <span class="pub-paper-title">Yield Spreads as Alternative Risk Factors for Size and Book-to-Market</span>
+                <div class="pub-paper-citation">
+                  Hahn, Jaehoon, and Hangyong Lee (2006), <span class="pub-journal-name">Journal of Financial and Quantitative Analysis</span>, 41(2), 245–269.
+                </div>
+              </li>
+            </ul>
+          </div>
+        </article>
 
-        <!-- Lee, Jiyoon -->
-        <div class="faculty-spotlight-card" id="spotlight-lee-jiyoon">
-          <div class="faculty-spotlight-inner">
-            <img src="../../images/faculty/lee_jiyoon.jpg" alt="Prof. Jiyoon Lee" class="faculty-spotlight-thumb" onerror="this.onerror=null;this.src='https://ysb.yonsei.ac.kr/app/board/attach/image/7049_1772514948000.do';" />
-            <div class="faculty-spotlight-info">
-              <h2 class="faculty-spotlight-name">Jiyoon Lee</h2>
-              <div class="faculty-spotlight-title">Associate Professor of Finance</div>
-              <div class="faculty-spotlight-phd">Ph.D. in Finance, George Washington University</div>
-            </div>
-            <div>
-              <a href="https://ysb.yonsei.ac.kr/ysb/faculty/finance.do?mode=view&articleNo=22027" target="_blank" rel="noopener" class="btn-editorial-outline" style="font-size:0.8rem; padding:0.35rem 0.75rem;">Profile ↗</a>
-            </div>
+        <!-- 4. Jiyoon Lee -->
+        <article class="pub-faculty-block" data-author="lee-jiyoon" id="faculty-lee-jiyoon">
+          <div class="pub-faculty-sidebar">
+            <h2 class="pub-faculty-name">Jiyoon Lee</h2>
+            <span class="pub-faculty-ko">이지윤</span>
           </div>
-        </div>
+          <div class="pub-faculty-content">
+            <ul class="pub-list">
+              <li class="pub-item" data-journal="JF">
+                <span class="pub-paper-title">Information Asymmetry, Mispricing, and Security Issuance</span>
+                <div class="pub-paper-citation">
+                  Lee, Jiyoon (2021), <span class="pub-journal-name">The Journal of Finance</span>, 76(6), 3401–3446.
+                </div>
+              </li>
+            </ul>
+          </div>
+        </article>
 
-        <!-- Lee, Jung Hoon -->
-        <div class="faculty-spotlight-card" id="spotlight-lee-junghoon">
-          <div class="faculty-spotlight-inner">
-            <img src="../../images/faculty/lee_junghoon.jpg" alt="Prof. Jung Hoon Lee" class="faculty-spotlight-thumb" onerror="this.onerror=null;this.src='https://ysb.yonsei.ac.kr/app/board/attach/image/7065_1772514956000.do';" />
-            <div class="faculty-spotlight-info">
-              <h2 class="faculty-spotlight-name">Jung Hoon Lee</h2>
-              <div class="faculty-spotlight-title">Associate Professor of Finance</div>
-              <div class="faculty-spotlight-phd">Ph.D. in Finance, Indiana University Bloomington</div>
-            </div>
-            <div>
-              <a href="https://sites.google.com/view/junghoonlee" target="_blank" rel="noopener" class="btn-editorial-outline" style="font-size:0.8rem; padding:0.35rem 0.75rem;">Website ↗</a>
-            </div>
+        <!-- 5. Jung Hoon Lee -->
+        <article class="pub-faculty-block" data-author="lee-junghoon" id="faculty-lee-junghoon">
+          <div class="pub-faculty-sidebar">
+            <h2 class="pub-faculty-name">Jung Hoon Lee</h2>
+            <span class="pub-faculty-ko">이정훈</span>
           </div>
-        </div>
+          <div class="pub-faculty-content">
+            <ul class="pub-list">
+              <li class="pub-item" data-journal="JFQA">
+                <span class="pub-paper-title">The Risk of Outsourcing: How External Advisors Influence Mutual Fund Performance</span>
+                <div class="pub-paper-citation">
+                  Lee, Jung Hoon, Saurin Patel, and Shyam Venkatesan (forthcoming), <span class="pub-journal-name">Journal of Financial and Quantitative Analysis</span>.
+                </div>
+              </li>
+              <li class="pub-item" data-journal="JFE">
+                <span class="pub-paper-title">On the Information Content of Credit Ratings and Market-Based Measures of Default Risk</span>
+                <div class="pub-paper-citation">
+                  Gredil, Oleg, Nishad Kapadia, and Jung Hoon Lee (2022), <span class="pub-journal-name">Journal of Financial Economics</span>, 143(2), 905–934.
+                </div>
+              </li>
+              <li class="pub-item" data-journal="JF">
+                <span class="pub-paper-title">Do Portfolio Manager Contracts Contract Portfolio Management?</span>
+                <div class="pub-paper-citation">
+                  Lee, Jung Hoon, Charles Trzcinka, and Shyam Venkatesan (2019), <span class="pub-journal-name">The Journal of Finance</span>, 74(5), 2543–2577.
+                </div>
+              </li>
+              <li class="pub-item" data-journal="JF">
+                <span class="pub-paper-title">Conflicting Family Values in Mutual Fund Families</span>
+                <div class="pub-paper-citation">
+                  Bhattacharya, Utpal, Jung Hoon Lee, and Veronika K. Pool (2013), <span class="pub-journal-name">The Journal of Finance</span>, 68(1), 173–200.
+                </div>
+              </li>
+            </ul>
+          </div>
+        </article>
 
-        <!-- Pyun -->
-        <div class="faculty-spotlight-card" id="spotlight-pyun">
-          <div class="faculty-spotlight-inner">
-            <img src="../../images/faculty/pyun_sungjun.jpg" alt="Prof. Sungjune Pyun" class="faculty-spotlight-thumb" onerror="this.onerror=null;this.src='https://ysb.yonsei.ac.kr/app/board/attach/image/14622_1781079584000.do';" />
-            <div class="faculty-spotlight-info">
-              <h2 class="faculty-spotlight-name">Sungjune Pyun</h2>
-              <div class="faculty-spotlight-title">Associate Professor &amp; MS/Ph.D. Coordinator</div>
-              <div class="faculty-spotlight-phd">Ph.D. in Finance, Univ. of Southern California</div>
-            </div>
-            <div>
-              <a href="https://sjpyun.github.io/" target="_blank" rel="noopener" class="btn-editorial-outline" style="font-size:0.8rem; padding:0.35rem 0.75rem;">Website ↗</a>
-            </div>
+        <!-- 6. Sungjune Pyun -->
+        <article class="pub-faculty-block" data-author="pyun" id="faculty-pyun">
+          <div class="pub-faculty-sidebar">
+            <h2 class="pub-faculty-name">Sungjune Pyun</h2>
+            <span class="pub-faculty-ko">변성준</span>
           </div>
-        </div>
+          <div class="pub-faculty-content">
+            <ul class="pub-list">
+              <li class="pub-item" data-journal="MS">
+                <span class="pub-paper-title">Stock-Bond Return Dynamics and the Expected Country Stock Returns</span>
+                <div class="pub-paper-citation">
+                  Pyun, Sungjune (2025), <span class="pub-journal-name">Management Science</span>, 71(12), 10603–10623.
+                </div>
+              </li>
+              <li class="pub-item" data-journal="JFQA">
+                <span class="pub-paper-title">Consumption Growth Persistence and the Stock-Bond Correlation</span>
+                <div class="pub-paper-citation">
+                  Jones, Christopher S., and Sungjune Pyun (2025), <span class="pub-journal-name">Journal of Financial and Quantitative Analysis</span>, 60(2), 810–838.
+                </div>
+              </li>
+              <li class="pub-item" data-journal="JFE">
+                <span class="pub-paper-title">Variance Risk in Aggregate Stock Returns and Time-Varying Return Predictability</span>
+                <div class="pub-paper-citation">
+                  Pyun, Sungjune (2019), <span class="pub-journal-name">Journal of Financial Economics</span>, 132(1), 150–174.
+                </div>
+              </li>
+            </ul>
+          </div>
+        </article>
 
-        <!-- Shin, Hyun-Han -->
-        <div class="faculty-spotlight-card" id="spotlight-shin-hyunhan">
-          <div class="faculty-spotlight-inner">
-            <img src="../../images/faculty/shin_hyunhan.jpg" alt="Prof. Hyun-Han Shin" class="faculty-spotlight-thumb" onerror="this.onerror=null;this.src='https://ysb.yonsei.ac.kr/app/board/attach/image/7047_1772514948000.do';" />
-            <div class="faculty-spotlight-info">
-              <h2 class="faculty-spotlight-name">Hyun-Han Shin</h2>
-              <div class="faculty-spotlight-title">Professor of Finance</div>
-              <div class="faculty-spotlight-phd">Ph.D. in Finance, The Ohio State University</div>
-            </div>
-            <div>
-              <a href="https://ysb.yonsei.ac.kr/ysb/faculty/finance.do?mode=view&articleNo=22001" target="_blank" rel="noopener" class="btn-editorial-outline" style="font-size:0.8rem; padding:0.35rem 0.75rem;">Profile ↗</a>
-            </div>
+        <!-- 7. Hyun-Han Shin -->
+        <article class="pub-faculty-block" data-author="shin-hyunhan" id="faculty-shin-hyunhan">
+          <div class="pub-faculty-sidebar">
+            <h2 class="pub-faculty-name">Hyun-Han Shin</h2>
+            <span class="pub-faculty-ko">신현한</span>
           </div>
-        </div>
+          <div class="pub-faculty-content">
+            <ul class="pub-list">
+              <li class="pub-item" data-journal="RFS">
+                <span class="pub-paper-title">Why Does Equity Capital Flow out of High Tobin's q Industries?</span>
+                <div class="pub-paper-citation">
+                  Lee, Dong Wook, Hyun-Han Shin, and René M. Stulz (2021), <span class="pub-journal-name">The Review of Financial Studies</span>, 34(4), 1867–1906.
+                </div>
+              </li>
+              <li class="pub-item" data-journal="QJE">
+                <span class="pub-paper-title">Are Internal Capital Markets Efficient?</span>
+                <div class="pub-paper-citation">
+                  Shin, Hyun-Han, and René M. Stulz (1998), <span class="pub-journal-name">The Quarterly Journal of Economics</span>, 113(2), 531–552.
+                </div>
+              </li>
+            </ul>
+          </div>
+        </article>
 
       </div>
 
-      <!-- Chronological Publications Roster (Grouped by Year) -->
-      <div id="pub-timeline-container">
-
-        <!-- 2025 -->
-        <section class="pub-year-group" data-year="2025">
-          <h2 class="pub-year-heading">
-            2025 <span class="pub-year-count">(2 publications)</span>
-          </h2>
-          <ul class="pub-timeline-list">
-            <li class="pub-timeline-item" data-author="pyun" data-year="2025">
-              <span class="pub-paper-title">Stock-Bond Return Dynamics and the Expected Country Stock Returns</span>
-              <div class="pub-paper-meta">
-                Pyun, Sungjune (2025).
-                <span class="pub-journal-name">Management Science</span>, 71(12), 10603–10623.
-                <button type="button" class="pub-author-tag" data-filter-target="pyun" title="Filter by Sungjune Pyun">Pyun, Sungjune</button>
-              </div>
-            </li>
-            <li class="pub-timeline-item" data-author="pyun" data-year="2025">
-              <span class="pub-paper-title">Consumption Growth Persistence and the Stock-Bond Correlation</span>
-              <div class="pub-paper-meta">
-                Jones, Christopher S., and Sungjune Pyun (2025).
-                <span class="pub-journal-name">Journal of Financial and Quantitative Analysis</span>, 60(2), 810–838.
-                <button type="button" class="pub-author-tag" data-filter-target="pyun" title="Filter by Sungjune Pyun">Pyun, Sungjune</button>
-              </div>
-            </li>
-          </ul>
-        </section>
-
-        <!-- 2022 -->
-        <section class="pub-year-group" data-year="2022">
-          <h2 class="pub-year-heading">
-            2022 <span class="pub-year-count">(1 publication)</span>
-          </h2>
-          <ul class="pub-timeline-list">
-            <li class="pub-timeline-item" data-author="auh" data-year="2022">
-              <span class="pub-paper-title">Loan Terms and Collateral: Evidence from the Bilateral Repo Market</span>
-              <div class="pub-paper-meta">
-                Auh, Jun Kyung, and Mattia Landoni (2022).
-                <span class="pub-journal-name">The Journal of Finance</span>, 77(6), 2997–3036.
-                <button type="button" class="pub-author-tag" data-filter-target="auh" title="Filter by Jun Kyung Auh">Auh, Jun Kyung</button>
-              </div>
-            </li>
-          </ul>
-        </section>
-
-        <!-- 2021 -->
-        <section class="pub-year-group" data-year="2021">
-          <h2 class="pub-year-heading">
-            2021 <span class="pub-year-count">(2 publications)</span>
-          </h2>
-          <ul class="pub-timeline-list">
-            <li class="pub-timeline-item" data-author="lee-jiyoon" data-year="2021">
-              <span class="pub-paper-title">Information Asymmetry, Mispricing, and Security Issuance</span>
-              <div class="pub-paper-meta">
-                Lee, Jiyoon (2021).
-                <span class="pub-journal-name">The Journal of Finance</span>, 76(6), 3401–3446.
-                <button type="button" class="pub-author-tag" data-filter-target="lee-jiyoon" title="Filter by Jiyoon Lee">Lee, Jiyoon</button>
-              </div>
-            </li>
-            <li class="pub-timeline-item" data-author="shin-hyunhan" data-year="2021">
-              <span class="pub-paper-title">Why Does Equity Capital Flow out of High Tobin's q Industries?</span>
-              <div class="pub-paper-meta">
-                Lee, Dong, Hyun-Han Shin, and René M. Stulz (2021).
-                <span class="pub-journal-name">The Review of Financial Studies</span>, 34(8), 3998–4046.
-                <button type="button" class="pub-author-tag" data-filter-target="shin-hyunhan" title="Filter by Hyun-Han Shin">Shin, Hyun-Han</button>
-              </div>
-            </li>
-          </ul>
-        </section>
-
-        <!-- 2020 -->
-        <section class="pub-year-group" data-year="2020">
-          <h2 class="pub-year-heading">
-            2020 <span class="pub-year-count">(1 publication)</span>
-          </h2>
-          <ul class="pub-timeline-list">
-            <li class="pub-timeline-item" data-author="lee-junghoon" data-year="2020">
-              <span class="pub-paper-title">The Risk of Outsourcing: How External Advisors Influence Mutual Fund Performance</span>
-              <div class="pub-paper-meta">
-                Lee, Jung Hoon, Saurin Patel, and Shyam Venkatesan (forthcoming).
-                <span class="pub-journal-name">Journal of Financial and Quantitative Analysis</span>.
-                <button type="button" class="pub-author-tag" data-filter-target="lee-junghoon" title="Filter by Jung Hoon Lee">Lee, Jung Hoon</button>
-              </div>
-            </li>
-          </ul>
-        </section>
-
-        <!-- 2019 -->
-        <section class="pub-year-group" data-year="2019">
-          <h2 class="pub-year-heading">
-            2019 <span class="pub-year-count">(2 publications)</span>
-          </h2>
-          <ul class="pub-timeline-list">
-            <li class="pub-timeline-item" data-author="lee-junghoon" data-year="2019">
-              <span class="pub-paper-title">Do Portfolio Manager Contracts Contract Portfolio Management?</span>
-              <div class="pub-paper-meta">
-                Lee, Jung Hoon, Charles Trzcinka, and Shyam Venkatesan (2019).
-                <span class="pub-journal-name">The Journal of Finance</span>, 74(5), 2543–2577.
-                <button type="button" class="pub-author-tag" data-filter-target="lee-junghoon" title="Filter by Jung Hoon Lee">Lee, Jung Hoon</button>
-              </div>
-            </li>
-            <li class="pub-timeline-item" data-author="pyun" data-year="2019">
-              <span class="pub-paper-title">Variance Risk in Aggregate Stock Returns and Time-Varying Return Predictability</span>
-              <div class="pub-paper-meta">
-                Pyun, Sungjune (2019).
-                <span class="pub-journal-name">Journal of Financial Economics</span>, 132(1), 150–174.
-                <button type="button" class="pub-author-tag" data-filter-target="pyun" title="Filter by Sungjune Pyun">Pyun, Sungjune</button>
-              </div>
-            </li>
-          </ul>
-        </section>
-
-        <!-- 2013 -->
-        <section class="pub-year-group" data-year="2013">
-          <h2 class="pub-year-heading">
-            2013 <span class="pub-year-count">(1 publication)</span>
-          </h2>
-          <ul class="pub-timeline-list">
-            <li class="pub-timeline-item" data-author="lee-junghoon" data-year="2013">
-              <span class="pub-paper-title">Conflicting Family Values in Mutual Fund Families</span>
-              <div class="pub-paper-meta">
-                Bhattacharya, Utpal, Jung Hoon Lee, and Veronika K. Pool (2013).
-                <span class="pub-journal-name">The Journal of Finance</span>, 68(1), 173–200.
-                <button type="button" class="pub-author-tag" data-filter-target="lee-junghoon" title="Filter by Jung Hoon Lee">Lee, Jung Hoon</button>
-              </div>
-            </li>
-          </ul>
-        </section>
-
-        <!-- 2009 -->
-        <section class="pub-year-group" data-year="2009">
-          <h2 class="pub-year-heading">
-            2009 <span class="pub-year-count">(1 publication)</span>
-          </h2>
-          <ul class="pub-timeline-list">
-            <li class="pub-timeline-item" data-author="hahn" data-year="2009">
-              <span class="pub-paper-title">Financial Constraints, Debt Capacity, and the Cross-Section of Stock Returns</span>
-              <div class="pub-paper-meta">
-                Hahn, Jaehoon, and Hangyong Lee (2009).
-                <span class="pub-journal-name">The Journal of Finance</span>, 64(2), 891–921.
-                <button type="button" class="pub-author-tag" data-filter-target="hahn" title="Filter by Jaehoon Hahn">Hahn, Jaehoon</button>
-              </div>
-            </li>
-          </ul>
-        </section>
-
-        <!-- 2006 -->
-        <section class="pub-year-group" data-year="2006">
-          <h2 class="pub-year-heading">
-            2006 <span class="pub-year-count">(1 publication)</span>
-          </h2>
-          <ul class="pub-timeline-list">
-            <li class="pub-timeline-item" data-author="hahn" data-year="2006">
-              <span class="pub-paper-title">Yield Spreads as Alternative Risk Factors for Size and Book-to-Market</span>
-              <div class="pub-paper-meta">
-                Hahn, Jaehoon, and Hangyong Lee (2006).
-                <span class="pub-journal-name">Journal of Financial and Quantitative Analysis</span>, 41(2), 245–269.
-                <button type="button" class="pub-author-tag" data-filter-target="hahn" title="Filter by Jaehoon Hahn">Hahn, Jaehoon</button>
-              </div>
-            </li>
-          </ul>
-        </section>
-
-        <!-- 2004 -->
-        <section class="pub-year-group" data-year="2004">
-          <h2 class="pub-year-heading">
-            2004 <span class="pub-year-count">(1 publication)</span>
-          </h2>
-          <ul class="pub-timeline-list">
-            <li class="pub-timeline-item" data-author="eom" data-year="2004">
-              <span class="pub-paper-title">Structural Models of Corporate Bond Pricing: An Empirical Analysis</span>
-              <div class="pub-paper-meta">
-                Eom, Young Ho, Jean Helwege, and Jing-zhi Huang (2004).
-                <span class="pub-journal-name">The Journal of Finance</span>, 59(2), 499–544.
-                <button type="button" class="pub-author-tag" data-filter-target="eom" title="Filter by Young Ho Eom">Eom, Young Ho</button>
-              </div>
-            </li>
-          </ul>
-        </section>
-
-        <!-- 1998 -->
-        <section class="pub-year-group" data-year="1998">
-          <h2 class="pub-year-heading">
-            1998 <span class="pub-year-count">(1 publication)</span>
-          </h2>
-          <ul class="pub-timeline-list">
-            <li class="pub-timeline-item" data-author="shin-hyunhan" data-year="1998">
-              <span class="pub-paper-title">Are Internal Capital Markets Efficient?</span>
-              <div class="pub-paper-meta">
-                Shin, Hyun-Han, and René M. Stulz (1998).
-                <span class="pub-journal-name">The Quarterly Journal of Economics</span>, 113(2), 531–552.
-                <button type="button" class="pub-author-tag" data-filter-target="shin-hyunhan" title="Filter by Hyun-Han Shin">Shin, Hyun-Han</button>
-              </div>
-            </li>
-          </ul>
-        </section>
-
-      </div>
-
-    </div>
+    </section>
   </main>
 
   <!-- Site Footer -->
@@ -658,130 +591,61 @@
         <p style="margin-bottom:0.2rem;">Building 212, 50 Yonsei-ro, Seodaemun-gu, Seoul 03722, Republic of Korea</p>
         <p style="color:rgba(255,255,255,0.5);">Copyright © 2026 Yonsei School of Business. All rights reserved.</p>
       </div>
-      <div>
-        <a href="https://ysb.yonsei.ac.kr" target="_blank" rel="noopener" style="color:#ffffff; text-decoration:none; font-size:0.86rem; border:1px solid rgba(255,255,255,0.3); padding:0.4rem 0.8rem; border-radius:3px;">YSB Website ↗</a>
-      </div>
     </div>
   </footer>
 
-  <!-- Interactive Filter Script -->
+  <!-- Dual Filter Script (By Faculty + By Journal) -->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      var filterButtons = document.querySelectorAll('.pub-filter-btn');
-      var authorTags = document.querySelectorAll('.pub-author-tag');
-      var spotlightCards = document.querySelectorAll('.faculty-spotlight-card');
-      var yearGroups = document.querySelectorAll('.pub-year-group');
-      var timelineItems = document.querySelectorAll('.pub-timeline-item');
-      var countBadge = document.getElementById('filter-result-count');
+      var authorBtns = document.querySelectorAll('[data-author-filter]');
+      var journalBtns = document.querySelectorAll('[data-journal-filter]');
+      var facultyBlocks = document.querySelectorAll('.pub-faculty-block');
 
-      var authorNames = {
-        'all': 'All Publications',
-        'hahn': 'Jaehoon Hahn',
-        'auh': 'Jun Kyung Auh',
-        'eom': 'Young Ho Eom',
-        'lee-jiyoon': 'Jiyoon Lee',
-        'lee-junghoon': 'Jung Hoon Lee',
-        'pyun': 'Sungjune Pyun',
-        'shin-hyunhan': 'Hyun-Han Shin'
-      };
+      var activeAuthor = 'all';
+      var activeJournal = 'all';
 
-      function applyFilter(filterKey, updateHash) {
-        // Update active button state
-        filterButtons.forEach(function (btn) {
-          if (btn.getAttribute('data-filter') === filterKey) {
-            btn.classList.add('active');
-          } else {
-            btn.classList.remove('active');
-          }
+      function updateView() {
+        authorBtns.forEach(function (btn) {
+          btn.classList.toggle('active', btn.getAttribute('data-author-filter') === activeAuthor);
+        });
+        journalBtns.forEach(function (btn) {
+          btn.classList.toggle('active', btn.getAttribute('data-journal-filter') === activeJournal);
         });
 
-        // Update spotlight banner
-        spotlightCards.forEach(function (card) {
-          if (filterKey !== 'all' && card.id === 'spotlight-' + filterKey) {
-            card.style.display = 'block';
-          } else {
-            card.style.display = 'none';
-          }
-        });
+        facultyBlocks.forEach(function (block) {
+          var authorMatch = (activeAuthor === 'all' || block.getAttribute('data-author') === activeAuthor);
+          var items = block.querySelectorAll('.pub-item');
+          var visibleItems = 0;
 
-        // Filter publication items & year groups
-        var visibleCount = 0;
-        yearGroups.forEach(function (group) {
-          var groupItems = group.querySelectorAll('.pub-timeline-item');
-          var groupVisibleCount = 0;
-
-          groupItems.forEach(function (item) {
-            if (filterKey === 'all' || item.getAttribute('data-author') === filterKey) {
+          items.forEach(function (item) {
+            var itemJournal = item.getAttribute('data-journal');
+            var journalMatch = (activeJournal === 'all') || (activeJournal.split(',').indexOf(itemJournal) !== -1);
+            if (authorMatch && journalMatch) {
               item.style.display = '';
-              groupVisibleCount++;
-              visibleCount++;
+              visibleItems++;
             } else {
               item.style.display = 'none';
             }
           });
 
-          // Show/hide year group header
-          if (groupVisibleCount > 0) {
-            group.style.display = '';
-            var countSpan = group.querySelector('.pub-year-count');
-            if (countSpan) {
-              countSpan.textContent = '(' + groupVisibleCount + ' publication' + (groupVisibleCount > 1 ? 's' : '') + ')';
-            }
-          } else {
-            group.style.display = 'none';
-          }
+          block.style.display = (authorMatch && visibleItems > 0) ? '' : 'none';
         });
-
-        // Update result text
-        if (countBadge) {
-          if (filterKey === 'all') {
-            countBadge.textContent = 'Showing all ' + visibleCount + ' publications';
-          } else {
-            var authorName = authorNames[filterKey] || filterKey;
-            countBadge.textContent = 'Showing ' + visibleCount + ' publication' + (visibleCount > 1 ? 's' : '') + ' by ' + authorName;
-          }
-        }
-
-        // Update URL hash
-        if (updateHash !== false) {
-          if (filterKey === 'all') {
-            if (window.location.hash) {
-              history.replaceState(null, null, window.location.pathname);
-            }
-          } else {
-            history.replaceState(null, null, '#' + filterKey);
-          }
-        }
       }
 
-      // Button click handlers
-      filterButtons.forEach(function (btn) {
+      authorBtns.forEach(function (btn) {
         btn.addEventListener('click', function () {
-          var targetFilter = this.getAttribute('data-filter');
-          applyFilter(targetFilter, true);
+          activeAuthor = this.getAttribute('data-author-filter');
+          updateView();
         });
       });
 
-      // Author tag click handlers inside cards
-      authorTags.forEach(function (tag) {
-        tag.addEventListener('click', function () {
-          var targetAuthor = this.getAttribute('data-filter-target');
-          applyFilter(targetAuthor, true);
-          // Scroll smoothly to filter section
-          var filterSec = document.querySelector('.pub-filter-section');
-          if (filterSec) {
-            filterSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }
+      journalBtns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          activeJournal = this.getAttribute('data-journal-filter');
+          updateView();
         });
       });
-
-      // Check initial hash on page load
-      var initialHash = window.location.hash.replace('#', '').trim();
-      if (initialHash && authorNames[initialHash]) {
-        applyFilter(initialHash, false);
-      }
     });
   </script>
-  <script src="../../assets/app.js"></script>
 </body>
 </html>

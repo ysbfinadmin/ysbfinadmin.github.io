@@ -82,7 +82,15 @@
       </a>
 
       <nav class="main-nav" aria-label="Main Navigation">
-        <a href="index.html" class="nav-link active">Overview</a>
+        <div class="nav-item-dropdown">
+          <a href="index.html" class="nav-link nav-dropdown-toggle active">
+            Overview <span class="nav-dropdown-caret">▾</span>
+          </a>
+          <div class="nav-dropdown-menu">
+            <a href="index.html" class="nav-dropdown-item active">Division Overview</a>
+            <a href="seminars/index.html" class="nav-dropdown-item">Seminars</a>
+          </div>
+        </div>
         <a href="faculty/index.html" class="nav-link">Faculty</a>
         <a href="ms-finance/index.html" class="nav-link">M.S. &amp; Ph.D.</a>
         <div class="header-lang-switch">
@@ -94,6 +102,18 @@
       </nav>
     </div>
   </header>
+
+  <!-- Overview Sub-Nav Bar -->
+  <nav class="sub-nav-bar" aria-label="Overview Sub-Navigation">
+    <div class="sub-nav-container">
+      <a href="index.html" class="sub-nav-link active">
+        <span>🏛️ Division Overview</span>
+      </a>
+      <a href="seminars/index.html" class="sub-nav-link">
+        <span>📅 Seminars</span>
+      </a>
+    </div>
+  </nav>
 
   <!-- English Hero Banner -->
   <section id="hero-en" class="editorial-hero view-section active" lang="en">
@@ -293,41 +313,51 @@
         </div>
       </section>
 
-      <!-- 04. Division Leadership -->
-      <section class="editorial-section" style="margin-bottom: 1rem;">
+      <!-- 04. Academic Seminars -->
+      <section class="editorial-section">
         <div class="section-sidebar">
-          <span class="section-num">04 / Division Leadership</span>
-          <h2 class="section-heading">Division Leadership &amp;<br />Program Directors</h2>
+          <span class="section-num">04 / Academic Seminars</span>
+          <h2 class="section-heading">Finance Seminars</h2>
+          <p class="section-note">
+            We regularly invite distinguished scholars from leading global institutions to present and discuss cutting-edge finance research.
+          </p>
         </div>
 
         <div class="section-body">
-          <table class="leadership-table">
-            <tbody id="leadership-tbody-en">
-      <tr>
-        <th>
-          Chair of Finance Division
-          <span>재무분야 주임교수</span>
-        </th>
-        <td style="font-weight:700; color:var(--yonsei-navy);">
-          <a href="https://ysb.yonsei.ac.kr/ysb/faculty/finance.do?mode=view&articleNo=22024" target="_blank" rel="noopener" style="border-bottom:1px solid var(--rule-medium);">Prof. Jaehoon Hahn ↗</a>
-        </td>
-        <td>Office: BIZ #615</td>
-        <td><a href="javascript:void(0)" class="eml-protect" data-u="aGFobmo=" data-d="eW9uc2VpLmFjLmty" style="color:var(--yonsei-blue);" title="Send Email"><span class="eml-text">Email</span></a></td>
-      </tr>
-      <tr>
-        <th>
-          MS/Ph.D. Program Coordinator
-          <span>일반대학원 석박사 전공코디교수</span>
-        </th>
-        <td style="font-weight:700; color:var(--yonsei-navy);">
-          <a href="https://sjpyun.github.io/" target="_blank" rel="noopener" style="border-bottom:1px solid var(--rule-medium);">Prof. Sungjune Pyun ↗</a>
-        </td>
-        <td>Office: BIZ #643</td>
-        <td><a href="javascript:void(0)" class="eml-protect" data-u="c2pweXVu" data-d="eW9uc2VpLmFjLmty" style="color:var(--yonsei-blue);" title="Send Email"><span class="eml-text">Email</span></a></td>
-      </tr></tbody>
-          </table>
+          <div class="institutional-callout" style="margin:0; background:#ffffff;">
+            <div style="flex:1; min-width:280px;">
+              <div class="grad-track-label" style="margin-bottom:0.25rem;">Yonsei Finance Seminar Series · YBRI</div>
+              <h3 style="font-family:var(--font-serif); font-size:1.15rem; font-weight:700; color:var(--yonsei-navy); margin-bottom:0.45rem;">
+                Finance Division Research Seminar Series
+              </h3>
+              <p style="font-size:0.9rem; color:var(--text-body); line-height:1.65;">
+                Explore upcoming and past seminar schedules, invited speakers, and presentation topics hosted jointly by the Finance Division and the Yonsei Business Research Institute (YBRI).
+              </p>
+            </div>
+            <div style="display:flex; gap:0.75rem; flex-wrap:wrap; align-items:center;">
+              <a href="seminars/index.html" class="btn-editorial">View Seminar Schedule →</a>
+            </div>
+          </div>
         </div>
       </section>
+
+      <!-- Bottom Division Notice & Chair Contact -->
+      <div class="institutional-callout" style="margin-top:2rem; margin-bottom:1.5rem;">
+        <div style="flex:1; min-width:280px;">
+          <h4 style="font-family:var(--font-serif); font-size:1.08rem; font-weight:700; color:var(--yonsei-navy); margin-bottom:0.35rem;">
+            Finance Division · Yonsei School of Business
+          </h4>
+          <div style="font-size:0.86rem; color:var(--text-body); line-height:1.5;">
+            <strong>Chair of Finance Division:</strong>
+            <a href="https://ysb.yonsei.ac.kr/ysb/faculty/finance.do?mode=view&articleNo=22024" target="_blank" rel="noopener" style="color:var(--yonsei-navy); font-weight:700; text-decoration:none; border-bottom:1px solid var(--rule-medium);">Prof. Jaehoon Hahn ↗</a>
+            <span style="color:var(--text-muted); margin-left:0.35rem;">(Office: BIZ #615 · <a href="javascript:void(0)" class="eml-protect" data-u="aGFobmo=" data-d="eW9uc2VpLmFjLmty" style="color:var(--yonsei-blue);">Email</a>)</span>
+          </div>
+        </div>
+        <div style="display:flex; gap:0.75rem; flex-wrap:wrap; align-items:center;">
+          <a href="faculty/index.html" class="btn-editorial">View All Faculty →</a>
+          <a href="https://ysb.yonsei.ac.kr" target="_blank" rel="noopener" class="btn-editorial-outline">YSB Website ↗</a>
+        </div>
+      </div>
 
     </div>
   </main>

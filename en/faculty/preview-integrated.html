@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[Preview: Option 1] Faculty Directory with Integrated Publications | Yonsei School of Business</title>
+  <meta name="description" content="Preview of Option 1: Finance Division Faculty Directory with Selected Top Publications integrated directly into each faculty card." />
+  <link rel="icon" type="image/png" href="../../images/logo.png" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+  <link rel="stylesheet" href="../../assets/style.css?v=20261025-2" />
+  <style>
+    /* Preview Comparison Banner */
+    .preview-compare-bar {
+      background: #f4f7fb;
+      border-bottom: 1px solid var(--rule-medium);
+      padding: 0.65rem 1.5rem;
+      font-size: 0.84rem;
+      color: var(--yonsei-navy);
+    }
+    .preview-compare-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .preview-compare-links {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .preview-switch-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.3rem 0.75rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1px solid var(--rule-medium);
+      background: #ffffff;
+      color: var(--yonsei-navy);
+      transition: all 0.15s ease;
+    }
+    .preview-switch-pill:hover {
+      border-color: var(--yonsei-navy);
+      background: var(--bg-warm);
+    }
+    .preview-switch-pill.active {
+      background: var(--yonsei-navy);
+      color: #ffffff;
+      border-color: var(--yonsei-navy);
+    }
+
+    /* Sub-mode Switcher for Option 1 (Addressing Card Height / Balance) */
+    .option1-mode-bar {
+      background: #ffffff;
+      border: 1px solid var(--rule-medium);
+      border-left: 4px solid var(--yonsei-navy);
+      border-radius: 4px;
+      padding: 0.9rem 1.25rem;
+      margin-top: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .option1-mode-title {
+      font-size: 0.85rem;
+      color: var(--text-body);
+    }
+    .option1-mode-title strong {
+      color: var(--yonsei-navy);
+    }
+    .option1-mode-btns {
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+    }
+    .mode-btn {
+      padding: 0.35rem 0.75rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      border: 1px solid var(--rule-medium);
+      background: #ffffff;
+      color: var(--yonsei-navy);
+      border-radius: 3px;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.15s ease;
+    }
+    .mode-btn:hover {
+      background: var(--bg-warm);
+      border-color: var(--yonsei-navy);
+    }
+    .mode-btn.active {
+      background: var(--yonsei-blue);
+      color: #ffffff;
+      border-color: var(--yonsei-blue);
+    }
+
+    /* Integrated Selected Publications Block inside Faculty Card */
+    .card-pubs-box {
+      margin: 0.65rem 0 0.85rem 0;
+      padding: 0.65rem 0.8rem;
+      background: var(--bg-warm);
+      border-left: 3px solid var(--yonsei-navy);
+      border-radius: 0 3px 3px 0;
+    }
+    .card-pubs-heading {
+      font-size: 0.73rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--yonsei-navy);
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .card-pubs-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .card-pubs-list li {
+      font-size: 0.81rem;
+      line-height: 1.45;
+      color: var(--text-body);
+      padding: 0.26rem 0;
+      border-bottom: 1px dashed rgba(0, 32, 70, 0.1);
+    }
+    .card-pubs-list li:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    .card-pub-badge {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 800;
+      padding: 0.05rem 0.35rem;
+      border-radius: 2px;
+      background: var(--yonsei-navy);
+      color: #ffffff;
+      margin-right: 0.3rem;
+      vertical-align: baseline;
+    }
+    .card-pub-title {
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+    .card-pub-journal {
+      font-style: italic;
+      color: var(--yonsei-blue);
+      font-weight: 600;
+    }
+
+    /* Mode B: Cap at 2 items */
+    body.mode-capped .card-pubs-list li.pub-extra {
+      display: none;
+    }
+    .pub-more-note {
+      display: none;
+      font-size: 0.75rem;
+      color: var(--yonsei-blue);
+      font-weight: 600;
+      margin-top: 0.3rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0;
+      font-family: inherit;
+    }
+    body.mode-capped .pub-more-note {
+      display: inline-block;
+    }
+
+    /* Mode C: Collapsible Accordion */
+    .card-pubs-details {
+      margin: 0.55rem 0 0.85rem 0;
+      background: var(--bg-warm);
+      border: 1px solid var(--rule-light);
+      border-left: 3px solid var(--yonsei-navy);
+      border-radius: 2px;
+      padding: 0.45rem 0.75rem;
+      display: none;
+    }
+    .card-pubs-details summary {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--yonsei-navy);
+      cursor: pointer;
+      user-select: none;
+    }
+    .card-pubs-details[open] summary {
+      margin-bottom: 0.4rem;
+      padding-bottom: 0.3rem;
+      border-bottom: 1px solid var(--rule-light);
+    }
+    body.mode-collapsible .card-pubs-box {
+      display: none;
+    }
+    body.mode-collapsible .card-pubs-details {
+      display: block;
+    }
+  </style>
+</head>
+<body class="mode-all">
+
+  <!-- Temporary Preview Comparison Bar -->
+  <div class="preview-compare-bar">
+    <div class="preview-compare-inner">
+      <div>
+        <strong>Layout Preview:</strong> Compare Option 1 (Integrated inside Faculty Cards) vs. Option 2 (Dedicated Page by Faculty)
+      </div>
+      <div class="preview-compare-links">
+        <a href="preview-integrated.html" class="preview-switch-pill active">Option 1: Integrated Faculty Directory Preview</a>
+        <a href="publications.html" class="preview-switch-pill">Option 2: Dedicated Publications Page (By Faculty) →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Top Utility Bar -->
+  <div class="utility-bar">
+    <div class="utility-container">
+      <div class="utility-links">
+        <a href="https://ysb.yonsei.ac.kr" target="_blank" rel="noopener">Yonsei School of Business ↗</a>
+        <a href="https://ysb.yonsei.ac.kr/ysb/ms-phd/major.do" target="_blank" rel="noopener">Graduate School ↗</a>
+        <a href="https://www.yonsei.ac.kr" target="_blank" rel="noopener">Yonsei University ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Header & Navigation -->
+  <header class="site-header">
+    <div class="header-container">
+      <a href="../index.html" class="brand">
+        <img src="../../images/logo.png" alt="Yonsei School of Business Logo" class="brand-logo" onerror="this.style.display='none'" />
+        <div class="brand-text">
+          <span class="brand-school">Yonsei School of Business</span>
+          <span class="brand-dept">Finance Division</span>
+        </div>
+      </a>
+
+      <nav class="main-nav" aria-label="Main Navigation">
+        <a href="../index.html" class="nav-link">Overview</a>
+        <a href="index.html" class="nav-link active">Faculty</a>
+        <div class="nav-item-dropdown">
+          <a href="../ms-finance/index.html" class="nav-link nav-dropdown-toggle">
+            M.S. &amp; Ph.D. <span class="nav-dropdown-caret">▾</span>
+          </a>
+          <div class="nav-dropdown-menu">
+            <a href="../ms-finance/index.html" class="nav-dropdown-item">Program Overview</a>
+            <a href="../../ms-finance/academics.html" class="nav-dropdown-item">Academic Guide</a>
+          </div>
+        </div>
+        <div class="header-lang-switch">
+          <div class="lang-toggle-group" role="navigation" aria-label="Language Switcher">
+            <a href="../../faculty/index.html" class="lang-btn" id="btn-lang-ko" hreflang="ko">한국어</a>
+            <a href="preview-integrated.html" class="lang-btn active" id="btn-lang-en" hreflang="en">ENG</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <section class="view-section active" lang="en">
+
+      <!-- Option 1 Sub-Mode Switcher -->
+      <div class="option1-mode-bar">
+        <div class="option1-mode-title">
+          <strong>Option 1 Display Mode:</strong> Test how card density &amp; balance look across the 10 faculty cards
+        </div>
+        <div class="option1-mode-btns">
+          <button type="button" class="mode-btn active" data-mode="mode-all">1-A: Show All Top Papers</button>
+          <button type="button" class="mode-btn" data-mode="mode-capped">1-B: Cap at Max 2 Papers (Balanced Height)</button>
+          <button type="button" class="mode-btn" data-mode="mode-collapsible">1-C: Collapsible Toggle (Uniform Cards)</button>
+        </div>
+      </div>
+
+      <!-- Full-Time Faculty Header & Search -->
+      <div class="faculty-toolbar" style="padding-top: 1.75rem; align-items: flex-end;">
+        <div>
+          <div class="page-kicker">Finance Division · Faculty Directory</div>
+          <h1 class="faculty-section-title" style="margin: 0;">Full-Time Faculty</h1>
+        </div>
+        <div>
+          <input type="search" id="preview-search-en" class="editorial-search" placeholder="Search by name, research area, journal..." aria-label="Search faculty" />
+        </div>
+      </div>
+
+      <!-- Full-Time Faculty Roster (Option 1 Integrated Preview) -->
+      <div class="faculty-roster" id="faculty-grid-en-preview">
+
+        <!-- 1. Jaehoon Hahn -->
+        <article class="faculty-entry">
+          <a href="https://ysb.yonsei.ac.kr/ysb/faculty/finance.do?mode=view&articleNo=22024" target="_blank" rel="noopener" class="faculty-portrait-link" title="Prof. Jaehoon Hahn Profile">
+            <img src="../../images/faculty/hahn_jaehoon.jpg" alt="Prof. Jaehoon Hahn" class="faculty-portrait" onerror="this.onerror=null;this.src='https://ysb.yonsei.ac.kr/app/board/attach/image/7115_1772514980000.do';" />
+          </a>
+          <div class="faculty-body">
+            <div>
+              <div class="faculty-heading-line">
+                <a href="https://ysb.yonsei.ac.kr/ysb/faculty/finance.do?mode=view&articleNo=22024" target="_blank" rel="noopener" class="faculty-name-ko">Jaehoon Hahn</a>
+                <span class="faculty-name-en">한재훈</span>
+                <span class="faculty-rank">Professor</span>
+                <span class="faculty-duty">Chair of Finance Division</span>
+              </div>
+              <div class="faculty-phd">Ph.D. in Finance, Columbia University</div>
+              <div class="faculty-fields" style="margin-top: 0.45rem; margin-bottom: 0.5rem;">
+                <strong>Research Areas:</strong> Asset Pricing, Imperfect Capital Markets, Macroeconomic Fluctuations, Empirical Finance
+              </div>
+
+              <!-- Integrated Publications (Mode A & B) -->
+              <div class="card-pubs-box">
+                <div class="card-pubs-heading">Selected Top Publications</div>
+                <ul class="card-pubs-list">
+                  <li>
+                    <span class="card-pub-title">"Financial Constraints, Debt Capacity, and the Cross-Section of Stock Returns"</span>
+                    (with H. Lee), <span class="card-pub-journal">Journal of Finance</span>, 2009
+                  </li>
+                  <li>
+                    <span class="card-pub-title">"Yield Spreads as Alternative Risk Factors for Size and Book-to-Market"</span>
+                    (with H. Lee), <span class="card-pub-journal">JFQA</span>, 2006
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Collapsible Publications (Mode C) -->
+              <details class="card-pubs-details">
+                <summary>Selected Top Publications (2) — JF, JFQA</summary>
+                <ul class="card-pubs-list">
+                  <li>"Financial Constraints, Debt Capacity, and the Cross-Section of Stock Returns", <span class="card-pub-journal">JF</span> (2009)</li>
+                  <li>"Yield Spreads as Alternative Risk Factors for Size and Book-to-Market", <span class="card-pub-journal">JFQA</span> (2006)</li>
+                </ul>
+              </details>
+            </div>
+            <div>
+              <div class="faculty-contact-row">
+                <span>Office: BIZ #615</span>
+                <span>Tel. 02-2123-5460</span>
+                <a href="javascript:void(0)" class="eml-protect" data-u="aGFobmo=" data-d="eW9uc2VpLmFjLmty" title="Send Email"><span class="eml-text">Email</span></a>
+              </div>
+              <div class="faculty-links-row">
+                <a href="https://ysb.yonsei.ac.kr/ysb/faculty/finance.do?mode=view&articleNo=22024" target="_blank" rel="noopener">YSB Profile ↗</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 2. Jun Kyung Auh -->
+        <article class="faculty-entry">
+          <a href="https://junkyung.yonsei.ac.kr/" target="_blank" rel="noopener" class="faculty-portrait-link" title="Prof. Jun Kyung Auh Profile">
+            <img src="../../images/faculty/auh_junkyung.jpg" alt="Prof. Jun Kyung Auh" class="faculty-portrait" onerror="this.onerror=null;this.src='https://ysb.yonsei.ac.kr/app/board/attach/image/14628_1781079747000.do';" />
+          </a>
+          <div class="faculty-body">
+            <div>
+              <div class="faculty-heading-line">
+                <a href="https://junkyung.yonsei.ac.kr/" target="_blank" rel="noopener" class="faculty-name-ko">Jun Kyung Auh</a>
+                <span class="faculty-name-en">어준경</span>
+                <span class="faculty-rank">Associate Professor</span>
+              </div>
+              <div class="faculty-phd">Ph.D. in Finance &amp; Economics, Columbia University</div>
+              <div class="faculty-fields" style="margin-top: 0.45rem; margin-bottom: 0.5rem;">
+                <strong>Research Areas:</strong> Fixed Income &amp; Derivatives, Portfolio Theory, Systematic Investments, Machine Learning in Finance
+              </div>
+
+              <div class="card-pubs-box">
+                <div class="card-pubs-heading">Selected Top Publications</div>
+                <ul class="card-pubs-list">
+                  <li>
+                    <span class="card-pub-title">"Loan Terms and Collateral: Evidence from the Bilateral Repo Market"</span>
+                    (with M. Landoni), <span class="card-pub-journal">Journal of Finance</span>, 2022
+                  </li>
+                </ul>
+              </div>
+
+              <details class="card-pubs-details">
+                <summary>Selected Top Publications (1) — JF</summary>
+                <ul class="card-pubs-list">
+                  <li>"Loan Terms and Collateral: Evidence from the Bilateral Repo Market", <span class="card-pub-journal">JF</span> (2022)</li>
+                </ul>
+              </details>
+            </div>
+            <div>
+              <div class="faculty-contact-row">
+                <span>Office: BIZ #504</span>
+                <span>Tel. 02-2123-2505</span>
+                <a href="javascript:void(0)" class="eml-protect" data-u="anVua3l1bmcuYXVo" data-d="eW9uc2VpLmFjLmty" title="Send Email"><span class="eml-text">Email</span></a>
+              </div>
+              <div class="faculty-links-row">
+                <a href="https://junkyung.yonsei.ac.kr/" target="_blank" rel="noopener">Personal Website ↗</a>
+                <a href="https://ysb.yonsei.ac.kr/ysb/faculty/finance.do?mode=view&articleNo=22057" target="_blank" rel="noopener">YSB Profile ↗</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 3. Won-chang Choi -->
+        <article class="faculty-entry">
+          <a href="http://www.wonchangchoi.com" target="_blank" rel="noopener" class="faculty-portrait-link" title="Prof. Won-chang Choi Profile">
+            <img src="../../images/faculty/choi_wonchang.jpg" alt="Prof. Won-chang Choi" class="faculty-portrait" onerror="this.onerror=null;this.src='https://ysb.yonsei.ac.kr/app/board/attach/image/7205_1772515070000.do';" />
+          </a>
+          <div class="faculty-body">
+            <div>
+              <div class="faculty-heading-line">
+                <a href="http://www.wonchangchoi.com" target="_blank" rel="noopener" class="faculty-name-ko">Won-chang Choi</a>
+                <span class="faculty-name-en">최원창</span>
+                <span class="faculty-rank">Assistant Professor</span>
+              </div>
+              <div class="faculty-phd">Ph.D. in Economics, Washington Univ. in St. Louis</div>
+              <div class="faculty-fields" style="margin-top: 0.45rem; margin-bottom: 0.85rem;">
+                <strong>Research Areas:</strong> Theoretical Asset Pricing, Slow-Moving Capital, Market Frictions, Dynamic Portfolio Choice
+              </div>
+            </div>
+            <div>
+              <div class="faculty-contact-row">
+                <span>Office: BIZ #614</span>
+                <span>Tel. 02-2123-5464</span>
+                <a href="javascript:void(0)" class="eml-protect" data-u="d29uLWNoYW5nLmNob2k=" data-d="eW9uc2VpLmFjLmty" title="Send Email"><span class="eml-text">Email</span></a>
+              </div>
+              <div class="faculty-links-row">
+                <a href="http://www.wonchangchoi.com" target="_blank" rel="noopener">Personal Website ↗</a>
+                <a href="https://ysb.yonsei.ac.kr/ysb/faculty/finance.do?mode=view&articleNo=22194" target="_blank" rel="noopener">YSB Profile ↗</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 4. Young Ho Eom -->
+        <article class="faculty-entry">
+          <a href="https://ysb.yonsei.ac.kr/ysb/faculty/finance.do?mode=view&articleNo=22002" target="_blank" rel="noopener" class="faculty-portrait-link" title="Prof. Young Ho Eom Profile">
+            <img src="../../images/faculty/eom_youngho.jpg" alt="Prof. Young Ho Eom" class="faculty-portrait" onerror="this.onerror=null;this.src='https://ysb.yonsei.ac.kr/app/board/attach/image/7052_1772514950000.do';" />
+          </a>
+          <div class="faculty-body">
+            <div>
+              <div class="faculty-heading-line">
+                <a href="https://ysb.yonsei.ac.kr/ysb/faculty/finance.do?mode=view&articleNo=22002" target="_blank" rel="noopener" class="faculty-name-ko">Young Ho Eom</a>
+                <span class="faculty-name-en">엄영호</span>
+                <span class="faculty-rank">Professor</span>
+              </div>
+              <div class="faculty-phd">Ph.D. in Finance, New York University</div>
+              <div class="faculty-fields" style="margin-top: 0.45rem; margin-bottom: 0.5rem;">
+                <strong>Research Areas:</strong> Credit Risk, Derivatives Pricing, Empirical Asset Pricing, Monetary Policy
+              </div>
+
+              <div class="card-pubs-box">
+                <div class="card-pubs-heading">Selected Top Publications</div>
+                <ul class="card-pubs-list">
+                  <li>
+                    <span class="card-pub-title">"Structural Models of Corporate Bond Pricing: An Empirical Analysis"</span>
+                    (with J. Helwege, J. Huang), <span class="card-pub-journal">Review of Financial Studies</span>, 2004
+                  </li>
+                </ul>
+              </div>
+
+              <details class="card-pubs-details">
+                <summary>Selected Top Publications (1) — RFS</summary>
+                <ul class="card-pubs-list">
+                  <li>"Structural Models of Corporate Bond Pricing: An Empirical Analysis", <span class="card-pub-journal">RFS</span> (2004)</li>
+                </ul>
+              </details>
+            </div>
+            <div>
+              <div class="faculty-contact-row">
+                <span>Office: BIZ #645</span>
+                <span>Tel. 02-2123-4193</span>
+                <a href="javascript:void(0)" class="eml-protect" data-u="eWhlb20=" data-d="eW9uc2VpLmFjLmty" title="Send Email"><span class="eml-text">Email</span></a>
+              </div>
+              <div class="faculty-links-row">
+                <a href="https://ysb.yonsei.ac.kr/ysb/faculty/finance.do?mode=view&articleNo=22002" target="_blank" rel="noopener">YSB Profile ↗</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 5. Seungyeon Jeong -->
+        <article class="faculty-entry">
+          <a href="https://ysb.yonsei.ac.kr/ysb/faculty/finance.do?mode=view&articleNo=22195" target="_blank" rel="noopener" class="faculty-portrait-link" title="Prof. Seungyeon Jeong Profile">
+            <img src="../../images/faculty/jeong_seungyeon.jpg" alt="Prof. Seungyeon Jeong" class="faculty-portrait" onerror="this.onerror=null;this.src='https://ysb.yonsei.ac.kr/app/board/attach/image/14638_1781079962000.do';" />
+          </a>
+          <div class="faculty-body">
+            <div>
+              <div class="faculty-heading-line">
+                <a href="https://ysb.yonsei.ac.kr/ysb/faculty/finance.do?mode=view&articleNo=22195" target="_blank" rel="noopener" class="faculty-name-ko">Seungyeon Jeong</a>
+                <span class="faculty-name-en">정승연</span>
+                <span class="faculty-rank">Assistant Professor</span>
+              </div>
+              <div class="faculty-phd">Ph.D. in Actuarial Science, Bayes Business School, London</div>
+              <div class="faculty-fields" style="margin-top: 0.45rem; margin-bottom: 0.85rem;">
+                <strong>Research Areas:</strong> Insurance &amp; Risk Management, Actuarial Science, Pension Markets, Longevity Risk
+              </div>
+            </div>
+            <div>
+              <div class="faculty-contact-row">
+                <span>Office: BIZ #607</span>
+                <span>Tel. 02-2123-5462</span>
+                <a href="javascript:void(0)" class="eml-protect" data-u="c2V1bmcuamVvbmc=" data-d="eW9uc2VpLmFjLmty" title="Send Email"><span class="eml-text">Email</span></a>
+              </div>
+              <div class="faculty-links-row">
+                <a href="https://ysb.yonsei.ac.kr/ysb/faculty/finance.do?mode=view&articleNo=22195" target="_blank" rel="noopener">YSB Profile ↗</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 6. Jiyoon Lee -->
+        <article class="faculty-entry">
+          <a href="https://ysb.yonsei.ac.kr/ysb/faculty/finance.do?mode=view&articleNo=22083" target="_blank" rel="noopener" class="faculty-portrait-link" title="Prof. Jiyoon Lee Profile">
+            <img src="../../images/faculty/lee_jiyoon.jpg" alt="Prof. Jiyoon Lee" class="faculty-portrait" onerror="this.onerror=null;this.src='https://ysb.yonsei.ac.kr/app/board/attach/image/14636_1781079901000.do';" />
+          </a>
+          <div class="faculty-body">
+            <div>
+              <div class="faculty-heading-line">
+                <a href="https://ysb.yonsei.ac.kr/ysb/faculty/finance.do?mode=view&articleNo=22083" target="_blank" rel="noopener" class="faculty-name-ko">Jiyoon Lee</a>
+                <span class="faculty-name-en">이지윤</span>
+                <span class="faculty-rank">Associate Professor</span>
+              </div>
+              <div class="faculty-phd">Ph.D. in Finance, Univ. of Illinois Urbana-Champaign</div>
+              <div class="faculty-fields" style="margin-top: 0.45rem; margin-bottom: 0.5rem;">
+                <strong>Research Areas:</strong> Corporate Finance, Corporate Governance, ESG, Innovation &amp; R&amp;D
+              </div>
+
+              <div class="card-pubs-box">
+                <div class="card-pubs-heading">Selected Top Publications</div>
+                <ul class="card-pubs-list">
+                  <li>
+                    <span class="card-pub-title">"Information Asymmetry, Mispricing, and Security Issuance"</span>,
+                    <span class="card-pub-journal">Journal of Finance</span>, 2021
+                  </li>
+                </ul>
+              </div>
+
+              <details class="card-pubs-details">
+                <summary>Selected Top Publications (1) — JF</summary>
+                <ul class="card-pubs-list">
+                  <li>"Information Asymmetry, Mispricing, and Security Issuance", <span class="card-pub-journal">JF</span> (2021)</li>
+                </ul>
+              </details>
+            </div>
+            <div>
+              <div class="faculty-contact-row">
+                <span>Office: BIZ #545</span>
+                <span>Tel. 02-2123-5486</span>
+                <a href="javascript:void(0)" class="eml-protect" data-u="aml5b29ubGVl" data-d="eW9uc2VpLmFjLmty" title="Send Email"><span class="eml-text">Email</span></a>
+              </div>
+              <div class="faculty-links-row">
+                <a href="https://ysb.yonsei.ac.kr/ysb/faculty/finance.do?mode=view&articleNo=22083" target="_blank" rel="noopener">YSB Profile ↗</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 7. Jung Hoon Lee -->
+        <article class="faculty-entry">
+          <a href="https://sites.google.com/view/junghoonl/home" target="_blank" rel="noopener" class="faculty-portrait-link" title="Prof. Jung Hoon Lee Profile">
+            <img src="../../images/faculty/lee_junghoon.jpg" alt="Prof. Jung Hoon Lee" class="faculty-portrait" onerror="this.onerror=null;this.src='https://ysb.yonsei.ac.kr/app/board/attach/image/thumb_17438_1784860449000.do';" />
+          </a>
+          <div class="faculty-body">
+            <div>
+              <div class="faculty-heading-line">
+                <a href="https://sites.google.com/view/junghoonl/home" target="_blank" rel="noopener" class="faculty-name-ko">Jung Hoon Lee</a>
+                <span class="faculty-name-en">이정훈</span>
+                <span class="faculty-rank">Associate Professor</span>
+              </div>
+              <div class="faculty-phd">Ph.D. in Finance, Indiana University</div>
+              <div class="faculty-fields" style="margin-top: 0.45rem; margin-bottom: 0.5rem;">
+                <strong>Research Areas:</strong> Asset Management, Credit Risk &amp; Private Credit, Financial Regulation, Mutual Funds
+              </div>
+
+              <div class="card-pubs-box">
+                <div class="card-pubs-heading">Selected Top Publications</div>
+                <ul class="card-pubs-list">
+                  <li>
+                    <span class="card-pub-title">"On the Information Content of Credit Ratings and Market-Based Measures of Default Risk"</span>
+                    (with O. Gredil, N. Kapadia), <span class="card-pub-journal">Journal of Financial Economics</span>, 2022
+                  </li>
+                  <li>
+                    <span class="card-pub-title">"Do Portfolio Manager Contracts Contract Portfolio Management?"</span>
+                    (with C. Trzcinka, S. Venkatesan), <span class="card-pub-journal">Journal of Finance</span>, 2019
+                  </li>
+                  <li class="pub-extra">
+                    <span class="card-pub-title">"Conflicting Family Values in Mutual Fund Families"</span>
+                    (with U. Bhattacharya, V. Pool), <span class="card-pub-journal">Journal of Finance</span>, 2013
+                  </li>
+                  <li class="pub-extra">
+                    <span class="card-pub-title">"The Risk of Outsourcing: How External Advisors Influence Mutual Fund Performance"</span>
+                    (with S. Patel, S. Venkatesan), <span class="card-pub-journal">JFQA</span>, forthcoming
+                  </li>
+                </ul>
+                <button type="button" class="pub-more-note" onclick="this.previousElementSibling.querySelectorAll('.pub-extra').forEach(e=>e.style.display='block');this.style.display='none';">+ 2 more top publications (JF, JFQA)</button>
+              </div>
+
+              <details class="card-pubs-details">
+                <summary>Selected Top Publications (4) — 2 JF, 1 JFE, 1 JFQA</summary>
+                <ul class="card-pubs-list">
+                  <li>"On the Information Content of Credit Ratings and Market-Based Measures of Default Risk", <span class="card-pub-journal">JFE</span> (2022)</li>
+                  <li>"Do Portfolio Manager Contracts Contract Portfolio Management?", <span class="card-pub-journal">JF</span> (2019)</li>
+                  <li>"Conflicting Family Values in Mutual Fund Families", <span class="card-pub-journal">JF</span> (2013)</li>
+                  <li>"The Risk of Outsourcing: How External Advisors Influence Mutual Fund Performance", <span class="card-pub-journal">JFQA</span> (forthcoming)</li>
+                </ul>
+              </details>
+            </div>
+            <div>
+              <div class="faculty-contact-row">
+                <span>Office: BIZ #651</span>
+                <span>Tel. 02-2123-2495</span>
+                <a href="javascript:void(0)" class="eml-protect" data-u="anVuZ2hvb25sZWU=" data-d="eW9uc2VpLmFjLmty" title="Send Email"><span class="eml-text">Email</span></a>
+              </div>
+              <div class="faculty-links-row">
+                <a href="https://sites.google.com/view/junghoonl/home" target="_blank" rel="noopener">Personal Website ↗</a>
+                <a href="https://ysb.yonsei.ac.kr/ysb/faculty/finance.do?mode=view&articleNo=54330" target="_blank" rel="noopener">YSB Profile ↗</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 8. Sungjune Pyun -->
+        <article class="faculty-entry">
+          <a href="https://sjpyun.github.io/" target="_blank" rel="noopener" class="faculty-portrait-link" title="Prof. Sungjune Pyun Profile">
+            <img src="../../images/faculty/pyun_sungjun.jpg" alt="Prof. Sungjune Pyun" class="faculty-portrait" onerror="this.onerror=null;this.src='https://ysb.yonsei.ac.kr/app/board/attach/image/14622_1781079584000.do';" />
+          </a>
+          <div class="faculty-body">
+            <div>
+              <div class="faculty-heading-line">
+                <a href="https://sjpyun.github.io/" target="_blank" rel="noopener" class="faculty-name-ko">Sungjune Pyun</a>
+                <span class="faculty-name-en">변성준</span>
+                <span class="faculty-rank">Associate Professor</span>
+                <span class="faculty-duty">MS/Ph.D. Program Coordinator</span>
+              </div>
+              <div class="faculty-phd">Ph.D. in Finance, Univ. of Southern California</div>
+              <div class="faculty-fields" style="margin-top: 0.45rem; margin-bottom: 0.5rem;">
+                <strong>Research Areas:</strong> Empirical Asset Pricing, Investment Theory, International Finance, Macrofinance
+              </div>
+
+              <div class="card-pubs-box">
+                <div class="card-pubs-heading">Selected Top Publications</div>
+                <ul class="card-pubs-list">
+                  <li>
+                    <span class="card-pub-title">"Variance Risk in Aggregate Stock Returns and Time-Varying Return Predictability"</span>,
+                    <span class="card-pub-journal">Journal of Financial Economics</span>, 2019
+                  </li>
+                  <li>
+                    <span class="card-pub-title">"Stock-Bond Return Dynamics and the Expected Country Stock Returns"</span>,
+                    <span class="card-pub-journal">Management Science</span>, 2025
+                  </li>
+                  <li class="pub-extra">
+                    <span class="card-pub-title">"Consumption Growth Persistence and the Stock-Bond Correlation"</span>
+                    (with C. Jones), <span class="card-pub-journal">JFQA</span>, 2025
+                  </li>
+                </ul>
+                <button type="button" class="pub-more-note" onclick="this.previousElementSibling.querySelectorAll('.pub-extra').forEach(e=>e.style.display='block');this.style.display='none';">+ 1 more top publication (JFQA)</button>
+              </div>
+
+              <details class="card-pubs-details">
+                <summary>Selected Top Publications (3) — JFE, MS, JFQA</summary>
+                <ul class="card-pubs-list">
+                  <li>"Variance Risk in Aggregate Stock Returns and Time-Varying Return Predictability", <span class="card-pub-journal">JFE</span> (2019)</li>
+                  <li>"Stock-Bond Return Dynamics and the Expected Country Stock Returns", <span class="card-pub-journal">MS</span> (2025)</li>
+                  <li>"Consumption Growth Persistence and the Stock-Bond Correlation", <span class="card-pub-journal">JFQA</span> (2025)</li>
+                </ul>
+              </details>
+            </div>
+            <div>
+              <div class="faculty-contact-row">
+                <span>Office: BIZ #643</span>
+                <span>Tel. 02-2123-5489</span>
+                <a href="javascript:void(0)" class="eml-protect" data-u="c2pweXVu" data-d="eW9uc2VpLmFjLmty" title="Send Email"><span class="eml-text">Email</span></a>
+              </div>
+              <div class="faculty-links-row">
+                <a href="https://sjpyun.github.io/" target="_blank" rel="noopener">Personal Website ↗</a>
+                <a href="https://ysb.yonsei.ac.kr/ysb/faculty/finance.do?mode=view&articleNo=22154" target="_blank" rel="noopener">YSB Profile ↗</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 9. Hyun-Han Shin -->
+        <article class="faculty-entry">
+          <a href="https://scholar.google.co.kr/citations?user=iqSChOAAAAAJ&hl=en&oi=sra" target="_blank" rel="noopener" class="faculty-portrait-link" title="Prof. Hyun-Han Shin Profile">
+            <img src="../../images/faculty/shin_hyunhan.jpg" alt="Prof. Hyun-Han Shin" class="faculty-portrait" onerror="this.onerror=null;this.src='https://ysb.yonsei.ac.kr/app/board/attach/image/14626_1781079701000.do';" />
+          </a>
+          <div class="faculty-body">
+            <div>
+              <div class="faculty-heading-line">
+                <a href="https://scholar.google.co.kr/citations?user=iqSChOAAAAAJ&hl=en&oi=sra" target="_blank" rel="noopener" class="faculty-name-ko">Hyun-Han Shin</a>
+                <span class="faculty-name-en">신현한</span>
+                <span class="faculty-rank">Professor</span>
+              </div>
+              <div class="faculty-phd">Ph.D. in Finance, The Ohio State University</div>
+              <div class="faculty-fields" style="margin-top: 0.45rem; margin-bottom: 0.5rem;">
+                <strong>Research Areas:</strong> Corporate Investment Policy, Corporate Governance, M&amp;A &amp; Restructuring, Family Enterprise
+              </div>
+
+              <div class="card-pubs-box">
+                <div class="card-pubs-heading">Selected Top Publications</div>
+                <ul class="card-pubs-list">
+                  <li>
+                    <span class="card-pub-title">"Why Does Equity Capital Flow out of High Tobin's q Industries?"</span>
+                    (with D. Lee, R. Stulz), <span class="card-pub-journal">Review of Financial Studies</span>, 2021
+                  </li>
+                  <li>
+                    <span class="card-pub-title">"Are Internal Capital Markets Efficient?"</span>
+                    (with R. Stulz), <span class="card-pub-journal">Quarterly Journal of Economics</span>, 1998
+                  </li>
+                </ul>
+              </div>
+
+              <details class="card-pubs-details">
+                <summary>Selected Top Publications (2) — RFS, QJE</summary>
+                <ul class="card-pubs-list">
+                  <li>"Why Does Equity Capital Flow out of High Tobin's q Industries?", <span class="card-pub-journal">RFS</span> (2021)</li>
+                  <li>"Are Internal Capital Markets Efficient?", <span class="card-pub-journal">QJE</span> (1998)</li>
+                </ul>
+              </details>
+            </div>
+            <div>
+              <div class="faculty-contact-row">
+                <span>Office: BIZ #632</span>
+                <span>Tel. 02-2123-5466</span>
+                <a href="javascript:void(0)" class="eml-protect" data-u="aGhhbnNoaW4=" data-d="Z21haWwuY29t" title="Send Email"><span class="eml-text">Email</span></a>
+              </div>
+              <div class="faculty-links-row">
+                <a href="https://scholar.google.co.kr/citations?user=iqSChOAAAAAJ&hl=en&oi=sra" target="_blank" rel="noopener">Google Scholar ↗</a>
+                <a href="https://ysb.yonsei.ac.kr/ysb/faculty/finance.do?mode=view&articleNo=22001" target="_blank" rel="noopener">YSB Profile ↗</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 10. Jinyoung Shin -->
+        <article class="faculty-entry">
+          <a href="https://ysb.yonsei.ac.kr/ysb/faculty/finance.do?mode=view&articleNo=22000" target="_blank" rel="noopener" class="faculty-portrait-link" title="Prof. Jinyoung Shin Profile">
+            <img src="../../images/faculty/shin_jinyoung.jpg" alt="Prof. Jinyoung Shin" class="faculty-portrait" onerror="this.onerror=null;this.src='https://ysb.yonsei.ac.kr/app/board/attach/image/7046_1772514947000.do';" />
+          </a>
+          <div class="faculty-body">
+            <div>
+              <div class="faculty-heading-line">
+                <a href="https://ysb.yonsei.ac.kr/ysb/faculty/finance.do?mode=view&articleNo=22000" target="_blank" rel="noopener" class="faculty-name-ko">Jinyoung Shin</a>
+                <span class="faculty-name-en">신진영</span>
+                <span class="faculty-rank">Professor</span>
+              </div>
+              <div class="faculty-phd">Ph.D. in Finance, Carnegie Mellon University</div>
+              <div class="faculty-fields" style="margin-top: 0.45rem; margin-bottom: 0.85rem;">
+                <strong>Research Areas:</strong> Corporate Finance, Investments, Market Microstructure, ESG &amp; Governance
+              </div>
+            </div>
+            <div>
+              <div class="faculty-contact-row">
+                <span>Office: BIZ #501</span>
+                <span>Tel. 02-2123-5467</span>
+                <a href="javascript:void(0)" class="eml-protect" data-u="anNoaW4=" data-d="eW9uc2VpLmFjLmty" title="Send Email"><span class="eml-text">Email</span></a>
+              </div>
+              <div class="faculty-links-row">
+                <a href="https://ysb.yonsei.ac.kr/ysb/faculty/finance.do?mode=view&articleNo=22000" target="_blank" rel="noopener">YSB Profile ↗</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div>
+        <div style="font-family:var(--font-serif); font-size:1.02rem; font-weight:700; color:#ffffff; margin-bottom:0.35rem;">
+          Finance Division, Yonsei School of Business
+        </div>
+        <p style="margin-bottom:0.2rem;">Building 212, 50 Yonsei-ro, Seodaemun-gu, Seoul 03722, Republic of Korea</p>
+        <p style="color:rgba(255,255,255,0.5);">Copyright © 2026 Yonsei School of Business. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../assets/app.js?v=20261025-2"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var modeBtns = document.querySelectorAll('.mode-btn');
+      modeBtns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var targetMode = this.getAttribute('data-mode');
+          document.body.className = targetMode;
+          modeBtns.forEach(function (b) { b.classList.remove('active'); });
+          this.classList.add('active');
+        });
+      });
+
+      var searchInput = document.getElementById('preview-search-en');
+      var cards = document.querySelectorAll('#faculty-grid-en-preview .faculty-entry');
+      if (searchInput) {
+        searchInput.addEventListener('input', function () {
+          var q = this.value.trim().toLowerCase();
+          cards.forEach(function (card) {
+            var text = card.textContent.toLowerCase();
+            card.style.display = (!q || text.includes(q)) ? '' : 'none';
+          });
+        });
+      }
+    });
+  </script>
+</body>
+</html>

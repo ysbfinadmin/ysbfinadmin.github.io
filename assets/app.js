@@ -113,7 +113,7 @@ function renderOverviewB(data) {
           <p class="pillar-cell-desc">${p.desc}</p>
         </div>
         <div class="pillar-keywords">
-          <strong>핵심 주제</strong> ${p.keywords.join(" · ")}
+          <strong>주요 주제</strong> ${p.keywords.join(" · ")}
         </div>
       </div>
     `

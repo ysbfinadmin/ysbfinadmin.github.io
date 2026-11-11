@@ -140,7 +140,15 @@
       </a>
 
       <nav class="main-nav" aria-label="Main Navigation">
-        <a href="../index.html" class="nav-link">Overview</a>
+        <div class="nav-item-dropdown">
+          <a href="../index.html" class="nav-link nav-dropdown-toggle">
+            Overview <span class="nav-dropdown-caret">▾</span>
+          </a>
+          <div class="nav-dropdown-menu">
+            <a href="../index.html" class="nav-dropdown-item">Division Overview</a>
+            <a href="../seminars/index.html" class="nav-dropdown-item">Seminars</a>
+          </div>
+        </div>
         <a href="../faculty/index.html" class="nav-link">Faculty</a>
         <a href="index.html" class="nav-link active">M.S. &amp; Ph.D.</a>
         <div class="header-lang-switch">
@@ -701,17 +709,22 @@
         </div>
       </div>
       <div class="institutional-callout">
-        <div>
+        <div style="flex:1; min-width:280px;">
           <h4 style="font-family:var(--font-serif); font-size:1.08rem; font-weight:700; color:var(--yonsei-navy); margin-bottom:0.25rem;">
             Admissions &amp; Application Guide (Yonsei Graduate School)
           </h4>
-          <p style="font-size:0.88rem; color:var(--text-body);">
-            The M.S. and Ph.D. in Finance at Yonsei School of Business is a full-time program. Official admission timelines are available at the Yonsei University Graduate School website.
+          <p style="font-size:0.88rem; color:var(--text-body); margin:0;">
+            The M.S. and Ph.D. in Finance at Yonsei School of Business is a full-time program. Official admission timelines are available at the Yonsei University Graduate School website, and academic inquiries may be directed to the YSB Graduate Office (<a href="mailto:msphd.ysb@yonsei.ac.kr" style="color:var(--yonsei-blue); text-decoration:none; border-bottom:1px solid var(--rule-medium);">msphd.ysb@yonsei.ac.kr</a>).
           </p>
         </div>
-        <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
+        <div style="display:flex; gap:0.75rem; flex-wrap:wrap; align-items:center;">
           <a href="https://graduate.yonsei.ac.kr/graduate_en/index.do" target="_blank" rel="noopener" class="btn-editorial">Yonsei Graduate Admissions ↗</a>
           <a href="https://ysb.yonsei.ac.kr/ysb/ms-phd/course-introduction.do" target="_blank" rel="noopener" class="btn-editorial-outline">YSB MS/Ph.D. Official Page ↗</a>
+        </div>
+        <div style="width:100%; margin-top:0.75rem; padding-top:0.75rem; border-top:1px dashed rgba(0,32,96,0.18); font-size:0.85rem; color:var(--text-body); line-height:1.6;">
+          <strong>MS/Ph.D. Program Coordinator:</strong>
+          <a href="https://sjpyun.github.io/" target="_blank" rel="noopener" style="color:var(--yonsei-navy); font-weight:700; text-decoration:none; border-bottom:1px solid var(--rule-medium);">Prof. Sungjune Pyun ↗</a>
+          <span style="color:var(--text-muted); margin-left:0.35rem;">(Office: BIZ #643 · <a href="javascript:void(0)" class="eml-protect" data-u="c2pweXVu" data-d="eW9uc2VpLmFjLmty" style="color:var(--yonsei-blue);">Email</a>)</span>
         </div>
       </div>
     </section>

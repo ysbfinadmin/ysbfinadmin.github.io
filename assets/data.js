@@ -21,29 +21,28 @@ window.YSB_FINANCE_DATA = {
         officeEn: "BIZ #615",
         email: "aGFobmpAeW9uc2VpLmFjLmty",
         link: "https://ysb.yonsei.ac.kr/ysb/faculty/finance.do?mode=view&articleNo=22024"
-      },
-      {
-        role: "Finance MBA 주임교수",
-        roleEn: "Finance MBA Program Director",
-        name: "한재훈 교수",
-        nameEn: "Prof. Jaehoon Hahn",
-        office: "경영관 615호",
-        officeEn: "BIZ #615",
-        email: "aGFobmpAeW9uc2VpLmFjLmty",
-        link: "https://ysb.yonsei.ac.kr/ysb/faculty/finance.do?mode=view&articleNo=22024",
-        hideInEn: true
-      },
-      {
-        role: "일반대학원 석박사 전공코디교수",
-        roleEn: "MS/Ph.D. Program Coordinator",
-        name: "변성준 교수",
-        nameEn: "Prof. Sungjune Pyun",
-        office: "경영관 643호",
-        officeEn: "BIZ #643",
-        email: "c2pweXVuQHlvbnNlaS5hYy5rcg==",
-        link: "https://sjpyun.github.io/"
       }
-    ]
+    ],
+    fmbaDirector: {
+      role: "Finance MBA 주임교수",
+      roleEn: "Finance MBA Program Director",
+      name: "한재훈 교수",
+      nameEn: "Prof. Jaehoon Hahn",
+      office: "경영관 615호",
+      officeEn: "BIZ #615",
+      email: "aGFobmpAeW9uc2VpLmFjLmty",
+      link: "https://ysb.yonsei.ac.kr/ysb/faculty/finance.do?mode=view&articleNo=22024"
+    },
+    msPhdCoordinator: {
+      role: "일반대학원 석박사 전공코디교수",
+      roleEn: "MS/Ph.D. Program Coordinator",
+      name: "변성준 교수",
+      nameEn: "Prof. Sungjune Pyun",
+      office: "경영관 643호",
+      officeEn: "BIZ #643",
+      email: "c2pweXVuQHlvbnNlaS5hYy5rcg==",
+      link: "https://sjpyun.github.io/"
+    }
   },
 
   about: {
