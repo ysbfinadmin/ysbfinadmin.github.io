@@ -89,8 +89,8 @@ window.YSB_FINANCE_DATA = {
     stats: [
       { number: "4대 핵심 분야", label: "재무금융 전 영역 심화 연구", sub: "자산가격 · 기업재무 · 금융기관 및 파생상품 · 보험 및 리스크" },
       { number: "Top Tier", label: "글로벌 연구역량을 갖춘 교수진", sub: "JF, JFE, RFS, MS, JFQA, QJE 등 게재" },
-      { number: "MS / Ph.D.", label: "일반대학원 재무전공", sub: "학술 연구자 및 금융전문가 양성" },
-      { number: "FMBA", label: "Finance MBA", sub: "금융공학·자산운용 특화 MBA" }
+      { number: "MS / Ph.D.", label: "일반대학원 재무전공", sub: "주간 전일제 · 영어강의 · 논문트랙 (연구·박사유학)", track: "msphd", trackLabel: "일반대학원 · 전일제", link: "ms-finance/index.html" },
+      { number: "FMBA", label: "경영전문대학원 Finance MBA", sub: "재직자 대상 야간 MBA · 상세 안내 및 입학은 경영전문대학원 주관", track: "fmba", trackLabel: "경영전문대학원 소속 · 야간", link: "fmba/index.html" }
     ],
     statsEn: [
       { number: "4 Core Pillars", label: "Comprehensive Finance Research", sub: "Asset Pricing · Corporate Finance · Institutions & Derivatives · Insurance & Risk" },
@@ -108,6 +108,10 @@ window.YSB_FINANCE_DATA = {
       title: "교수",
       titleEn: "Professor",
       roleBadge: "재무분야 주임교수 · FMBA 주임교수",
+      roleBadgesKo: [
+        { text: "재무분야 주임교수", track: "division" },
+        { text: "FMBA 주임교수", track: "fmba" }
+      ],
       roleBadgeEn: "Chair of Finance Division",
       degree: "Ph.D. in Finance, Columbia University",
       office: "경영관 615호",
@@ -132,6 +136,9 @@ window.YSB_FINANCE_DATA = {
       title: "부교수",
       titleEn: "Associate Professor",
       roleBadge: "일반대학원 석박사 전공코디교수",
+      roleBadgesKo: [
+        { text: "일반대학원 석박사 전공코디교수", track: "msphd" }
+      ],
       roleBadgeEn: "MS/Ph.D. Program Coordinator",
       degree: "Ph.D. in Finance, Univ. of Southern California",
       office: "경영관 643호",
@@ -479,116 +486,11 @@ window.YSB_FINANCE_DATA = {
 
   fmba: {
     overview: {
-      badge: "Finance Specialized MBA",
-      title: "연세대학교 경영전문대학원 Finance MBA (FMBA)",
-      subtitle: "금융공학·자산운용·IB 분야를 선도할 미래 금융 CEO 및 핵심 금융전문가 양성 과정",
-      description: "연세대학교 Finance MBA(FMBA)는 금융공학과 자산운용, 기업금융 및 투자은행(IB) 분야에 특화된 심화 교육을 받고자 하는 금융산업 및 유관 분야의 초급·중간관리자를 위한 국내 최고 권위의 재무·금융 특화 MBA 학위 과정입니다. 글로벌 연구역량을 갖춘 연세경영 재무 전임교수진의 이론 강의와 현장 중심 사례연구, 그리고 40,000여 연세 경영 동문 네트워크를 통해 금융 리더로서의 도약을 지원합니다.",
-      specs: [
-        { label: "수여 학위", value: "경영학석사 (MBA)", sub: "국내 최초·유일 Triple Crown (AACSB·EQUIS·AMBA) 인증" },
-        { label: "수업 연한", value: "2년 (4학기 / 22개월)", sub: "Part-time 야간 과정 (졸업논문 없음)" },
-        { label: "강의 시간", value: "월 · 화 · 목 19:00 – 22:00", sub: "주 3일 야간 (계절학기: 월·화·목·금 또는 수·토)" },
-        { label: "졸업 요건", value: "총 45학점 이수", sub: "전공필수 33학점 / 영어과목 1.5학점↑ / 리더십 3~6학점" },
-        { label: "강의 언어", value: "한국어 강의 원칙", sub: "일부 글로벌·영어 개설 과목 1.5학점 이상 이수" },
-        { label: "모집 인원", value: "매년 3월 입학 / 35명 내외", sub: "CFA Partnership Program 연계 및 엄격한 학사관리" }
-      ]
-    },
-    curriculum: [
-      {
-        semester: "1년차 1학기 (Spring I)",
-        theme: "재무·금융의 핵심 기초 확립 (Core Foundations)",
-        totalCredits: "21학점",
-        modules: [
-          { name: "Module 1", period: "3월 ~ 4월 (8주)", courses: "금융경제학, 재무회계, 재무관리", credits: "9학점" },
-          { name: "Module 2", period: "5월 ~ 6월 (8주)", courses: "금융경제학, 재무회계, 재무관리", credits: "9학점" },
-          { name: "여름세션 (Summer)", period: "6월 ~ 7월 (4주)", courses: "금융통계학", credits: "3학점" }
-        ]
-      },
-      {
-        semester: "1년차 2학기 (Fall I)",
-        theme: "기업재무·투자론 및 금융수리 분석 (Analytical Finance)",
-        totalCredits: "21학점",
-        modules: [
-          { name: "Module 1", period: "9월 ~ 10월 (8주)", courses: "금융수학, 기업재무, 투자론", credits: "9학점" },
-          { name: "Module 2", period: "11월 ~ 12월 (8주)", courses: "금융수학, 기업재무, 투자론", credits: "9학점" },
-          { name: "겨울세션 (Winter)", period: "12월 ~ 1월 (4주)", courses: "마케팅, 전공선택 (Electives)", credits: "3학점" }
-        ]
-      },
-      {
-        semester: "2년차 3학기 (Spring II)",
-        theme: "파생상품 및 전략적 의사결정 심화 (Derivatives & Strategy)",
-        totalCredits: "21학점",
-        modules: [
-          { name: "Module 1", period: "3월 ~ 4월 (8주)", courses: "파생상품론, ODI 매니지먼트, 전공선택 (Electives)", credits: "9학점" },
-          { name: "Module 2", period: "5월 ~ 6월 (8주)", courses: "파생상품론, 전략, 전공선택 (Electives)", credits: "9학점" },
-          { name: "여름세션 (Summer)", period: "6월 ~ 7월 (4주)", courses: "조직행동, 전공선택 (Electives)", credits: "3학점" }
-        ]
-      },
-      {
-        semester: "2년차 4학기 (Fall II)",
-        theme: "금융사례연구 및 실무 캡스톤 통합 (Financial Case Studies & Capstone)",
-        totalCredits: "18학점",
-        modules: [
-          { name: "Module 1", period: "9월 ~ 10월 (8주)", courses: "금융사례연구, 전공선택 (Electives), 전공선택 (Electives)", credits: "9학점" },
-          { name: "Module 2", period: "11월 ~ 12월 (8주)", courses: "금융사례연구, 전공선택 (Electives), 전공선택 (Electives)", credits: "9학점" }
-        ]
-      }
-    ],
-    electiveTracks: [
-      {
-        track: "금융공학 심화 트랙",
-        trackEn: "Financial Engineering Track",
-        courses: ["고급파생상품론 (Advanced Derivatives)", "재무모델링 (Financial Modeling)", "계산재무론 (Computational Finance)", "채권시장 및 이자율모형 (Fixed Income Markets)"],
-        desc: "파생상품 설계·가격결정, 퀀트 모델링 및 수치해석 기법을 실무 데이터에 적용하는 역량을 배양합니다."
-      },
-      {
-        track: "자산운용 / 투자은행(IB) 트랙",
-        trackEn: "Asset Management & Investment Banking Track",
-        courses: ["자산운용의 이론과 실제 (Theory & Practice of Asset Management)", "국제재무 (International Finance)", "기업재무와 인수합병 (Corporate Finance & M&A)", "가치평가 및 사모펀드"],
-        desc: "기관투자자의 포트폴리오 운용 전략, 글로벌 자본시장 분석 및 M&A·기업금융 딜 구조화 전문성을 함양합니다."
-      },
-      {
-        track: "금융시장 · 리스크 공통 트랙",
-        trackEn: "Financial Markets & Risk Common Track",
-        courses: ["금융시장론 (Financial Markets)", "금융포럼 (Finance Forum)", "대체투자와 구조화상품 (Alternative Investments & Structured Products)", "위험관리 (Risk Management)", "금융사회연구 · 리더십"],
-        desc: "부동산·PE·인프라 등 대체투자와 구조화금융, 금융기관 전사적 위험관리 및 금융 현안 세미나를 아우릅니다."
-      }
-    ],
-    admissions: {
-      quota: "35명 내외 (매년 1회 전기 모집, 3월 입학)",
-      competitionRate: "약 2 : 1 내외 (연도별 소폭 편차 있음)",
-      tuition: "학기당 등록금 11,866,000원 / 첫 학기 입학금 1,211,000원 (2026학년도 기준)",
-      eligibility: [
-        "학사학위 소지자 또는 입학 전(2월)까지 학사학위 취득 예정인 자",
-        "만 2년 이상 직장 근무 경력자이면서 현재 재직 중인 자 (금융권 및 일반 기업 재무·기획·투자 유관 업무 종사자 포함)"
-      ],
-      process: [
-        { step: "STEP 01", title: "온라인 원서접수 및 서류제출", period: "매년 9월 중순 ~ 10월 중순", detail: "경영전문대학원 온라인 원서접수 시스템(applymba.yonsei.ac.kr)을 통해 지원서 작성 및 PDF 서류 업로드" },
-        { step: "STEP 02", title: "1차 서류전형 합격자(면접대상자) 발표", period: "매년 11월 중순", detail: "학업역량, 직무경력, 자기소개서, 추천서 등을 종합적으로 정량·정성 평가하여 이메일 개별 통보" },
-        { step: "STEP 03", title: "2차 면접전형 실시", period: "매년 11월 말 (토요일)", detail: "서류심사 합격자에 한하여 대면 면접 진행 (재무·금융 분야 수학 의지 및 리더십 역량 심층 평가)" },
-        { step: "STEP 04", title: "최종 합격자 발표 및 등록", period: "매년 12월 중순 발표 / 익년 2월 등록", detail: "최종 합격 통보 및 신입생 오리엔테이션·수강신청 진행" }
-      ],
-      documents: [
-        "입학지원서 (온라인 작성) 및 자기소개서 (본원 지정양식, 한글 또는 영문 워드 작성) 1부",
-        "추천서 (본원 지정양식, 추천인 자필서명 또는 날인 후 스캔본 제출) 1부",
-        "대학교(학사) 졸업증명서(또는 졸업예정증명서) 및 성적증명서 각 1부 (원본 스캔 PDF 또는 전자증명서)",
-        "재직증명서 1부 (입사일, 재직기간 및 직급 명시, 원서접수 시작일 이후 발급분)",
-        "경력증명서 1부 (이직 경력이 있는 경우 제출, 불가 시 건강보험자격득실확인서 대체 가능)",
-        "공인영어성적표 (선택사항: TOEFL, TOEIC, TEPS, IELTS 접수일 기준 2년 이내 성적 보유 시 가점 반영)"
-      ],
-      faqs: [
-        {
-          q: "비금융권 재직자나 비경상계열 학부 졸업생도 Finance MBA(FMBA)에 지원할 수 있나요?",
-          a: "네, 지원 가능합니다. 만 2년 이상의 재직 경력과 학사학위를 보유하고 있다면 학부 전공이나 현 직종에 제한 없이 지원하실 수 있습니다. 1년차 1학기부터 금융경제학, 재무회계, 재무관리, 금융통계학 등 기초 필수과목을 체계적으로 이수하도록 커리큘럼이 설계되어 있습니다."
-        },
-        {
-          q: "공인영어성적표는 필수 제출 서류인가요?",
-          a: "공인영어성적표(TOEFL, TOEIC, TEPS, IELTS)는 선택 제출 서류입니다. 미제출 시에도 지원 가능하나, 접수일 기준 최근 2년 이내의 유효 성적을 제출하실 경우 서류전형에서 일부 가점을 받으실 수 있습니다."
-        },
-        {
-          q: "직장 업무와 학업을 병행할 수 있도록 수업 일정이 어떻게 운영되나요?",
-          a: "FMBA는 재직자를 위한 Part-time 야간 MBA 과정으로, 정규학기 수업은 평일 야간(월·화·목 19:00~22:00)에 진행됩니다. 각 학기는 8주 단위의 모듈(Module 1, Module 2)과 4주 단위의 여름·겨울 계절세션으로 구성되어 집중도 높은 학습이 가능하며, 별도의 졸업논문 없이 45학점(전공필수 33학점 포함) 이수로 석사학위를 취득합니다."
-        }
-      ]
+      badge: "Yonsei Graduate School of Business",
+      title: "연세대학교 경영전문대학원 Finance MBA",
+      officialUrl: "https://mba.yonsei.ac.kr/mba/program/finance-mba.do",
+      admissionUrl: "https://mba.yonsei.ac.kr/mba/admission/schedule.do",
+      contactEmail: "cfmba.ysb@yonsei.ac.kr"
     }
   }
 };

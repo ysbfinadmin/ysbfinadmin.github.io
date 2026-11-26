@@ -2075,3 +2075,556 @@ ul, ol {
     height: 2800px;
   }
 }
+
+/* ==========================================================================
+   Two-Track Program Identity System (MS/Ph.D. vs FMBA)
+   ========================================================================== */
+
+@media (max-width: 600px) {
+  .utility-container {
+    white-space: normal;
+  }
+}
+
+/* Track Badges */
+.track-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.74rem;
+  font-weight: 700;
+  padding: 0.2rem 0.58rem;
+  border-radius: 2px;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+
+.track-badge--msphd {
+  background: #eef3f9;
+  color: var(--yonsei-navy);
+  border: 1px solid #b8cce0;
+}
+
+.track-badge--fmba {
+  background: var(--yonsei-gold-bg);
+  color: #6b501e;
+  border: 1px solid var(--yonsei-gold-border);
+}
+
+.track-badge--division {
+  background: #f1f5f9;
+  color: var(--text-body);
+  border: 1px solid #cbd5e1;
+}
+
+/* Page Masthead Specs & FMBA Gold Theme */
+.masthead-badges {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-bottom: 0.45rem;
+}
+
+.masthead-meta-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  margin-top: 1.05rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--rule-light);
+  font-size: 0.84rem;
+  color: var(--text-body);
+}
+
+.masthead-meta-item strong {
+  color: var(--yonsei-navy);
+  font-weight: 700;
+  margin-right: 0.25rem;
+}
+
+.fmba-page .page-masthead {
+  border-bottom-color: var(--yonsei-gold);
+}
+
+.fmba-page .masthead-meta-item strong {
+  color: #6b501e;
+}
+
+.fmba-page .editorial-section {
+  border-top-color: var(--yonsei-gold);
+}
+
+.fmba-page .specs-ledger,
+.fmba-page .degree-columns,
+.fmba-page .academic-table,
+.fmba-page .institutional-callout {
+  border-top-color: var(--yonsei-gold);
+}
+
+.fmba-page .btn-editorial {
+  background: #785c28;
+  border-color: #785c28;
+}
+
+.fmba-page .btn-editorial:hover {
+  background: #5e471e;
+  border-color: #5e471e;
+}
+
+/* Program Distinction Cross Banner */
+.program-distinction-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.85rem 1.5rem;
+  padding: 0.95rem 1.25rem;
+  margin: -1.5rem 0 2.5rem;
+  border: 1px solid var(--rule-light);
+  border-left-width: 4px;
+  font-size: 0.87rem;
+  line-height: 1.6;
+}
+
+.program-distinction-banner--msphd {
+  background: #f4f7fb;
+  border-color: #d6e2ef;
+  border-left-color: var(--yonsei-navy);
+}
+
+.program-distinction-banner--fmba {
+  background: var(--yonsei-gold-bg);
+  border-color: #e4d8bd;
+  border-left-color: var(--yonsei-gold);
+}
+
+.program-distinction-text {
+  flex: 1 1 240px;
+  min-width: 0;
+  color: var(--text-body);
+}
+
+.program-distinction-text strong {
+  color: var(--yonsei-navy);
+}
+
+.program-distinction-banner--fmba .program-distinction-text strong {
+  color: #6b501e;
+}
+
+.program-distinction-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem 0.75rem;
+  flex-wrap: wrap;
+  max-width: 100%;
+  min-width: 0;
+}
+
+@media (max-width: 600px) {
+  .program-distinction-banner {
+    margin: -0.75rem 0 2rem;
+    padding: 0.85rem 1rem;
+  }
+  .program-distinction-actions {
+    width: 100%;
+  }
+  .distinction-cta--fmba,
+  .distinction-cta--msphd {
+    white-space: normal;
+  }
+}
+
+.distinction-cta--fmba {
+  font-size: 0.83rem;
+  font-weight: 700;
+  color: #6b501e;
+  background: #ffffff;
+  border: 1px solid var(--yonsei-gold-border);
+  padding: 0.4rem 0.82rem;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.distinction-cta--fmba:hover {
+  background: #6b501e;
+  color: #ffffff;
+  border-color: #6b501e;
+}
+
+.distinction-cta--msphd {
+  font-size: 0.83rem;
+  font-weight: 700;
+  color: var(--yonsei-navy);
+  background: #ffffff;
+  border: 1px solid #9ab4d0;
+  padding: 0.4rem 0.82rem;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.distinction-cta--msphd:hover {
+  background: var(--yonsei-navy);
+  color: #ffffff;
+  border-color: var(--yonsei-navy);
+}
+
+/* Main Hero Ledger Track Pills */
+.ledger-item--clickable {
+  display: block;
+  text-decoration: none;
+  transition: background 0.15s ease, opacity 0.15s ease;
+}
+
+.ledger-item--clickable:hover {
+  opacity: 0.96;
+}
+
+.ledger-track-pill {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 0.12rem 0.45rem;
+  border-radius: 2px;
+  margin-bottom: 0.35rem;
+  letter-spacing: 0.01em;
+}
+
+.ledger-track-pill--msphd {
+  background: rgba(255, 255, 255, 0.16);
+  color: #e8f1fc;
+  border: 1px solid rgba(255, 255, 255, 0.32);
+}
+
+.ledger-track-pill--fmba {
+  background: rgba(197, 163, 90, 0.24);
+  color: #f6e4bd;
+  border: 1px solid rgba(230, 210, 168, 0.48);
+}
+
+/* Main Section 02 Track Cards */
+.grad-split--tracks {
+  border-top: none;
+  border-bottom: none;
+  gap: 1.25rem;
+  margin-bottom: 0;
+}
+
+.grad-card {
+  background: #ffffff;
+  border: 1px solid var(--rule-light);
+  border-top: 3px solid var(--yonsei-navy);
+  padding: 1.5rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.grad-card--fmba {
+  border-top-color: var(--yonsei-gold);
+  background: #fffdf9;
+}
+
+.grad-card .grad-title {
+  margin-top: 0.6rem;
+}
+
+.grad-card--fmba .grad-title {
+  color: #5c4317;
+}
+
+.grad-quick-facts {
+  display: grid;
+  grid-template-columns: 76px 1fr;
+  gap: 0.3rem 0.75rem;
+  font-size: 0.84rem;
+  margin: 0.85rem 0 1.25rem;
+  padding: 0.75rem 0;
+  border-top: 1px dotted var(--rule-light);
+  border-bottom: 1px dotted var(--rule-light);
+}
+
+.grad-quick-facts dt {
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.grad-quick-facts dd {
+  color: var(--text-ink);
+  font-weight: 500;
+}
+
+.grad-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem 1.15rem;
+  align-items: center;
+}
+
+@media (max-width: 960px) {
+  .grad-split--tracks {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Faculty Program Strip & Track-Coded Duty Badges */
+.faculty-program-strip {
+  background: var(--bg-warm);
+  border: 1px solid var(--rule-light);
+  border-top: 2px solid var(--yonsei-navy);
+  padding: 1.15rem 1.4rem;
+  margin: 1.25rem 0 0.5rem;
+}
+
+.faculty-program-intro {
+  font-size: 0.88rem;
+  color: var(--text-body);
+  line-height: 1.6;
+}
+
+.faculty-program-intro strong {
+  color: var(--yonsei-navy);
+}
+
+.faculty-program-tracks {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem;
+  margin-top: 0.8rem;
+}
+
+.faculty-track-box {
+  background: #ffffff;
+  border: 1px solid var(--rule-light);
+  border-left: 3px solid var(--yonsei-navy);
+  padding: 0.75rem 1rem;
+  font-size: 0.84rem;
+  line-height: 1.55;
+  color: var(--text-body);
+}
+
+.faculty-track-box--fmba {
+  border-left-color: var(--yonsei-gold);
+}
+
+.faculty-track-box-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.45rem;
+}
+
+.faculty-track-box-link {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--yonsei-blue);
+  border-bottom: 1px solid var(--rule-medium);
+}
+
+.faculty-track-box--fmba .faculty-track-box-link {
+  color: #6b501e;
+}
+
+@media (max-width: 768px) {
+  .faculty-program-tracks {
+    grid-template-columns: 1fr;
+  }
+}
+
+.faculty-duty-group {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  align-items: center;
+}
+
+.faculty-duty--msphd {
+  font-size: 0.73rem;
+  font-weight: 700;
+  color: var(--yonsei-navy);
+  background: #eef3f9;
+  border: 1px solid #b8cce0;
+  border-left: 2px solid var(--yonsei-navy);
+  padding: 0.12rem 0.48rem;
+  border-radius: 2px;
+}
+
+.faculty-duty--fmba {
+  font-size: 0.73rem;
+  font-weight: 700;
+  color: #6b501e;
+  background: var(--yonsei-gold-bg);
+  border: 1px solid var(--yonsei-gold-border);
+  border-left: 2px solid var(--yonsei-gold);
+  padding: 0.12rem 0.48rem;
+  border-radius: 2px;
+}
+
+.faculty-duty--division {
+  font-size: 0.73rem;
+  font-weight: 600;
+  color: var(--text-body);
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  padding: 0.12rem 0.48rem;
+  border-radius: 2px;
+}
+
+/* Footer Two-Track Program Directory */
+.footer-program-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(230px, 1fr));
+  gap: 1.25rem;
+  flex: 1;
+  max-width: 600px;
+}
+
+.footer-program-col {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-top: 2px solid #8eb8e5;
+  padding: 0.9rem 1.05rem;
+}
+
+.footer-program-col--fmba {
+  border-top-color: #e6d2a8;
+}
+
+.footer-program-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.2rem;
+}
+
+.footer-program-meta {
+  font-size: 0.76rem;
+  color: rgba(255, 255, 255, 0.72);
+  margin-bottom: 0.5rem;
+  line-height: 1.45;
+}
+
+.footer-program-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.85rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.footer-program-links a {
+  color: #e6effa;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.footer-program-links a:hover {
+  color: #ffffff;
+  border-bottom-color: #ffffff;
+}
+
+.footer-program-col--fmba .footer-program-links a {
+  color: #f3e5c8;
+  border-bottom-color: rgba(243, 229, 200, 0.38);
+}
+
+.footer-program-col--fmba .footer-program-links a:hover {
+  color: #ffffff;
+  border-bottom-color: #ffffff;
+}
+
+.footer-program-contact {
+  font-size: 0.76rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.footer-program-contact a {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .footer-program-grid {
+    grid-template-columns: 1fr;
+    max-width: none;
+    width: 100%;
+  }
+}
+
+/* FMBA Direct Bridge Page */
+.fmba-direct-card {
+  background: #fffdf9;
+  border: 1px solid #e4d8bd;
+  border-top: 3px solid var(--yonsei-gold);
+  padding: 1.75rem 2rem;
+}
+
+.fmba-direct-title {
+  font-family: var(--font-serif);
+  font-size: 1.24rem;
+  font-weight: 700;
+  color: #5c4317;
+  margin-bottom: 0.6rem;
+}
+
+.fmba-direct-desc {
+  font-size: 0.94rem;
+  color: var(--text-body);
+  line-height: 1.72;
+  max-width: 780px;
+}
+
+.fmba-direct-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.fmba-summary-dl {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 0.5rem 1rem;
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px dashed rgba(140, 109, 50, 0.35);
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+.fmba-summary-dl dt {
+  font-weight: 700;
+  color: #6b501e;
+}
+
+.fmba-summary-dl dd {
+  color: var(--text-body);
+}
+
+.fmba-page .program-distinction-banner {
+  margin: 1.5rem 0 2rem;
+}
+
+@media (max-width: 600px) {
+  .fmba-direct-card {
+    padding: 1.25rem;
+  }
+  .fmba-summary-dl {
+    grid-template-columns: 1fr;
+    gap: 0.25rem 0;
+  }
+  .fmba-summary-dl dt {
+    margin-top: 0.45rem;
+  }
+  .fmba-summary-dl dt:first-child {
+    margin-top: 0;
+  }
+}

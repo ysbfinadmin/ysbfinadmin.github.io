@@ -73,15 +73,22 @@ function renderOverviewB(data) {
   const statsContainer = document.getElementById("hero-stats");
   if (statsContainer && data.about.stats) {
     statsContainer.innerHTML = data.about.stats
-      .map(
-        (s) => `
-      <div class="ledger-item">
+      .map((s) => {
+        const tag = s.link ? "a" : "div";
+        const hrefAttr = s.link ? ` href="${s.link}"` : "";
+        const itemClass = s.link ? "ledger-item ledger-item--clickable" : "ledger-item";
+        const pillHtml = s.trackLabel
+          ? `<span class="ledger-track-pill ledger-track-pill--${s.track || "msphd"}">${s.trackLabel}</span>`
+          : "";
+        return `
+      <${tag}${hrefAttr} class="${itemClass}">
+        ${pillHtml}
         <div class="ledger-figure">${s.number}</div>
         <div class="ledger-title">${s.label}</div>
         <div class="ledger-meta">${s.sub}</div>
-      </div>
-    `
-      )
+      </${tag}>
+    `;
+      })
       .join("");
   }
 
@@ -248,7 +255,15 @@ function renderFacultyB(data) {
               <a href="${primaryLink}" target="_blank" rel="noopener" class="faculty-name-ko">${p.name}</a>
               <span class="faculty-name-en">${p.nameEn}</span>
               <span class="faculty-rank">${p.title}</span>
-              ${p.roleBadge ? `<span class="faculty-duty">${p.roleBadge}</span>` : ""}
+              ${
+                p.roleBadgesKo && p.roleBadgesKo.length
+                  ? `<span class="faculty-duty-group">${p.roleBadgesKo
+                      .map((b) => `<span class="faculty-duty--${b.track}">${b.text}</span>`)
+                      .join("")}</span>`
+                  : p.roleBadge
+                  ? `<span class="faculty-duty">${p.roleBadge}</span>`
+                  : ""
+              }
             </div>
             <div class="faculty-phd">${p.degree}</div>
             <div class="faculty-fields" style="margin-top: 0.5rem; margin-bottom: 0.85rem;">
@@ -550,10 +565,11 @@ function renderMsPhdB(data) {
 
 function renderFmbaB(data) {
   const fmba = data.fmba;
+  if (!fmba) return;
 
   // 1. Specs Ledger
   const specsGrid = document.getElementById("fmba-specs");
-  if (specsGrid) {
+  if (specsGrid && fmba.overview && fmba.overview.specs) {
     specsGrid.innerHTML = fmba.overview.specs
       .map(
         (sp) => `
@@ -569,7 +585,7 @@ function renderFmbaB(data) {
 
   // 2. 4-Semester Curriculum
   const currGrid = document.getElementById("fmba-curriculum-grid");
-  if (currGrid) {
+  if (currGrid && fmba.curriculum) {
     currGrid.innerHTML = fmba.curriculum
       .map(
         (sem) => `
@@ -615,7 +631,7 @@ function renderFmbaB(data) {
 
   // 3. Elective Tracks (3-Column Bordered Layout)
   const tracksGrid = document.getElementById("fmba-elective-tracks");
-  if (tracksGrid) {
+  if (tracksGrid && fmba.electiveTracks) {
     tracksGrid.innerHTML = fmba.electiveTracks
       .map(
         (tr) => `
@@ -634,7 +650,7 @@ function renderFmbaB(data) {
 
   // 4. Admissions Process Table
   const processBody = document.getElementById("fmba-process-tbody");
-  if (processBody) {
+  if (processBody && fmba.admissions && fmba.admissions.process) {
     processBody.innerHTML = fmba.admissions.process
       .map(
         (st) => `
@@ -651,13 +667,13 @@ function renderFmbaB(data) {
 
   // 5. Admissions Documents
   const docsList = document.getElementById("fmba-docs-list");
-  if (docsList) {
+  if (docsList && fmba.admissions && fmba.admissions.documents) {
     docsList.innerHTML = fmba.admissions.documents.map((d) => `<li>${d}</li>`).join("");
   }
 
   // 6. FAQs
   const faqContainer = document.getElementById("fmba-faq-list");
-  if (faqContainer) {
+  if (faqContainer && fmba.admissions && fmba.admissions.faqs) {
     faqContainer.innerHTML = fmba.admissions.faqs
       .map(
         (f) => `
@@ -731,14 +747,14 @@ window.setSiteLang = function (lang) {
     if (baseHref.includes("faculty/")) {
       link.textContent = isEn ? "Faculty" : "교수진";
       link.setAttribute("href", isEn ? `${baseHref}#en` : baseHref);
-    } else if (baseHref.includes("ms-finance/") || link.classList.contains("nav-dropdown-toggle")) {
+    } else if (baseHref.includes("fmba/")) {
+      link.textContent = "Finance MBA";
+      link.style.display = isEn ? "none" : "";
+    } else if (baseHref.includes("ms-finance/") || baseHref.includes("academics.html")) {
       link.innerHTML = (isEn ? "M.S. & Ph.D." : "석/박사과정 (MS/Ph.D.)") + ' <span class="nav-dropdown-caret">▾</span>';
       link.setAttribute("href", isEn ? `${baseHref}#en` : baseHref);
-    } else if (baseHref.includes("fmba/")) {
-      link.textContent = "Finance MBA (FMBA)";
-      link.style.display = isEn ? "none" : "";
     } else if (baseHref.endsWith("index.html") || baseHref === "./" || baseHref === "../") {
-      link.textContent = isEn ? "Overview" : "분야소개";
+      link.innerHTML = (isEn ? "Overview" : "분야소개") + (link.classList.contains("nav-dropdown-toggle") ? ' <span class="nav-dropdown-caret">▾</span>' : "");
       link.setAttribute("href", isEn ? `${baseHref}#en` : baseHref);
     }
   });
