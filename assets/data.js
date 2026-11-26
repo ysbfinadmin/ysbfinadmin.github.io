@@ -89,8 +89,8 @@ window.YSB_FINANCE_DATA = {
     stats: [
       { number: "4대 핵심 분야", label: "재무금융 전 영역 심화 연구", sub: "자산가격 · 기업재무 · 금융기관 및 파생상품 · 보험 및 리스크" },
       { number: "Top Tier", label: "글로벌 연구역량을 갖춘 교수진", sub: "JF, JFE, RFS, MS, JFQA, QJE 등 게재" },
-      { number: "MS / Ph.D.", label: "일반대학원 재무전공", sub: "주간 전일제 · 영어강의 · 논문트랙 (연구·박사유학)", track: "msphd", trackLabel: "일반대학원 · 전일제", link: "ms-finance/index.html" },
-      { number: "FMBA", label: "경영전문대학원 Finance MBA", sub: "재직자 대상 야간 MBA · 상세 안내 및 입학은 경영전문대학원 주관", track: "fmba", trackLabel: "경영전문대학원 소속 · 야간", link: "fmba/index.html" }
+      { number: "MS / Ph.D.", label: "일반대학원 재무전공", sub: "주간 전일제 · 영어강의 · 논문 학위과정 (연구·박사진학)", track: "msphd", trackLabel: "일반대학원 · 전일제", link: "ms-finance/index.html" },
+      { number: "FMBA", label: "경영전문대학원 Finance MBA", sub: "재직자 대상 야간 MBA", track: "fmba", trackLabel: "경영전문대학원 소속 · 야간", link: "fmba/index.html" }
     ],
     statsEn: [
       { number: "4 Core Pillars", label: "Comprehensive Finance Research", sub: "Asset Pricing · Corporate Finance · Institutions & Derivatives · Insurance & Risk" },
